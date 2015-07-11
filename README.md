@@ -1,24 +1,21 @@
-# Mint Clone
+# Sixth Cents (Mint Clone)
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://sixth-cents.herokuapp.com
 
 ## Minimum Viable Product
-Mint is a clone of Mint built on Rails and Backbone. Users can:
+Sixth Cents is a clone of Mint built on Rails and Backbone. Users can:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Create financial accounts (bank, credit card, loan, investment)
+- [ ] Create budgets
+- [ ] Create goals
+- [ ] Create blog posts
+- [ ] View a feed of financial events (upcoming bills, transactions)
+- [ ] View trends on financial status
+- [ ] Search transactions
 
 ## Design Docs
 * [View Wireframes][views]
@@ -73,15 +70,8 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+- [ ] Add tags to transactions
+- [ ] Email alerts (low balance, weekly snapshot of changes in financial condition)
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
