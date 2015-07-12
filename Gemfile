@@ -13,6 +13,7 @@ gem 'backbone-on-rails'
 gem 'bcrypt'
 gem 'newrelic_rpm'
 gem 'sprockets', '~> 3.2.0'
+gem 'rename'
 
 group :test do
   gem 'annotate'

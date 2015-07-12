@@ -1,4 +1,4 @@
-window.MintClone = {
+window.SixthCents = {
   Models: {},
   Collections: {},
   Views: {},
@@ -9,5 +9,5 @@ window.MintClone = {
 };
 
 $(document).ready(function(){
-  MintClone.initialize();
+  SixthCents.initialize();
 });
