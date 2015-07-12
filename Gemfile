@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'backbone-on-rails'
 gem 'bcrypt'
+gem 'newrelic_rpm'
 
 group :test do
   gem 'annotate'
