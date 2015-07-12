@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'backbone-on-rails'
 gem 'bcrypt'
 gem 'newrelic_rpm'
+gem 'sprockets', '~> 3.2.0'
 
 group :test do
   gem 'annotate'
