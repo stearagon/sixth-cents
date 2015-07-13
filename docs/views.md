@@ -1,26 +1,46 @@
 # View Wireframes
 
 ## New Session
-![new-session]
+![log-in]
 
-## Feed Show (landing page)
-![feed-show]
+## New Account
+![new-user]
 
-## Blog Show
-![blog-show]
+## Landing Page
+![landing]
 
-## Post Show
-![post-show]
+## Transactions Page
+![transactions]
 
-## Post Form
-![post-form]
+## Transaction Form
+![transaction-form]
 
-## Search Results
-![search-results]
+## Budgets Page
+![budgets-index]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+## Budgets Form
+![budgets-form]
+
+## Institution Search
+![instituion-search]
+
+## Edit Accounts Page
+![edit-accounts]
+
+## Institution Connect page
+![institution-connect]
+
+
+
+
+[log-in]: ./wireframes/login-form.png
+[new-user]: ./wireframes/new-account-form.png
+[landing]: ./wireframes/landing-page.png
+[transactions]: ./wireframes/transactions-index.png
+[transaction-form]: ./wireframes/transaction-form-view.png
+[budgets-index]: ./wireframes/budgets-index-page.png
+[budgets-form]: ./wireframes/budget-create-form.png
+[institution-search]: ./wireframes/institution-search-form.png
+[edit-accounts]: ./wireframes/edit-accounts-view.png
+[institution-connect]: ./wireframes/institution-connect-form.png
+
