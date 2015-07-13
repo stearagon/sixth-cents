@@ -7,14 +7,22 @@ id              | integer   | not null, primary key
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
-zip_code  | integer    | not null, unique
+zip_code  | integer    | not null
+country | string    | not null
+
+## institutions
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+name       | string    | not null, unique
+api_identifier      | string    | not null, unique
 
 ## accounts
 column name | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
 owner_id         | integer   | not null, foreign key (references users)
-institution_name | string    | not null
+institution_id | integer    | not null, foreign key (references institutions)
 type | string    | not null
 amount | integer    | not null
 
@@ -23,31 +31,32 @@ amount | integer    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-account_id     | integer   | not null, foreign key (references blogs)
-amount | integer   | not null, foreign key (references users)
-type | string   | not null, foreign key (references users)
+account_id     | integer   | not null, foreign key (references accounts)
+amount | integer   | not null
+type | string   | not null
+description | string   | not null
+category | string   | not null
+date | date   | not null
+notes| text   | not null
 
-
-## posts
+## budgets
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
-title       | string    | not null
-body        | string    |
+owner_id   | integer   | not null, foreign key (references users)
+name      | string    | not null
+occurrence_type        | string    | not null
+amount      | integer    | not null
 
-## tags
+## log_in_credentials
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-label       | string    | not null, unique
+owner_id    | integer   | not null, foreign key (references users)
+institution_id    | integer   | not null, foreign key (references institutions)
+user_name    | string   | not null
+password_digest    | string   | not null
 
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-tag_id      | integer   | not null, foreign key (references tags)
 
 
 
