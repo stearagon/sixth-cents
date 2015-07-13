@@ -4,26 +4,25 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+Api::TransactionsController (create, destroy, index, show)
 
 ### Views
-* blogs/show.json.jbuilder
+* transactions/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Account
+* Transaction
 
 ### Collections
-* Blogs
-* Posts
+* Accounts
+* Transactions
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* AccountForm
+* AccountsIndex
+* AccountsShow
+* TransactionsIndex
+* TransactionsIndexItem
 
 ## Gems/Libraries

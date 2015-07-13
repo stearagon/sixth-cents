@@ -4,18 +4,22 @@
 ### Models
 
 ### Controllers
+Api::BudgetsController (create, destroy, index, show)
 
 ### Views
+budgets/show.json.jbuilder
 
 ## Backbone
 ### Models
+* Budget
 
 ### Collections
+* Budgets
 
 ### Views
-* PostForm
+* BudgetForm
+* BudgetsIndex
+* BudgetsIndexItem
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown
+

@@ -57,7 +57,7 @@ fetch from the new `search`routes.
 [Details][phase-four]
 
 ### Phase 5: Connecting to Financial Institutions and Email alerts (~2-3 days)
-I will use action emailer to alert users of different actiionable events such as bills
+I will use action mailer to alert users of different actiionable events such as bills
 due or low account balances. I will look at third-party libraries to access bank account 
 information for automated transaction downloads. Possible leads are GNU Cash which 
 accesses information through Open Financial Exchange and Intuit which has an offering 

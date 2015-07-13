@@ -4,7 +4,7 @@
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::TransactionsController (search)
 
 ### Views
 posts/feed.json.jbuilder
@@ -15,6 +15,5 @@ posts/feed.json.jbuilder
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
 
 ## Gems/Libraries

@@ -33,7 +33,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 account_id     | integer   | not null, foreign key (references accounts)
 amount | integer   | not null
-type | string   | not null
+type | string   | not null, possibly store future bills here
 description | string   | not null
 category | string   | not null
 date | date   | not null
@@ -56,7 +56,3 @@ owner_id    | integer   | not null, foreign key (references users)
 institution_id    | integer   | not null, foreign key (references institutions)
 user_name    | string   | not null
 password_digest    | string   | not null
-
-
-
-
