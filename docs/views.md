@@ -22,7 +22,7 @@
 ![budgets-form]
 
 ## Institution Search
-![instituion-search]
+![institution-search]
 
 ## Edit Accounts Page
 ![edit-accounts]
