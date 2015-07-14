@@ -1,7 +1,6 @@
-
-
 class UsersController < ApplicationController
   skip_before_action :require_log_in, only: [:new, :create]
+  before_action :disable_sign_in_or_log_in, only: [:new, :create]
   def new
     @user = User.new
 
@@ -13,17 +12,11 @@ class UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
-
-    render :show
   end
 
   private

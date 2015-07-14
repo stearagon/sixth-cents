@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :require_log_in, only: [:new, :create]
+  before_action :disable_sign_in_or_log_in, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -10,7 +12,7 @@ class SessionsController < ApplicationController
 
     if user
       login!(user)
-      redirect_to user_url(user)
+      redirect_to root_url
     else
       flash[:errors] = ["Invalid email and/or password"]
       redirect_to new_session_url
