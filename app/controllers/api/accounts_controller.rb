@@ -1,4 +1,4 @@
-class AccountsController < ApplicationController
+class Api::AccountsController < ApplicationController
   def show
     @account = Account.find(params[:id])
 
