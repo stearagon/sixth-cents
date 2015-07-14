@@ -1,14 +1,16 @@
 <h1>Sign Up</h1>
 
 <form class="sign-up-form" action="<%= users_url %>" method="post">
+  <%= form_auth %>
+
   <label for="name-input">Name: </label>
-  <input type="text" name="user[name]" value="<%= @user.name %>">
+  <input type="text" name="user[name]" value="<%= @user.name %>"><br><br>
 
   <label for="email-input">Email: </label>
-  <input type="text" name="user[email]" value="<%= @user.email %>">
+  <input type="text" name="user[email]" value="<%= @user.email %>"><br><br>
 
   <label for="password-input">Password: </label>
-  <input type="password" name="user[password]" value="">
+  <input type="password" name="user[password]" value=""><br><br>
 
   <button>Submit</button>
 </form>
