@@ -4,6 +4,7 @@ window.SixthCents = {
   Views: {},
   Routers: {},
   initialize: function() {
+    
 
   }
 };

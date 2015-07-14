@@ -7,18 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <a href="#" class="main-logo">Sixth Cents</a>
+  <div class="top-bar group">
+    <a href="#" class="main-logo">Sixth Cents</a>
 
-  <% if logged_in? %>
-    <form class="" action="<%= session_url %>" method="post">
-      <%= form_auth %>
-      <input type="hidden" name="_method" value="delete">
-      <button name="logout">Logout</button>
-    </form>
-  <% else %>
-    <a href="<%=  new_session_url %>">Login</a>
-    <a href="<%=  new_user_url %>">Sign Up!</a>
-  <% end %>
+    <% if logged_in? %>
+      <form class="logout-button" action="<%= session_url %>" method="post">
+        <%= form_auth %>
+        <input type="hidden" name="_method" value="delete">
+        <button name="logout">Logout</button>
+      </form>
+    <% else %>
+      <div class="logging-links">
+        <a href="<%=  new_session_url %>">Login</a>
+        <a href="<%=  new_user_url %>">Sign Up!</a>
+      </div>
+    <% end %>
+  </div>
 
   <ul>
     <% if !flash.now[:errors].nil? %>

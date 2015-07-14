@@ -15,7 +15,7 @@
  */
 
 body, header, div, section,
-li, a, p, ul, h1, h2, h3,
+li, p, a, ul, h1, h2, h3,
 article {
   border: 0;
   padding: 0;
@@ -29,12 +29,46 @@ article {
   background: transparent;
 }
 
-ul: {
+ul {
   list-style: none;
+}
+
+a {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
 }
 
 group:after {
   content: "";
   display: block;
   clear: both;
+}
+
+body {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.top-bar {
+  height: 50px;
+}
+
+.main-logo {
+  float: left;
+  font-size: 30px;
+}
+
+.logging-links, .logout-button {
+  float: right;
+}
+
+.logout-button button {
+  font-size: 20px;
+}
+
+.logging-links a {
+  font-size: 20px;
 }
