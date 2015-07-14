@@ -32,4 +32,5 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'rspec-rails'
+  gem 'rails_12factor'
 end
