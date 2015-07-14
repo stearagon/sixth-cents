@@ -31,4 +31,5 @@ group :development do
   gem 'byebug'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'rspec-rails'
 end
