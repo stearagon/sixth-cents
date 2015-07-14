@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id             :integer          not null, primary key
+#  user_id        :integer          not null
+#  institution_id :integer          not null
+#  account_type   :string           not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
 class Account < ActiveRecord::Base
   validates :user_id, :institution_id, :account_type, presence: true
 
