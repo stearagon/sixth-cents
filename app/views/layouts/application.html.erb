@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if logged_in? %>
+    <form class="" action="<%= session_url %>" method="post">
+      <%= form_auth %>
+      <input type="hidden" name="_method" value="delete">
+      <button name="logout">Logout</button>
+    </form>
+  <% else %>
+
+  <% end %>
+
   <ul>
     <% if !flash.now[:errors].nil? %>
       <% flash.now[:errors].each do |error| %>
