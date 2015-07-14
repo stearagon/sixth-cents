@@ -5,10 +5,10 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 email           | string    | not null, unique
+name   | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, unique
-zip_code  | integer    | not null
-country | string    | not null
+
 
 ## institutions
 column name | data type | details
