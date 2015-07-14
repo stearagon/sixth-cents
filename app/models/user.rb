@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :accounts
+  has_many :accounts, inverse_of: :user
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
