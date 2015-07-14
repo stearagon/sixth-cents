@@ -21,10 +21,10 @@ api_identifier      | string    | not null, unique
 column name | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
-owner_id         | integer   | not null, foreign key (references users)
+user_id         | integer   | not null, foreign key (references users)
 institution_id | integer    | not null, foreign key (references institutions)
 type | string    | not null
-amount | integer    | not null
+amount | integer    | not null // I actually don't think this is needed here
 
 
 ## transactions
