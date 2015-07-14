@@ -1,3 +1,3 @@
-SixthCents.Models.Account = Backbone.Model.extend{(
-  urlRoot: "api/accounts"
-)}
+SixthCents.Models.Account = Backbone.Model.extend({
+  urlRoot: "/api/accounts"
+});

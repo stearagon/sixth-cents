@@ -1,5 +1,5 @@
 SixthCents.Collections.Accounts = Backbone.Collection.extend({
-  url: "api/accounts",
+  url: "/api/accounts",
   model: SixthCents.Models.Account,
 
   getOrFetch: function(id){

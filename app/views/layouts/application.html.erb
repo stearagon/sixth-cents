@@ -23,14 +23,15 @@
       </div>
     <% end %>
   </div>
-
-  <ul>
     <% if !flash.now[:errors].nil? %>
-      <% flash.now[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
+      <ul>
+
+          <% flash.now[:errors].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+
+      </ul>
     <% end %>
-  </ul>
 
 <%= yield %>
 

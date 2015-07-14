@@ -4,11 +4,15 @@ window.SixthCents = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+    var accounts = new SixthCents.Collections.Accounts();
 
+    var $rootEl = $(".main-div");
+
+    new SixthCents.Routers.Router({
+      accounts: accounts,
+      $rootEl: $rootEl
+    });
+
+    Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  SixthCents.initialize();
-});
