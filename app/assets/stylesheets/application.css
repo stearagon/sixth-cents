@@ -50,6 +50,13 @@ group:after {
 body {
   width: 900px;
   margin: 0 auto;
+  position: relative;
+  background: blue;
+}
+
+.top-container {
+  background: green;
+  /*position: relative;*/
 }
 
 .top-bar {
@@ -71,4 +78,23 @@ body {
 
 .logging-links a {
   font-size: 20px;
+}
+
+#sidebar {
+  background: orange;
+  width: 25%;
+}
+
+#sidebar h1 {
+  float: left;
+  padding-right: 5px;
+}
+
+.modal-window {
+  position: fixed;
+  left: 45%;
+  right: 45%;
+  width: 10%;
+  top: 80px;
+  background: red;
 }

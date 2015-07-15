@@ -7,6 +7,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
     this.accounts = options.accounts
     this.$rootEl = options.$rootEl;
+    this.$modalEl = options.$modalEl;
     this.institutions = new SixthCents.Collections.Institutions();
     this.institutions.fetch();
   },

@@ -6,6 +6,16 @@ class Api::AccountsController < ApplicationController
     render json: @accounts
   end
 
+  def create
+    @account = current_user.accounts.new(account_params)
+
+    if @account.save
+      render json: @account
+    else
+      render json: @account.errors.full_messages, status: :unprocessable_entity;
+    end
+  end
+
   def show
     @account = Account.includes(:institution).find(params[:id])
 
@@ -14,5 +24,11 @@ class Api::AccountsController < ApplicationController
     else
       render json: @account.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def account_params
+    params.require(:account).permit(:name, :account_type)
   end
 end
