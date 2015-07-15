@@ -1,5 +1,6 @@
 User.create(name: "Steve Aragon", email: "stearagon@gmail.com", password: "secretss")
 Institution.create(name: "Bank Of America", api_id: 1)
 Institution.create(name: "Citibank", api_id: 2)
+Institution.create(name: "Schwab", api_id: 3)
 Account.create(user_id: 1, institution_id: 1, account_type: "checking")
 Account.create(user_id: 1, institution_id: 2, account_type: "credit card")

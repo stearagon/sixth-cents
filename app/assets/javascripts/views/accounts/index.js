@@ -1,14 +1,16 @@
 SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
   template: JST["accounts/index"],
   events: {
-    "click #sidebar button" : "newAccount"
+    "click #sidebar > button" : "newAccount"
   },
   initialize: function(options){
     this.listenTo(this.collection, "sync", this.render);
-    this.institutions = options.institutions
+    this.listenTo(this.institutions, "sync", this.render);
+    this.institutions = options.institutions;
   },
 
   render: function(){
+    
     var content = this.template({ accounts: this.collection });
     this.institutions.fetch();
     this.$el.html(content);
@@ -31,8 +33,9 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
   },
   newAccount: function() {
     var account = new SixthCents.Models.Account();
-    var formView = new SixthCents.Views.FormView({ model: account, collection: this.collection })
+    var formView = new SixthCents.Views.FormView({ model: account, collection: this.collection, institutions: this.institutions })
 
     this.addSubview(".modal-window", formView);
+
   }
 })

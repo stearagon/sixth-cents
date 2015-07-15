@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    @user = User.new(email: params[:user][:email])
     user = User.find_by_user_credentials(params[:user][:email],
                                           params[:user][:password])
 
@@ -14,8 +15,8 @@ class SessionsController < ApplicationController
       login!(user)
       redirect_to root_url
     else
-      flash[:errors] = ["Invalid email and/or password"]
-      redirect_to new_session_url
+      flash.now[:errors] = ["Invalid email and/or password"]
+      render :new
     end
 
   end

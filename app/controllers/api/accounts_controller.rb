@@ -29,6 +29,6 @@ class Api::AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:account).permit(:name, :account_type)
+    params.require(:account).permit(:institution_id, :account_type)
   end
 end

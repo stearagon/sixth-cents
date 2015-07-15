@@ -19,10 +19,10 @@ SixthCents.Collections.Institutions = Backbone.Collection.extend({
   }
   //
   // parse: function(response){
-  //   
+  //
   //   if (response){
   //     response.forEach(function(account){
-  //       
+  //
   //       if (account.institution) {
   //         account.institution().set(account.institution, { merge: true })
   //         delete account.institution

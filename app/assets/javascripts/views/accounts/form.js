@@ -4,8 +4,17 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   events: {
     "click button" : "submit"
   },
-  initialize: function(){
+
+  typesOfAccounts: [
+
+  ],
+
+  initialize: function(options){
     this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.collection, "sync", this.render)
+    this.listenTo(this.model, "sync", this.render);
+    this.institutions = options.institutions;
+    this.listenTo(this.institutions, "sync", this.render)
   },
 
   render: function(){
@@ -19,13 +28,17 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   submit: function(event){
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
-    var that = this.collection
+    var that = this;
 
-    this.model.set(attrs);
-    this.model.save({}, {
+
+    that.model.set(attrs);
+    that.model.save({}, {
       success: function(){
         that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("", { trigger: true })
+      },
+      error: function(){
+        //show error on new form
       }
     })
   }
