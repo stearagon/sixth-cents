@@ -1,5 +1,5 @@
 SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
-  template: JST["accounts/new"],
+  template: JST["accounts/form"],
   tagName: "form",
   events: {
     "click button" : "submit"

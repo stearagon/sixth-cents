@@ -7,10 +7,10 @@ class Api::AccountsController < ApplicationController
   end
 
   def show
-    @account = Account.find(params[:id])
+    @account = Account.includes(:institution).find(params[:id])
 
     if @account
-      render json: @account
+      render :show
     else
       render json: @account.errors.full_messages, status: :unprocessable_entity
     end

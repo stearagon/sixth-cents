@@ -1,21 +1,21 @@
-SixthCents.Collections.Accounts = Backbone.Collection.extend({
-  url: "/api/accounts",
-  model: SixthCents.Models.Account,
+SixthCents.Collections.Institutions = Backbone.Collection.extend({
+  url: "/api/institutions",
+  model: SixthCents.Models.Institution,
 
   getOrFetch: function(id){
-    var account = this.get(id);
+    var inst = this.get(id);
     var that = this;
-    if (account) {
-      account.fetch();
+    if (inst) {
+      inst.fetch();
     } else {
-      account = new that.model({ id: id });
-      account.fetch({ success: function(){
-        that.add(account, {merge: true})
+      inst = new SixthCents.Models.Institution({ id: id });
+      inst.fetch({ success: function(){
+        that.add(inst, {merge: true})
         }
       })
     }
 
-    return account
+    return inst
   }
   //
   // parse: function(response){

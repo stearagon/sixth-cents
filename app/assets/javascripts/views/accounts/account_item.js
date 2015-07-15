@@ -1,11 +1,16 @@
 SixthCents.Views.AccountItem = Backbone.CompositeView.extend({
   tagName: "li",
   template: JST["accounts/account_item"],
+  intialize: function(){
+    this.listenTo(this.institutions, "sync", this.render)
+  },
   render: function(){
-    var content = this.template({ account: this.model });
+    
+    var institution = this.collection.getOrFetch(this.model.get("institution_id"))
+    var content = this.template({ account: this.model, institution: institution });
 
     this.$el.html(content);
-    debugger
+
     return this;
   }
 })

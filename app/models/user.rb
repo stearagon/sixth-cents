@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
 
   has_many :accounts, inverse_of: :user
 
+  has_many :institutions, through: :accounts, source: :institution 
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end

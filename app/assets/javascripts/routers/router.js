@@ -7,12 +7,14 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
     this.accounts = options.accounts
     this.$rootEl = options.$rootEl;
+    this.institutions = new SixthCents.Collections.Institutions();
+    this.institutions.fetch();
   },
 
   index: function(){
     this.accounts.fetch();
 
-    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts });
+    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions });
 
     this._swapView(indexView);
   },
