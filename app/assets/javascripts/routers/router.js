@@ -1,6 +1,7 @@
 SixthCents.Routers.Router = Backbone.Router.extend({
   routes: {
-    "" : "index"
+    "" : "index",
+    "/accounts/new" : "new"
   },
 
   initialize: function(options){
@@ -10,10 +11,19 @@ SixthCents.Routers.Router = Backbone.Router.extend({
 
   index: function(){
     this.accounts.fetch();
-    
+
     var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts });
 
     this._swapView(indexView);
+  },
+
+  new: function(){
+    var account = new SixthCents.Models.Account()
+
+    var formView = new SixthCents.Views.AccountForm({ model: account });
+
+    this._swapView(formView);
+
   },
 
   _swapView: function(view){
