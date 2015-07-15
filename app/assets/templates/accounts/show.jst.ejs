@@ -1,1 +1,6 @@
-<h1>model.get("account_type")</h1>
+<h1><%= model.institution().escape("name")%></h1>
+<h1><%= model.escape("account_type")%></h1>
+
+<button class="add-trans">Add Transaction</button>
+
+<div class="modal-window"></div>

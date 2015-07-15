@@ -10,11 +10,11 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   ],
 
   initialize: function(options){
-    this.listenTo(this.model, "sync", this.render)
-    this.listenTo(this.collection, "sync", this.render)
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync add", this.render)
+    this.listenTo(this.collection, "sync add", this.render)
+    this.listenTo(this.model, "sync add", this.render);
     this.institutions = options.institutions;
-    this.listenTo(this.institutions, "sync", this.render)
+    this.listenTo(this.institutions, "sync add", this.render)
   },
 
   render: function(){

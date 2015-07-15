@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :accounts, inverse_of: :user
+  has_many :accounts, -> { includes :institution }, inverse_of: :user
 
-  has_many :institutions, through: :accounts, source: :institution 
+  has_many :institutions, through: :accounts, source: :institution
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)

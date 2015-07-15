@@ -2,7 +2,7 @@ class Api::AccountsController < ApplicationController
   before_action :require_log_in
 
   def index
-    @accounts = current_user.accounts
+    @accounts = Account.includes(:institution).where(user_id: current_user.id )
     render json: @accounts
   end
 
