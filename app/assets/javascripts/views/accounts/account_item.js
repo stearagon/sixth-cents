@@ -4,8 +4,6 @@ SixthCents.Views.AccountItem = Backbone.CompositeView.extend({
 
   intialize: function(){
     this.listenTo(this.collection, "add", this.render);
-    // this.listenTo(this.institution, "sync", this.render);
-    // this.listenTo(this.model, "sync add", this.render);
   },
   render: function(){
     var content = this.template({ account: this.model});

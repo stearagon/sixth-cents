@@ -8,12 +8,25 @@ SixthCents.Models.Account = Backbone.Model.extend({
     return this._institution;
   },
 
-  parse: function(response){
+  transactions: function(){
+    if (!this._transactions) {
+      this._transactions = new SixthCents.Collections.Transactions();
+    }
+    return this._transactions;
+  },
 
+  parse: function(response){
     if (response.institution) {
       this.institution().set(response.institution, { merge: true })
       delete response.institution;
     }
+
+    if (response.transactions && response.transactions.length !== 0) {
+      debugger
+      this.transactions().set(response.transactions, { merge: true })
+      delete response.transaction;
+    }
+
     return response;
   }
 });

@@ -18,22 +18,11 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  // new: function(){
-  //
-  //   var account = new SixthCents.Models.Account()
-  //
-  //   var formView = new SixthCents.Views.AccountForm({ model: account });
-  //
-  //   this._swapView(formView);
-  //
-  // },
   show: function(id){
 
     var account = this.accounts.getOrFetch(id);
-    var collection = new SixthCents.Collections.Transactions();
 
-    collection.fetch();
-    var showView = new SixthCents.Views.AccountShow({ model: account, collection: collection });
+    var showView = new SixthCents.Views.AccountShow({ model: account, collection: account.transactions()});
 
     this._swapView(showView);
 
