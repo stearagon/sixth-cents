@@ -2,15 +2,18 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   template: JST["accounts/form"],
   tagName: "form",
   events: {
-    "click button" : "submit"
+    "click button" : "submit",
+    "click .cancel-form" : "close"
   },
 
   typesOfAccounts: [
-
+    // this should be pulled from rails?
   ],
 
   render: function(){
-    var content = this.template({ account: this.model });
+
+    var institutions = SixthCents.Collections.institutions;
+    var content = this.template({ account: this.model, institutions: institutions });
 
     this.$el.html(content);
 
@@ -32,5 +35,10 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
         //show error on new form
       }
     })
+  },
+
+  close: function(){
+    event.preventDefault();
+    this.remove();
   }
 })

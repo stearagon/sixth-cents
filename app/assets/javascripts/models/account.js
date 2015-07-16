@@ -17,7 +17,7 @@ SixthCents.Models.Account = Backbone.Model.extend({
 
   type: function(){
     var acctType = this.get("account_type");
-    debugger
+
     switch(acctType) {
       case "Checking":
         this._type = "cash";
@@ -58,5 +58,8 @@ SixthCents.Models.Account = Backbone.Model.extend({
     }
 
     return response;
+  },
+  toJSON: function(){
+    return {account: _.clone(this.attributes)};
   }
 });

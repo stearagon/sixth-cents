@@ -1,7 +1,8 @@
 SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
   template: JST["transactions/form"],
   events: {
-    "click .create-transaction" : "submit"
+    "click .create-transaction" : "submit",
+    "click .cancel-form" : "cancel"
   },
   initialize: function(options){
     this.account = options.account;
@@ -29,5 +30,9 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
 
       }
     })
+  },
+  cancel: function(){
+    event.preventDefault();
+    this.remove();
   }
 })

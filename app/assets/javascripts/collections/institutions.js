@@ -18,3 +18,5 @@ SixthCents.Collections.Institutions = Backbone.Collection.extend({
     return inst
   }
 })
+
+SixthCents.Collections.institutions = new SixthCents.Collections.Institutions()

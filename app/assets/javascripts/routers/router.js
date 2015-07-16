@@ -4,6 +4,8 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.accounts = options.accounts
     this.$rootEl = options.$rootEl;
     this.$modalEl = options.$modalEl;
+    this.institutions = options.institutions;
+
   },
   routes: {
     "" : "index",

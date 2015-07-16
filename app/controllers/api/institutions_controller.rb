@@ -2,7 +2,7 @@ class Api::InstitutionsController < ApplicationController
   before_action :require_log_in
 
   def index
-    @institutions = current_user.institutions
+    @institutions = Institution.all
 
     if @institutions
       render json: @institutions

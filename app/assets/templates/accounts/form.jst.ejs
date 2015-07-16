@@ -2,10 +2,18 @@
 
 
 <h1>New Account</h1><br>
-  <label for="inst-name">Institution Name: </label><br>
-  <input id="acct-inst-name" type="text" name="institution_id" value="<%= account.escape("institution_id") %>"><br>
+  <label for="acct-inst-name">Institution Name: </label><br>
+  <select name="institution_id" id="acct-inst-name">
+    <% institutions.forEach(function(institution){ %>
+      <option value="<%= institution.escape("id") %>"><%= institution.escape("name") %></option>
+    <% }) %>
+    <option value="">Other</option>
+  </select><br>
 
-  <label for="inst-name">Account Type: </label><br>
-  <input id="acct-type" type="text" name="account_type" value="<%= account.escape("account_type") %>"><br>
+    <input id="acct-inst-name" type="text" name="institution_id" value="<%= account.escape("name") %>"><br><br>
 
-  <button>Create Account</button>
+
+  <label for="acct-type">Account Type: </label><br>
+  <input id="acct-type" type="text" name="account_type" value="<%= account.escape("account_type") %>"><br><br>
+
+  <button>Create Account</button> or <a class="cancel-form" href="#">Cancel</a>
