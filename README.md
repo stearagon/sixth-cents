@@ -7,9 +7,9 @@
 ## Minimum Viable Product
 Sixth Cents is a clone of Mint built on Rails and Backbone. Users can:
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create financial accounts (bank, credit card, loan, investment, etc.)
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Create financial accounts (bank, credit card, loan, investment, etc.)
 - [ ] Create budgets
 - [ ] View a feed of financial events (upcoming bills, transactions)
 - [ ] Search transactions
