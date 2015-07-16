@@ -1,10 +1,11 @@
 SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
   template: JST["accounts/show"],
   events: {
-    "click .add-trans" : "addTransaction"
+    "click .add-trans" : "createTransaction"
   },
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.collection, "sync add", this.render);
+    this.listenTo(this.model, "sync", this.render);
   },
   render: function(){
 
@@ -12,14 +13,28 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
 
     this.$el.html(content);
 
+    this.addTransactions();
+
     return this;
   },
 
-  addTransaction: function(){
-    debugger
+  createTransaction: function(){
+    
     var transaction = new SixthCents.Models.Transaction();
-    var formView = new SixthCents.Views.TransactionFormView({ model: transaction })
+    var formView = new SixthCents.Views.TransactionFormView({ model: transaction, account: this.model, collection: this.collection })
 
     this.addSubview(".modal-window", formView);
+  },
+
+  addTransaction: function(transaction){
+    
+    var transactionItem = new SixthCents.Views.TransactionItem({ model: transaction });
+    this.addSubview(".transactions-list", transactionItem);
+  },
+
+  addTransactions: function(){
+    
+    this.collection.each(this.addTransaction.bind(this))
   }
+
 })

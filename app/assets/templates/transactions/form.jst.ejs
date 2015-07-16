@@ -10,12 +10,12 @@
 <input id="category" type="category" name="category" value="<%= model.escape("category") %>"><br>
 
 <label for="amount">Amount: </label><br>
-<input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
+$ <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
 
 <label for="type">Type: </label><br>
 <input id="type" type="string" name="transaction_type" value="<%= model.escape("transaction_type") %>"><br>
 
 <label for="notes">Notes: </label><br>
-<textarea id="notes" name="transaction_date"><%= model.escape("notes") %></textarea><br>
+<textarea id="notes" name="notes"><%= model.escape("notes") %></textarea><br>
 
-<button>Create Transaction</button>
+<button class="create-transaction">Create Transaction</button>

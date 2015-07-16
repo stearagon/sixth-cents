@@ -9,14 +9,6 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
 
   ],
 
-  initialize: function(options){
-    this.listenTo(this.model, "sync add", this.render)
-    this.listenTo(this.collection, "sync add", this.render)
-    this.listenTo(this.model, "sync add", this.render);
-    this.institutions = options.institutions;
-    this.listenTo(this.institutions, "sync add", this.render)
-  },
-
   render: function(){
     var content = this.template({ account: this.model });
 
@@ -30,11 +22,10 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
     var attrs = this.$el.serializeJSON();
     var that = this;
 
-
     that.model.set(attrs);
     that.model.save({}, {
       success: function(){
-        that.collection.add(that.model, { merge: true });
+        that.collection.add(that.model, { merge: true, parse: true });
         Backbone.history.navigate("", { trigger: true })
       },
       error: function(){

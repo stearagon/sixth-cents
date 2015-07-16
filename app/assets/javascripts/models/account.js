@@ -9,7 +9,7 @@ SixthCents.Models.Account = Backbone.Model.extend({
   },
 
   parse: function(response){
-    
+
     if (response.institution) {
       this.institution().set(response.institution, { merge: true })
       delete response.institution;

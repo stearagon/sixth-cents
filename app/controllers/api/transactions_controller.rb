@@ -2,12 +2,13 @@ class Api::TransactionsController < ApplicationController
   before_action :require_log_in
 
   def index
-    @transactions = Transaction.find(params[:id])
-    render json: @accounts
+    @transactions = Transaction.all.find_by_account_id(current_user)
+    render json: @transactions
   end
 
   def create
-    @transaction = current_user.accounts.find(params[:id]).transactions.new(transaction_params)
+    @transaction = Transaction.new(transaction_params)
+
 
     if @transaction.save
       render json: @transaction

@@ -3,14 +3,14 @@ class Api::AccountsController < ApplicationController
 
   def index
     @accounts = Account.includes(:institution).where(user_id: current_user.id )
-    render json: @accounts
+    render :index
   end
 
   def create
     @account = current_user.accounts.new(account_params)
 
     if @account.save
-      render json: @account
+      render :show
     else
       render json: @account.errors.full_messages, status: :unprocessable_entity;
     end

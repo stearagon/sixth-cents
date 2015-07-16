@@ -4,7 +4,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.accounts = options.accounts
     this.$rootEl = options.$rootEl;
     this.$modalEl = options.$modalEl;
-    this.institutions = options.institutions;
   },
   routes: {
     "" : "index",
@@ -14,13 +13,13 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   index: function(){
     this.accounts.fetch();
 
-    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions });
+    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts});
 
     this._swapView(indexView);
   },
 
   // new: function(){
-  //   
+  //
   //   var account = new SixthCents.Models.Account()
   //
   //   var formView = new SixthCents.Views.AccountForm({ model: account });
@@ -29,10 +28,12 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   //
   // },
   show: function(id){
-    
-    var account = this.accounts.getOrFetch(id);
 
-    var showView = new SixthCents.Views.AccountShow({ model: account });
+    var account = this.accounts.getOrFetch(id);
+    var collection = new SixthCents.Collections.Transactions();
+
+    collection.fetch();
+    var showView = new SixthCents.Views.AccountShow({ model: account, collection: collection });
 
     this._swapView(showView);
 
