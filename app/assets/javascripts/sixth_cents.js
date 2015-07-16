@@ -4,10 +4,11 @@ window.SixthCents = {
   Views: {},
   Routers: {},
   initialize: function() {
-    var accounts = new SixthCents.Collections.Accounts();
+    // var accounts = new SixthCents.Collections.Accounts();
     var $rootEl = $(".main-div");
     var $modalEl = $(".modal-window");
     var institutions = SixthCents.Collections.institutions;
+    var accounts = SixthCents.Collections.accounts;
     institutions.fetch();
 
     new SixthCents.Routers.Router({

@@ -17,18 +17,5 @@ SixthCents.Collections.Accounts = Backbone.Collection.extend({
 
     return account
   }
-  //
-  // parse: function(response){
-  //   
-  //   if (response){
-  //     response.forEach(function(account){
-  //       
-  //       if (account.institution) {
-  //         account.institution().set(account.institution, { merge: true })
-  //         delete account.institution
-  //       }
-  //     })
-  //   }
-  //     return response
-  // }
 })
+SixthCents.Collections.accounts = new SixthCents.Collections.Accounts()

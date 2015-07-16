@@ -5,7 +5,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.$modalEl = options.$modalEl;
     this.institutions = options.institutions;
-
   },
   routes: {
     "" : "index",
@@ -24,7 +23,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
 
     var account = this.accounts.getOrFetch(id);
 
-    var showView = new SixthCents.Views.AccountShow({ model: account, collection: account.transactions()});
+    var showView = new SixthCents.Views.AccountShow({ model: account, collection: account.transactions(), accounts: this.accounts });
 
     this._swapView(showView);
 

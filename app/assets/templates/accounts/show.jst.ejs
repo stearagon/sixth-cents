@@ -1,4 +1,24 @@
 <div class="group" id="sidebar">
+  <div>
+    <h2>Type</h2>
+    <ul>
+      <li><a href="#">Cash & Credit</a></li>
+      <li><a href="#">Investment</a></li>
+      <li><a href="#">Loan</a></li>
+    </ul><br>
+
+    <h2>Accounts</h2>
+    <ul>
+      <li><a href="#">All Accounts</a></li><br>
+      <% accounts.forEach(function(account){ %>
+        <li><a href="#">
+          <p class="sidebar-account-title"><%= account.institution().escape("name") %><p>
+          <p class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %><p>
+          </a>
+        </li><br>
+      <% }) %>
+    </ul>
+  </div>
 </div>
 
 <div class="main-window">
