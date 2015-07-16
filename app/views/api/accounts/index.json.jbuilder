@@ -3,7 +3,7 @@ json.array! @accounts do |acct|
   json.institution acct.institution, :name, :api_id, :id
   json.transactions do |variable|
     json.array! acct.transactions do |transaction|
-      json.extract! transaction, :id, :account_id, :amount, :category, :transaction_type,
+      json.extract! transaction, :id, :account_id, :amount, :category,
                                 :notes, :transaction_date, :description
     end
   end

@@ -6,7 +6,7 @@ end
 
 json.transactions do
   json.array! @account.transactions do |transaction|
-    json.extract! transaction, :id, :account_id, :amount, :category, :transaction_type,
+    json.extract! transaction, :id, :account_id, :amount, :category,
                                 :notes, :transaction_date, :description
   end
 end
