@@ -1,0 +1,117 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+body, header, div, section,
+li, p, a, ul, h1, h2, h3,
+article {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}
+
+group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  width: 900px;
+  margin: 0 auto;
+  position: relative;
+  background: gray;
+}
+
+.top-container {
+  background: green;
+  /*position: relative;*/
+}
+
+.top-bar {
+  height: 50px;
+}
+
+.main-logo {
+  float: left;
+  font-size: 30px;
+}
+
+.logging-links, .logout-button {
+  float: right;
+}
+
+.logout-button button {
+  font-size: 20px;
+}
+
+.logging-links a {
+  font-size: 20px;
+}
+
+#sidebar {
+  background: orange;
+  width: 200px;
+  float: left;
+  height: 1000px; //just to see sidebar when it its not populated
+}
+
+#sidebar h1 {
+  float: left;
+  padding-right: 5px;
+}
+
+#sidebar ul {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+#sidebar li {
+  font-size: 12px;
+
+}
+
+.modal-window {
+  position: fixed;
+  left: 45%;
+  right: 45%;
+  width: 250px;
+  top: 80px;
+  background: red;
+}
+
+.display-none {
+  display: none;
+}
