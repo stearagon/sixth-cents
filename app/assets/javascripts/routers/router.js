@@ -20,10 +20,10 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   show: function(id){
-
+    this.accounts.fetch();
     var account = this.accounts.getOrFetch(id);
 
-    var showView = new SixthCents.Views.AccountShow({ model: account, collection: account.transactions(), accounts: this.accounts });
+    var showView = new SixthCents.Views.AccountShow({ model: account, collection: this.accounts });
 
     this._swapView(showView);
 
