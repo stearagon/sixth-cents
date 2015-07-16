@@ -4,17 +4,15 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
     "click .add-trans" : "createTransaction"
   },
   initialize: function(options){
-    this.listenTo(this.model, "sync add", this.render);
-    this.listenTo(this.accounts,"sync add", this.render);
-    this.listenTo(this.collection,"sync add", this.render);
+    this.listenTo(this.model, "sync", this.render);
+    // this.listenTo(this.accounts,"sync add merge", this.render);
+    this.listenTo(this.collection, "add", this.addTransaction);
     this.accounts = options.accounts;
   },
   render: function(){
     var content = this.template({ model: this.model, accounts: this.accounts })
-
     this.$el.html(content);
     this.addTransactions();
-
     return this;
   },
 

@@ -47,12 +47,11 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
 
     this.model.set(attrs);
     this.model.save({}, { success: function() {
-
         this.collection.add(this.model, { merge: true });
         Backbone.history.navigate("/accounts/" + this.account.get("id"), { trigger: true })
+        this.remove();
       }.bind(this),
       error: function(){
-
       }
     })
   },
