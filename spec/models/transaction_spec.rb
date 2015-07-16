@@ -5,7 +5,6 @@
 #  id               :integer          not null, primary key
 #  account_id       :integer          not null
 #  amount           :integer          not null
-#  transaction_type :string           not null
 #  description      :text             not null
 #  transaction_date :date             not null
 #  notes            :text             not null

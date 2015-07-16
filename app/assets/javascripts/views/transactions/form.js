@@ -4,12 +4,37 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     "click .create-transaction" : "submit",
     "click .cancel-form" : "cancel"
   },
+  categoryNames: [
+    "Uncategorized",
+    "Auto Transport",
+    "Bills & Utilities",
+    "Business Servies",
+    "Education",
+    "Entertainment",
+    "Fees & Charges",
+    "Financial",
+    "Food & Drinking",
+    "Gift & Donations",
+    "Health & Fitness",
+    "Home",
+    "Income",
+    "Investments",
+    "Kids",
+    "Misc Expenses",
+    "Personal Care",
+    "Pets",
+    "Shopping",
+    "Taxes",
+    "Transfer",
+    "Travel",
+    "Hide from Budgets & Trends"
+  ],
   initialize: function(options){
     this.account = options.account;
   },
   tagName: "form",
   render: function(){
-    var content = this.template({ model: this.model });
+    var content = this.template({ model: this.model, categories: this.categoryNames });
 
     this.$el.html(content);
 

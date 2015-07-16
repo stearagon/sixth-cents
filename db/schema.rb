@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715211311) do
+ActiveRecord::Schema.define(version: 20150716182027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20150715211311) do
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id", using: :btree
 
   create_table "institutions", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "api_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                   null: false
+    t.integer  "api_id",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "institutions", ["name"], name: "index_institutions_on_name", unique: true, using: :btree
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150715211311) do
   create_table "transactions", force: :cascade do |t|
     t.integer  "account_id",       null: false
     t.integer  "amount",           null: false
-    t.string   "transaction_type", null: false
     t.text     "description",      null: false
     t.date     "transaction_date", null: false
     t.text     "notes",            null: false

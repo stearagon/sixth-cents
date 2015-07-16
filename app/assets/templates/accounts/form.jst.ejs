@@ -10,10 +10,16 @@
     <option value="">Other</option>
   </select><br>
 
-    <input id="acct-inst-name" type="text" name="institution_id" value="<%= account.escape("name") %>"><br><br>
-
+  <div class="display-none" id="hidden-input">
+    <label>Other Institution Name: </label><br>
+    <input id="acct-inst-name" type="text" name="institution_name" value="<%= account.escape("name") %>">
+  </div><br>
 
   <label for="acct-type">Account Type: </label><br>
-  <input id="acct-type" type="text" name="account_type" value="<%= account.escape("account_type") %>"><br><br>
+  <select name="account_type" id="acct-type">
+    <% types.forEach(function(type){ %>
+      <option value="<%= type %>"><%=type%></option>
+    <% }) %>
+  </select><br><br>
 
   <button>Create Account</button> or <a class="cancel-form" href="#">Cancel</a>

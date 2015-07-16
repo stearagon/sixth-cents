@@ -51,7 +51,7 @@ body {
   width: 900px;
   margin: 0 auto;
   position: relative;
-  background: blue;
+  background: gray;
 }
 
 .top-container {
@@ -109,4 +109,8 @@ body {
   width: 250px;
   top: 80px;
   background: red;
+}
+
+.display-none {
+  display: none;
 }

@@ -7,13 +7,14 @@
 <input id="description" type="text" name="description" value="<%= model.escape("description") %>"><br>
 
 <label for="category">Category: </label><br>
-<input id="category" type="category" name="category" value="<%= model.escape("category") %>"><br>
+<select name="category" id="category">
+  <% categories.forEach(function(category){ %>
+    <option value="<%= category %>"><%= category %></option>
+  <% }) %>
+</select><br>
 
 <label for="amount">Amount: </label><br>
 $ <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
-
-<label for="type">Type: </label><br>
-<input id="type" type="string" name="transaction_type" value="<%= model.escape("transaction_type") %>"><br>
 
 <label for="notes">Notes: </label><br>
 <textarea id="notes" name="notes"><%= model.escape("notes") %></textarea><br>
