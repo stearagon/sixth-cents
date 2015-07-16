@@ -12,10 +12,19 @@
 
 class Account < ActiveRecord::Base
   validates :user_id, :institution_id, :account_type, presence: true
-  validates :institution, presence: true
+  validates :institution, :user, presence: true
+
 
   belongs_to :user, inverse_of: :accounts
   belongs_to :institution, inverse_of: :accounts
   has_many :transactions, inverse_of: :account
+
+  def amount
+    result = 0
+    self.transactions.each do |transaction|
+      result += transaction.amount
+    end
+    result
+  end
 
 end

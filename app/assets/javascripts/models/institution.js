@@ -1,3 +1,3 @@
 SixthCents.Models.Institution = Backbone.Model.extend({
-  urlRoot: "/api/institutions",
+  urlRoot: "/api/institutions"
 });

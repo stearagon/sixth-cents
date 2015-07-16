@@ -1,10 +1,20 @@
+<div class="group" id="sidebar">
+</div>
+
+<div class="main-window">
+
 <h1><%= model.institution().escape("name")%></h1>
 <h1><%= model.escape("account_type")%></h1>
 
 <button class="add-trans">Add Transaction</button>
 
-<ul class="transactions-list">
+<table class="transactions-list">
+    <th>Date</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Amount</th>
+</table>
 
-</ul>
+</div>
 
 <div class="modal-window"></div>
