@@ -18,3 +18,4 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
     return transaction;
   }
 })
+SixthCents.Collections.transactions = new SixthCents.Collections.Transactions()

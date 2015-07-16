@@ -9,13 +9,16 @@ window.SixthCents = {
     var $modalEl = $(".modal-window");
     var institutions = SixthCents.Collections.institutions;
     var accounts = SixthCents.Collections.accounts;
+    var transactions = SixthCents.Collections.transactions;
     institutions.fetch();
+    transactions.fetch();
 
     new SixthCents.Routers.Router({
       accounts: accounts,
       $rootEl: $rootEl,
       $modalEl: $modalEl,
-      institutions: institutions
+      institutions: institutions,
+      transactions: transactions
     });
 
     Backbone.history.start();

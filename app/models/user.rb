@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :accounts, -> { includes :institution }, inverse_of: :user
+  has_many :transactions, through: :accounts, source: :transactions
 
   has_many :institutions, through: :accounts, source: :institution
 

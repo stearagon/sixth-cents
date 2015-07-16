@@ -1,5 +1,8 @@
 SixthCents.Views.FormView = Backbone.CompositeView.extend({
   template: JST["accounts/form"],
+  initialize: function(opitons){
+    this.account = opitons.account;
+  },
   tagName: "form",
   events: {
     "click button" : "submit",
@@ -18,9 +21,9 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   ],
 
   render: function(){
-
+    
     var institutions = SixthCents.Collections.institutions;
-    var content = this.template({ account: this.model, institutions: institutions,
+    var content = this.template({ account: this.account, institutions: institutions,
                                   types: this.typesOfAccounts });
 
     this.$el.html(content);
@@ -29,6 +32,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   },
 
   submit: function(event){
+    
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var that = this;
