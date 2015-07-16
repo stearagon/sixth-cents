@@ -15,6 +15,32 @@ SixthCents.Models.Account = Backbone.Model.extend({
     return this._transactions;
   },
 
+  type: function(){
+    var acctType = this.get("account_type");
+    debugger
+    switch(acctType) {
+      case "Checking":
+        this._type = "cash";
+        break;
+      case "Credit Card":
+        this._type = "credit";
+        break;
+      case "Loan":
+        this._type = "loan";
+        break;
+      case "Savings":
+        this._type = "investment";
+        break;
+      case "Investment":
+        this._type = "investment";
+        break;
+      default: //this takes in all other assets
+      this._type = "property";
+      break;
+    }
+    return this._type;
+  },
+
   parse: function(response){
     if (response.institution) {
       this.institution().set(response.institution, { merge: true })
