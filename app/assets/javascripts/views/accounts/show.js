@@ -5,13 +5,11 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
   },
   initialize: function(options){
     this.listenTo(this.model, "sync add", this.render);
+    this.listenTo(this.accounts,"sync add", this.render);
     this.listenTo(this.collection,"sync add", this.render);
     this.accounts = options.accounts;
-    this.refreshAccounts();
-    this.listenTo(this.accounts,"sync", this.render);
   },
   render: function(){
-
     var content = this.template({ model: this.model, accounts: this.accounts })
 
     this.$el.html(content);
@@ -19,12 +17,8 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
 
     return this;
   },
-  refreshAccounts: function(){
-    this.accounts.fetch();
-  },
 
   createTransaction: function(){
-
     var transaction = new SixthCents.Models.Transaction();
     var formView = new SixthCents.Views.TransactionFormView({ model: transaction, account: this.model, collection: this.collection })
 
@@ -32,14 +26,12 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
   },
 
   addTransaction: function(transaction){
-
     var transactionItem = new SixthCents.Views.TransactionItem({ model: transaction });
     this.addSubview(".transactions-list", transactionItem);
   },
 
   addTransactions: function(){
-
-    this.model.transactions().forEach(this.addTransaction.bind(this))
+      this.model.transactions().forEach(this.addTransaction.bind(this))
   }
 
 })

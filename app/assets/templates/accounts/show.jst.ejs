@@ -11,7 +11,7 @@
     <ul>
       <li><a href="#">All Accounts</a></li><br>
       <% accounts.forEach(function(account){ %>
-        <li><a href="#">
+        <li><a href="#accounts/<%= account.get("id") %>">
           <p class="sidebar-account-title"><%= account.institution().escape("name") %><p>
           <p class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %><p>
           </a>
