@@ -126,3 +126,32 @@ body {
 .occurrence {
   display: block;
 }
+
+.income {
+  display:block;
+  background: purple;
+  width: 900px;
+  height: 100px;
+}
+
+.income-sidebar {
+  float: left;
+  width: 25%;
+}
+.income-main {
+  float: right;
+  width: 75%;
+}
+
+.budgets-calendar {
+  margin-left: 250px;
+}
+
+.spends-sidebar {
+  float: left;
+  width: 25%;
+}
+.spends-main {
+  float: right;
+  width: 75%;
+}

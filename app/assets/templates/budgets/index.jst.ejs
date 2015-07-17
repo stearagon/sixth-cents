@@ -1,23 +1,41 @@
-<div class="group" id="sidebar">
-  <div>
-    <ul>
-      <li><h1>Income</h1></li>
-      <li><h1>Spending</h1></li>
-    </ul><br>
-  </div>
-</div>
-
 <div class="main-window">
 
-<section>****************Calendar of budgets****************</section>
+<section class="budgets-calendar">
+  ****************Calendar of budgets****************
+  <button class="add-budget">Create Budget</button>
+</section>
 
-<button class="add-budget">Create Budget</button>
 
-<table class="budgets-list">
-    <th>Category</th>
-    <th>Spent</th>
-    <th>Budget</th>
-</table>
+<section class="income group">
+  <section class="income-sidebar">
+    <h1>Income</h1>
+    <p> **income** so far of $ <%= parseInt(income).toLocaleString() %></p>
+  </section>
+  <section class="income-main">
+    <h1>Income graph</h1>
+    <table class="income-list">
+        <th>Category</th>
+        <th>Spent</th>
+        <th>Budget</th>
+    </table>
+  </section>
+</section>
+
+<section class="spend group">
+  <section class="spends-sidebar">
+    <h1>Spending</h1>
+    <p>**spend** so far of $ <%= parseInt(spend).toLocaleString() %></p>
+  </section>
+
+  <section class="spends-main">
+    <table class="spends-list">
+        <h1>spends graph</h1>
+        <th>Category</th>
+        <th>Spent</th>
+        <th>Budget</th>
+    </table>
+  </section>
+</section>
 
 </div>
 

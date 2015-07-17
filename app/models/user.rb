@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
 
   end
 
-  def debt
+  def loans
 
   end
 
@@ -72,5 +72,15 @@ class User < ActiveRecord::Base
   def credit_card_debt
 
   end
+
+  def month_spend(month)
+
+  end
+
+  def month_income(month)
+
+  end
+
+  
 
 end

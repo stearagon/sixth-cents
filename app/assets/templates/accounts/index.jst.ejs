@@ -3,31 +3,31 @@
 <h1>Accounts</h1><button>+</button> <a href="#">edit</a>
 
 <section>
-  <h5>Cash</h5>
+  <h5 class="cash-sidebar">Cash $ <%= accounts.cash().toLocaleString() %></h5>
   <ul class="cash">
 
   </ul>
 </section>
 <section>
-  <h5>Credit Card</h5>
+  <h5>Credit Card $ <%= accounts.credit().toLocaleString() %></h5>
   <ul class="credit">
 
   </ul>
 </section>
 <section>
-  <h5>Loans</h5>
+  <h5>Loans $ <%= accounts.loans().toLocaleString() %></h5>
   <ul class="loan">
 
   </ul>
 </section>
 <section>
-  <h5>Investments</h5>
+  <h5>Investments $ <%= accounts.investments().toLocaleString() %></h5>
   <ul class="investment">
 
   </ul>
 </section>
 <section>
-  <h5>Property</h5>
+  <h5>Property $ <%= accounts.property().toLocaleString() %></h5>
   <ul class="property">
 
   </ul>

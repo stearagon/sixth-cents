@@ -24,6 +24,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     var acctType = account.type();
 
     this.addSubview("." + acctType, accountItem);
+
   },
 
   addAccounts: function() {

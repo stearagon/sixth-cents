@@ -53,7 +53,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 account_id     | integer   | not null, foreign key (references accounts)
 amount | integer   | not null
-category | string   | not null
 date | date   | not null
 
 ## alerts
