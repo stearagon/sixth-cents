@@ -24,7 +24,6 @@ id               | integer   | not null, primary key
 user_id         | integer   | not null, foreign key (references users)
 institution_id | integer    | not null, foreign key (references institutions)
 type | string    | not null
-amount | integer    | not null // I actually don't think this is needed here
 
 
 ## transactions
@@ -44,9 +43,19 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 owner_id   | integer   | not null, foreign key (references users)
-name      | string    | not null
-occurrence_type        | string    | not null
+category     | string    | not null
+occurrence_type        | string    | not null, three choicse[monthly, every few months, once]
 amount      | integer    | not null
+
+## bill_reminders
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+account_id     | integer   | not null, foreign key (references accounts)
+amount | integer   | not null
+category | string   | not null
+date | date   | not null
+
 
 ## log_in_credentials
 column name | data type | details
