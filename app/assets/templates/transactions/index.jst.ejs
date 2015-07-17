@@ -1,0 +1,40 @@
+<div class="group" id="sidebar">
+  <div>
+    <h2>Type</h2>
+    <ul>
+      <li><a href="#">Cash & Credit</a></li>
+      <li><a href="#">Investment</a></li>
+      <li><a href="#">Loan</a></li>
+    </ul><br>
+
+    <h2>Accounts</h2>
+    <ul>
+      <li><a href="#accounts/all">All Accounts</a></li><br>
+      <% accounts.forEach(function(account){ %>
+        <li><a href="#/accounts/<%=account.get("id")%>" >
+          <p class="sidebar-account-title"><%= account.institution().escape("name") %><p>
+          <p class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %><p>
+          </a>
+        </li><br>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<div class="main-window">
+
+<h1>All Accounts</h1>
+<h1>You have <%=  accounts.length %> account(s)</h1>
+
+<button class="add-trans">Add Transaction</button>
+
+<table class="transactions-list">
+    <th>Date</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Amount</th>
+</table>
+
+</div>
+
+<div class="modal-window"></div>

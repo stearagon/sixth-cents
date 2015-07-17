@@ -5,7 +5,6 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
   },
   initialize: function(options){
     this.listenTo(this.model, "sync", this.render);
-    // this.listenTo(this.accounts,"sync add merge", this.render);
     this.listenTo(this.collection, "add", this.addTransaction);
     this.accounts = options.accounts;
   },
