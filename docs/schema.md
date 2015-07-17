@@ -47,7 +47,7 @@ category     | string    | not null
 occurrence_type        | string    | not null, three choicse[monthly, every few months, once]
 amount      | integer    | not null
 
-## bill_reminders
+## bills
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -56,6 +56,12 @@ amount | integer   | not null
 category | string   | not null
 date | date   | not null
 
+## alerts
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+account_id     | integer   | not null, foreign key (references accounts)
+amount | integer   | not null
 
 ## log_in_credentials
 column name | data type | details

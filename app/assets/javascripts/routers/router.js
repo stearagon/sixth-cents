@@ -7,6 +7,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.institutions = options.institutions;
     this.transactions = options.transactions;
     this.budgets = options.budgets;
+    this.budgetInstructions = options.budgetInstructions;
   },
   routes: {
     "" : "index",
@@ -47,7 +48,9 @@ SixthCents.Routers.Router = Backbone.Router.extend({
 
   budgetsIndex: function(){
     this.budgets.fetch();
-    var budgetsIndexView = new SixthCents.Views.BudgetsIndex({ collection: this.budgets });
+    this.budgetInstructions.fetch();
+    
+    var budgetsIndexView = new SixthCents.Views.BudgetsIndex({ collection: this.budgets, budgetInstructions: this.budgetInstructions });
 
     this._swapView(budgetsIndexView);
 

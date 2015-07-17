@@ -11,9 +11,11 @@ window.SixthCents = {
     var accounts = SixthCents.Collections.accounts;
     var transactions = SixthCents.Collections.transactions;
     var budgets = SixthCents.Collections.budgets
+    var budgetInstructions = SixthCents.Collections.budgetInstructions
     institutions.fetch();
     transactions.fetch();
     budgets.fetch();
+    budgetInstructions.fetch();
 
     new SixthCents.Routers.Router({
       accounts: accounts,
@@ -21,7 +23,8 @@ window.SixthCents = {
       $modalEl: $modalEl,
       institutions: institutions,
       transactions: transactions,
-      budgets: budgets
+      budgets: budgets,
+      budgetInstructions: budgetInstructions
     });
 
     Backbone.history.start();

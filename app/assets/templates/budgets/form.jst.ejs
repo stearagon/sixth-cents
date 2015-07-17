@@ -10,7 +10,30 @@
 <label for="amount">Amount: </label><br>
 $ <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
 
-<label for="occurrence">Occurrence</label><br>
-<textarea id="occurrence" name="occurrence"><%= model.escape("occurrence") %></textarea><br>
+<section class="occurrence">
+  <input id="monthly" type="radio" name="months" value="1">
+  <label for="monthly">Monthly</label>
+</section>
+
+<section class="occurrence">
+  <input id="few-months" type="radio" name="months">
+  <label for="few-months">Every few months</label>
+  <div class="display-none" id="hidden-input-months">
+    Every
+    <input type="text" name="month_denom" value="">
+    Months
+  </div>
+</section>
+
+<section class="occurrence">
+  <input id="once" type="radio" name="months">
+    <label for="once">Once</label>
+  <div class="display-none" id="hidden-input-start-month">
+    <label>When will this spending happen?</label><br>
+    <input type="date" name="start_date" value="">
+  </div><br>
+</section>
+
+
 
 <button class="create-budget">Create Budget</button> or <a class="cancel-form" href="#">Cancel</a>

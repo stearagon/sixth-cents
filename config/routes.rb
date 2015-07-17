@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :institutions, only: [:show, :index, :create]
     resources :transactions, only: [:show, :index, :create]
     resources :budgets, only: [:show, :index, :create]
+    resources :budget_instructions, only: [:show, :index, :create]
   end
 end

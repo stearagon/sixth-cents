@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: budgets
+# Table name: budget_instructions
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
 #  category   :string           not null
-#  amount     :float            not null
+#  months     :integer          not null
+#  amount     :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  start_date :date
 #
 
-class Budget < ActiveRecord::Base
+class BudgetInstruction < ActiveRecord::Base
   CATEGORIES = ["Auto Transport",
                 "Bills & Utilities",
                 "Business Servies",
@@ -35,10 +35,10 @@ class Budget < ActiveRecord::Base
                 "Travel"
               ]
 
-  validates :user_id, :category, :start_date, :amount, presence: true
+  validates :user_id, :category, :months, :amount, presence: true
   validates :category, inclusion: { in: CATEGORIES ,
   message: "%{value} is not a valid type" }
 
-  belongs_to :user, inverse_of: :budgets
+  belongs_to :user, inverse_of: :budget_instructions
 
 end
