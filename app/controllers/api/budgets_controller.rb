@@ -7,7 +7,7 @@ class Api::BudgetsController < ApplicationController
   end
 
   def create
-    @budget = current_user.budget.new(budget_params)
+    @budget = current_user.budgets.new(budget_params)
 
 
     if @budget.save

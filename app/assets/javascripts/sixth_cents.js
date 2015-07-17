@@ -20,7 +20,8 @@ window.SixthCents = {
       $rootEl: $rootEl,
       $modalEl: $modalEl,
       institutions: institutions,
-      transactions: transactions
+      transactions: transactions,
+      budgets: budgets
     });
 
     Backbone.history.start();

@@ -1,7 +1,9 @@
 SixthCents.Collections.Transactions = Backbone.Collection.extend({
   url: "/api/transactions",
   model: SixthCents.Models.Transaction,
-
+  comparator: function(transaction){
+    return transaction.get("transaction_date")
+  },
   getOrFetch: function(id){
     var transaction = this.get(id);
     var that = this;

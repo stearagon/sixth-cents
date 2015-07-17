@@ -12,8 +12,7 @@
 #
 
 class Budget < ActiveRecord::Base
-  CATEGORIES = ["Uncategorized",
-                "Auto Transport",
+  CATEGORIES = ["Auto Transport",
                 "Bills & Utilities",
                 "Business Servies",
                 "Education",

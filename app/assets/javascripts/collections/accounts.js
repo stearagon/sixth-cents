@@ -1,6 +1,9 @@
 SixthCents.Collections.Accounts = Backbone.Collection.extend({
   url: "/api/accounts",
   model: SixthCents.Models.Account,
+  comparator: function(account){
+    return account.institution().get("name")
+  },
 
   getOrFetch: function(id){
     var account = this.get(id);
