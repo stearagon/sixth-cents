@@ -33,7 +33,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var that = this;
-    debugger
+    
 
     if (attrs.institution_id === "" ){
       var institution = new SixthCents.Models.Institution({ name: attrs.institution_name });
@@ -50,7 +50,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
                 return
               },
               error: function(){
-                debugger
+                
                 //show error on new form
                 return
               }

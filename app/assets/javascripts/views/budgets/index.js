@@ -21,7 +21,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   },
 
   addBudget: function(budget){
-    debugger
+    
     var budgetItem = new SixthCents.Views.BudgetItem({ model: budget });
     this.addSubview(".budgets-list", budgetItem);
   },
