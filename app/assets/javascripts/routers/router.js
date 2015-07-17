@@ -10,7 +10,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
   routes: {
     "" : "index",
-    "accounts" : "transactionsIndex",
+    "attt" : "transactionsIndex",
     "accounts/:id" : "show",
     "budgets" : "budgetsIndex"
   },
