@@ -9,7 +9,7 @@
 
     <h2>Accounts</h2>
     <ul>
-      <li><a href="#accounts/">All Accounts</a></li><br>
+      <li><a href="#/accounts">All Accounts</a></li><br>
       <% accounts.forEach(function(account){ %>
         <li><a href="#/accounts/<%=account.get("id")%>" >
           <p class="sidebar-account-title"><%= account.institution().escape("name") %><p>
