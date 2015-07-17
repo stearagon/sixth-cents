@@ -11,6 +11,17 @@ class Api::InstitutionsController < ApplicationController
     end
   end
 
+  def create
+    @institution = Institution.new(institution_params)
+
+
+    if @institution.save
+      render json: @institution
+    else
+      render json: @institution.errors.full_messages, status: :unprocessable_entity;
+    end
+  end
+
 
   def show
     @institution = Institution.find(params[:id])
@@ -20,5 +31,10 @@ class Api::InstitutionsController < ApplicationController
     else
       render json: @institution.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+  private
+  def institution_params
+    params.require(:institution).permit(:name)
   end
 end

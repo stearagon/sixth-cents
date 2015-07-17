@@ -33,15 +33,14 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var that = this;
-
+    debugger
 
     if (attrs.institution_id === "" ){
       var institution = new SixthCents.Models.Institution({ name: attrs.institution_name });
       delete attrs.institution_name;
 
       institution.save({}, {
-        success: {
-          function(model){
+        success: function(model){
             attrs.institution_id = model.id;
             that.model.set(attrs);
             that.model.save({}, {
@@ -51,24 +50,28 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
                 return
               },
               error: function(){
+                debugger
                 //show error on new form
+                return
               }
             })
           }
-      }
-    })
-  }
-    delete attrs.institution_name;
-    that.model.set(attrs);
-    that.model.save({}, {
-      success: function(){
-        that.collection.add(that.model, { merge: true, parse: true });
-        Backbone.history.navigate("", { trigger: true })
-      },
-      error: function(){
-        //show error on new form
-      }
-    })
+        }
+      )
+    } else {
+      delete attrs.institution_name;
+      that.model.set(attrs);
+      that.model.save({}, {
+        success: function(){
+          that.collection.add(that.model, { merge: true, parse: true });
+          Backbone.history.navigate("", { trigger: true })
+        },
+        error: function(){
+          //show error on new form
+        }
+      })
+    }
+
   },
 
   close: function(){

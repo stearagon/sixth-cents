@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json } do
     resources :accounts, only: [:show, :index, :create]
-    resources :institutions, only: [:show, :index]
+    resources :institutions, only: [:show, :index, :create]
     resources :transactions, only: [:show, :index, :create]
     resources :budgets, only: [:show, :index, :create]
   end
