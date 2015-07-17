@@ -13,5 +13,5 @@ class Institution < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   # validates :api_id, presence: true currently have a default 0 value
 
-  has_many :accounts
+  has_many :accounts, inverse_of: :institution
 end

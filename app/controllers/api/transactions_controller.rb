@@ -2,7 +2,7 @@ class Api::TransactionsController < ApplicationController
   before_action :require_log_in
 
   def index
-    @transactions = Transaction.all #.find_by_account_id(params[:id])
+    @transactions = current_user.transactions #.find_by_account_id(params[:id])
     render json: @transactions
   end
 
@@ -23,7 +23,7 @@ class Api::TransactionsController < ApplicationController
     if @transaction
       render json: @transaction
     else
-      render json: @account.errors.full_messages, status: :unprocessable_entity
+      render json: @transaction.errors.full_messages, status: :unprocessable_entity
     end
   end
 

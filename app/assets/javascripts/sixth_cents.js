@@ -10,8 +10,10 @@ window.SixthCents = {
     var institutions = SixthCents.Collections.institutions;
     var accounts = SixthCents.Collections.accounts;
     var transactions = SixthCents.Collections.transactions;
+    var budgets = SixthCents.Collections.budgets
     institutions.fetch();
     transactions.fetch();
+    budgets.fetch();
 
     new SixthCents.Routers.Router({
       accounts: accounts,

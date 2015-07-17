@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150717015340) do
   create_table "budgets", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.string   "category",   null: false
-    t.string   "occurence",  null: false
+    t.string   "occurrence", null: false
     t.float    "amount",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

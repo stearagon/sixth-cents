@@ -3,7 +3,7 @@ class CreateBudgets < ActiveRecord::Migration
     create_table :budgets do |t|
       t.integer :user_id, null: false
       t.string :category, null: false
-      t.string :occurence, null: false
+      t.string :occurrence, null: false
       t.float :amount, null: false
 
 
