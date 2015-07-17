@@ -68,6 +68,10 @@ body {
   font-size: 30px;
 }
 
+.right-nav {
+  float: right;
+}
+
 .logging-links, .logout-button {
   float: right;
 }

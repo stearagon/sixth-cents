@@ -11,11 +11,18 @@
     <a href="#" class="main-logo">Sixth Cents</a>
 
     <% if logged_in? %>
-      <form class="logout-button" action="<%= session_url %>" method="post">
-        <%= form_auth %>
-        <input type="hidden" name="_method" value="delete">
-        <button name="logout">Logout</button>
-      </form>
+      <div class="right-nav">
+        <a href="#accounts/">Transactions</a>
+        <a href="#budgets/">Budgets</a>
+        <a href="#">Trends</a>
+        <a href="#">Goals</a>
+        <form class="logout-button" action="<%= session_url %>" method="post">
+          <%= form_auth %>
+          <input type="hidden" name="_method" value="delete">
+          <button name="logout">Logout</button>
+        </form>
+      </div>
+
     <% else %>
       <div class="logging-links">
         <a href="<%=  new_session_url %>">Login</a>
