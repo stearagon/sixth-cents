@@ -84,6 +84,38 @@ SixthCents.Collections.Accounts = Backbone.Collection.extend({
     }
 
     return account
+  },
+
+  lastSixMonths: function(){
+    var $netIncomeEl = "";
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var currDate = new Date();
+    var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth(), currDate.getDate());
+    var that = this;
+    for (var i = 0; i < 6; i++){
+      var y = currDate.getFullYear(), m = currDate.getMonth() - i;
+      
+      var firstDay = new Date(y, m, 1);
+      var lastDay = new Date(y, m + 1, 1);
+      var incomeAndSpend = { income: 0, spend: 0 };
+
+      if (this.length > 0) {
+        var acctIncomeAndSpend;
+        this.each( function(account){
+          acctIncomeAndSpend = account.transactions_time(firstDay, lastDay);
+        })
+        incomeAndSpend.income += acctIncomeAndSpend.income;
+        incomeAndSpend.spend += acctIncomeAndSpend.spend;
+      }
+
+      var month = months[currDate.getMonth() - i];
+      var income = incomeAndSpend.income;
+      var spend = incomeAndSpend.spend;
+
+      $netIncomeEl += "<br><h3>" + month + " Net Income</h3> Income: " + income + "<br>Spend:" + spend + "<br>"
+    }
+
+    return $netIncomeEl;
   }
 })
 SixthCents.Collections.accounts = new SixthCents.Collections.Accounts()

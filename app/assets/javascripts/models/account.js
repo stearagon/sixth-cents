@@ -15,6 +15,29 @@ SixthCents.Models.Account = Backbone.Model.extend({
     return this._transactions;
   },
 
+  transactions_time: function(startDate, endDate){
+    var income = 0;
+    var spend = 0;
+
+    var date1 = Date.parse(startDate)
+    var date2 = Date.parse(endDate)
+
+    this.transactions().each( function(transaction){
+
+      var tdate = Date.parse(transaction.get("transaction_date"))
+      if(tdate >= date1 && tdate <= date2){
+
+        if (transaction.get("amount") >= 0) {
+          income += parseInt(transaction.get("amount"));
+        } else {
+          spend += parseInt(transaction.get("amount"));
+        };
+      }
+    })
+
+    return { income: income, spend: spend }
+  },
+
   type: function(){
     var acctType = this.get("account_type");
 

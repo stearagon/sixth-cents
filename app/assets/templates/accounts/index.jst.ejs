@@ -1,37 +1,74 @@
 <div class="group" id="sidebar">
 
-<h1>Accounts</h1><button>+</button> <a href="#">edit</a>
+  <h1>Accounts</h1><button>+</button> <a href="#">edit</a>
 
-<section>
-  <h5 class="cash-sidebar">Cash $ <%= accounts.cash().toLocaleString() %></h5>
-  <ul class="cash">
+  <section>
+    <h5 class="cash-sidebar">Cash $ <%= accounts.cash().toLocaleString() %></h5>
+    <ul class="cash">
 
-  </ul>
-</section>
-<section>
-  <h5>Credit Card $ <%= accounts.credit().toLocaleString() %></h5>
-  <ul class="credit">
+    </ul>
+  </section>
+  <section>
+    <h5>Credit Cards $ <%= accounts.credit().toLocaleString() %></h5>
+    <ul class="credit">
 
-  </ul>
-</section>
-<section>
-  <h5>Loans $ <%= accounts.loans().toLocaleString() %></h5>
-  <ul class="loan">
+    </ul>
+  </section>
+  <section>
+    <h5>Loans $ <%= accounts.loans().toLocaleString() %></h5>
+    <ul class="loan">
 
-  </ul>
-</section>
-<section>
-  <h5>Investments $ <%= accounts.investments().toLocaleString() %></h5>
-  <ul class="investment">
+    </ul>
+  </section>
+  <section>
+    <h5>Investments $ <%= accounts.investments().toLocaleString() %></h5>
+    <ul class="investment">
 
-  </ul>
-</section>
-<section>
-  <h5>Property $ <%= accounts.property().toLocaleString() %></h5>
-  <ul class="property">
+    </ul>
+  </section>
+  <section>
+    <h5>Property $ <%= accounts.property().toLocaleString() %></h5>
+    <ul class="property">
 
-  </ul>
-</section>
+    </ul>
+  </section>
+
+
+  <section class="assets-debts">
+    Assets: $ <%= (accounts.cash() + accounts.investments() + accounts.property()).toLocaleString() %><br>
+    Debt: $ <%= (accounts.loans() + accounts.credit()).toLocaleString() %><br>
+    Net Worth: $ <%= (accounts.cash() + accounts.investments() + accounts.property() - accounts.loans() - accounts.credit()).toLocaleString() %>
+  </section><br>
+
+  <section class="cash-credit">
+    <h3>Cash vs Credit Card Debt</h3>
+    Cash: $ <%= (accounts.cash()).toLocaleString() %><br>
+    Debt: $ <%= (accounts.credit())%><br>
+  </section>
+
+  <section class="six-month-net-income">
+    <% var currDate = new Date() %>
+    <% var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth(), currDate.getDate()) %>
+    <% for(var i = 1; i < 6; i++) {%>
+      <% var y = currDate.getFullYear(), m = (currDate.getMonth()) %>
+      <% var firstDay = new Date(y, m, 1) %>
+      <% var lastDay = new Date(y, m + 1, 1) %>
+      <% var incomeAndSpend = { income: 0, spend: 0 } %>
+      <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]%>
+
+      <% if (this.collection.length > 0) { %>
+      <%   incomeAndSpend = this.collection.first().transactions_time(firstDay, lastDay) %>
+      <% } %>
+
+
+      <br><h3><%=months[currDate.getMonth()]%> Net Income</h3>
+      Income: <%= incomeAndSpend.income %>
+      Spend: <%= incomeAndSpend.spend %>
+      <br>
+      <% currDate.setMonth(currDate.getMonth() - i) %>
+    <% } %>
+
+  </section>
 
 </div>
 

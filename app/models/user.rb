@@ -57,30 +57,4 @@ class User < ActiveRecord::Base
     self.session_token ||= self.class.generate_session_token
   end
 
-  def cash
-
-  end
-
-  def loans
-
-  end
-
-  def assets
-
-  end
-
-  def credit_card_debt
-
-  end
-
-  def month_spend(month)
-
-  end
-
-  def month_income(month)
-
-  end
-
-  
-
 end
