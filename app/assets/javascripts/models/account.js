@@ -8,6 +8,10 @@ SixthCents.Models.Account = Backbone.Model.extend({
     return this._institution;
   },
 
+  institutionHyphen: function(){
+    return this.institution().get("name").split(" ").join("-")
+  },
+
   transactions: function(){
     if (!this._transactions) {
       this._transactions = new SixthCents.Collections.Transactions();

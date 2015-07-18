@@ -2,7 +2,7 @@ SixthCents.Collections.Accounts = Backbone.Collection.extend({
   url: "/api/accounts",
   model: SixthCents.Models.Account,
   comparator: function(account){
-    return account.institution().get("name")
+    return account.get("account_type")
   },
 
   cash: function(){
@@ -94,7 +94,7 @@ SixthCents.Collections.Accounts = Backbone.Collection.extend({
     var that = this;
     for (var i = 0; i < 6; i++){
       var y = currDate.getFullYear(), m = currDate.getMonth() - i;
-      
+
       var firstDay = new Date(y, m, 1);
       var lastDay = new Date(y, m + 1, 1);
       var incomeAndSpend = { income: 0, spend: 0 };
