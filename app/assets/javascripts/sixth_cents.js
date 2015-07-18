@@ -16,6 +16,7 @@ window.SixthCents = {
     transactions.fetch();
     budgets.fetch();
     budgetInstructions.fetch();
+    accounts.fetch();
 
     new SixthCents.Routers.Router({
       accounts: accounts,

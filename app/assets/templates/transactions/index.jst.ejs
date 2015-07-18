@@ -13,7 +13,7 @@
       <% accounts.forEach(function(account){ %>
         <li><a href="#/accounts/<%= account.get("id") %>">
           <p class="sidebar-account-title"><%= account.institution().escape("name") %><p>
-          <p class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %><p>
+          <p class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %>(<%= account.escape("identifier") %>)<p>
           </a>
         </li><br>
       <% }) %>

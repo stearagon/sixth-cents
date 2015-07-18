@@ -14,8 +14,33 @@
 #
 
 class Transaction < ActiveRecord::Base
+  CATEGORIES = ["Auto Transport",
+                "Bills & Utilities",
+                "Business Servies",
+                "Education",
+                "Entertainment",
+                "Fees & Charges",
+                "Financial",
+                "Food & Drinking",
+                "Gift & Donations",
+                "Health & Fitness",
+                "Home",
+                "Income",
+                "Investments",
+                "Kids",
+                "Misc Expenses",
+                "Personal Care",
+                "Repay Debt",
+                "Pets",
+                "Shopping",
+                "Taxes",
+                "Transfer",
+                "Travel"
+              ]
   validates :account_id, :amount, :description, :category,
-            :transaction_date, :notes, presence: true
+            :transaction_date, presence: true
+  validates :category, inclusion: { in: CATEGORIES ,
+            message: "%{value} is not a valid type" }
   validates :account, presence: true
 
   belongs_to :account, inverse_of: :transactions

@@ -14,6 +14,7 @@ gem 'bcrypt'
 gem 'newrelic_rpm'
 gem 'sprockets', '~> 3.2.0'
 gem 'rename'
+gem 'kaminari'
 
 group :test do
   gem 'annotate'

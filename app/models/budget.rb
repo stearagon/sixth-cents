@@ -28,6 +28,7 @@ class Budget < ActiveRecord::Base
                 "Kids",
                 "Misc Expenses",
                 "Personal Care",
+                "Repay Debt",
                 "Pets",
                 "Shopping",
                 "Taxes",

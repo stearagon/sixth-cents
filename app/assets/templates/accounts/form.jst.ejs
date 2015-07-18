@@ -15,6 +15,9 @@
     <input id="acct-inst-name" type="text" name="institution_name" value="<%= account.escape("name") %>">
   </div><br>
 
+  <label>Last 4 digits of Account# or Unique Identifier: </label><br>
+  <input id="acct-identifier" type="text" name="identifier" value="<%= account.escape("identifier") %>"><br>
+
   <label for="acct-type">Account Type: </label><br>
   <select name="account_type" id="acct-type">
     <% types.forEach(function(type){ %>

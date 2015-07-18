@@ -23,6 +23,7 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     "Misc Expenses",
     "Personal Care",
     "Pets",
+    "Repay Debt",
     "Shopping",
     "Taxes",
     "Transfer",
@@ -30,11 +31,12 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     "Hide from Budgets & Trends"
   ],
   initialize: function(options){
-    this.account = options.account;
+    this.accounts = options.accounts;
+    this.account_id = options.id;
   },
   tagName: "form",
   render: function(){
-    var content = this.template({ model: this.model, categories: this.categoryNames });
+    var content = this.template({ model: this.model, categories: this.categoryNames, accounts: this.accounts, id: this.account_id });
 
     this.$el.html(content);
 
@@ -43,12 +45,15 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
   submit: function(event){
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
-    attrs["account_id"] = this.account.get("id");
+
+    attrs.amount = parseInt(attrs.amount) * parseInt(attrs.type_trans)
+    delete attrs.type_trans
 
     this.model.set(attrs);
     this.model.save({}, { success: function() {
         this.collection.add(this.model, { merge: true });
-        Backbone.history.navigate("/accounts/" + this.account.get("id"), { trigger: true })
+        this.collection.sort();
+        Backbone.history.navigate("/accounts/" + this.account_id, { trigger: true })
         this.remove();
       }.bind(this),
       error: function(){

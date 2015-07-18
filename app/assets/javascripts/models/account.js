@@ -27,9 +27,9 @@ SixthCents.Models.Account = Backbone.Model.extend({
       var tdate = Date.parse(transaction.get("transaction_date"))
       if(tdate >= date1 && tdate <= date2){
 
-        if (transaction.get("amount") >= 0) {
+        if (transaction.get("amount") >= 0 && transaction.get("category") !== "Repay Debt") {
           income += parseInt(transaction.get("amount"));
-        } else {
+        } else if (transaction.get("amount") <= 0 && transaction.get("category") !== "Repay Debt") {
           spend += parseInt(transaction.get("amount"));
         };
       }

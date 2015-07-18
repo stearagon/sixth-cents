@@ -25,6 +25,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
     "Misc Expenses",
     "Personal Care",
     "Pets",
+    "Repay Debt",
     "Shopping",
     "Taxes",
     "Transfer",

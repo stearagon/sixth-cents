@@ -19,8 +19,8 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
 
   render: function(){
 
-    var institutions = SixthCents.Collections.institutions;
-    var content = this.template({ account: this.model, institutions: institutions,
+    this.institutions = SixthCents.Collections.institutions;
+    var content = this.template({ account: this.model, institutions: this.institutions,
                                   types: this.typesOfAccounts });
 
     this.$el.html(content);
@@ -33,7 +33,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var that = this;
-    
+
 
     if (attrs.institution_id === "" ){
       var institution = new SixthCents.Models.Institution({ name: attrs.institution_name });
@@ -42,6 +42,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
       institution.save({}, {
         success: function(model){
             attrs.institution_id = model.id;
+            that.institutions.add(institution, { merge: true, parse: true });
             that.model.set(attrs);
             that.model.save({}, {
               success: function(){
@@ -50,7 +51,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
                 return
               },
               error: function(){
-                
+
                 //show error on new form
                 return
               }

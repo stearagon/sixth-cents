@@ -17,7 +17,8 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
 
   createTransaction: function(){
     var transaction = new SixthCents.Models.Transaction();
-    var formView = new SixthCents.Views.TransactionFormView({ model: transaction, account: this.model, collection: this.collection })
+    var account_id = this.model.get("id");
+    var formView = new SixthCents.Views.TransactionFormView({ model: transaction, collection: this.collection, accounts: this.accounts, id: account_id })
 
     this.addSubview(".modal-window", formView);
   },

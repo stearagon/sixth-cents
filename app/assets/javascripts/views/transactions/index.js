@@ -1,5 +1,8 @@
 SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   template: JST["transactions/index"],
+  events: {
+    "click .add-trans" : "createTransaction"
+  },
 
   initialize: function(options){
     this.listenTo(this.collection, "add sync", this.render);
@@ -19,6 +22,12 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
 
   addTransactions: function(){
       this.collection.forEach(this.addTransaction.bind(this))
+  },
+  createTransaction: function(){
+    var transaction = new SixthCents.Models.Transaction();
+    var formView = new SixthCents.Views.TransactionFormView({ model: transaction, collection: this.collection, accounts: this.accounts, id: "" })
+
+    this.addSubview(".modal-window", formView);
   }
 
 })

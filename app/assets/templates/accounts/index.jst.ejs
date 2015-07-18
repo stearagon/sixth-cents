@@ -37,7 +37,7 @@
   <section class="assets-debts">
     Assets: $ <%= (accounts.cash() + accounts.investments() + accounts.property()).toLocaleString() %><br>
     Debt: $ <%= (accounts.loans() + accounts.credit()).toLocaleString() %><br>
-    Net Worth: $ <%= (accounts.cash() + accounts.investments() + accounts.property() - accounts.loans() - accounts.credit()).toLocaleString() %>
+    Net Worth: $ <%= (accounts.cash() + accounts.investments() + accounts.property() + accounts.loans() + accounts.credit()).toLocaleString() %>
   </section><br>
 
   <section class="cash-credit">
@@ -57,7 +57,11 @@
       <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]%>
 
       <% if (this.collection.length > 0) { %>
-      <%   incomeAndSpend = this.collection.first().transactions_time(firstDay, lastDay) %>
+        <% this.collection.each(function(account){ %>
+          <% var newIncomeAndSpend = account.transactions_time(firstDay, lastDay) %>
+          <% incomeAndSpend.income += newIncomeAndSpend.income %>
+          <% incomeAndSpend.spend += newIncomeAndSpend.spend %>
+        <% }) %>
       <% } %>
 
 
@@ -65,7 +69,7 @@
       Income: <%= incomeAndSpend.income %>
       Spend: <%= incomeAndSpend.spend %>
       <br>
-      <% currDate.setMonth(currDate.getMonth() - i) %>
+      <% currDate.setMonth(currDate.getMonth() - 1) %>
     <% } %>
 
   </section>

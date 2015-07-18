@@ -11,7 +11,7 @@
 #
 
 class Account < ActiveRecord::Base
-  validates :user_id, :institution_id, :account_type, presence: true
+  validates :user_id, :institution_id, :account_type, :identifier, presence: true
   validates :institution, :user, presence: true
   validates :account_type, inclusion: { in: ["Checking",
                                               "Savings",
@@ -25,7 +25,7 @@ class Account < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :accounts
   belongs_to :institution, inverse_of: :accounts
-  has_many :transactions, inverse_of: :account
+  has_many :transactions, inverse_of: :account, dependent: :destroy
 
   def amount
     result = 0

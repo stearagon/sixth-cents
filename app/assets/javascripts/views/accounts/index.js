@@ -5,7 +5,9 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     "click .edit-accounts" : "editAccount"
   },
   initialize: function(options){
+    this.institutions = options.institutions;
     this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.institutions, "sync add", this.render)
   },
 
   render: function(){
