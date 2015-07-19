@@ -41,9 +41,41 @@
   </section><br>
 
   <section class="cash-credit">
+    <div id="cash-credit" style="width:100%; height:200px;"></div>
+        <script type="text/javascript">
+            $(function () {
+              Highcharts.setOptions({
+                  colors: ['#A58DC7', '#50B432', '#ED561B']
+              });
+
+              $('#cash-credit').highcharts({
+              chart: {
+                  type: 'bar'
+              },
+              title: {
+                  text: 'Cash vs. Credit Card Debt'
+              },
+              xAxis: {
+                  categories: ['Cash', 'Debt', 'Net']
+              },
+              yAxis: {
+                  title: {
+                    text: null
+                  }
+              },
+              legend: {
+                  enabled: false
+              },
+              series: [{
+                  data: [{y: <%= (accounts.cash()) %>, color: "green"}, {y:<%= -(accounts.credit())%>, color: "red"},{y: <%= (((accounts.cash()) + (accounts.credit())) > 0) ? (((accounts.cash()) + (accounts.credit()))) : -(((accounts.cash()) + (accounts.credit()))) %> , color: "<%= (((accounts.cash()) + (accounts.credit())) > 0) ? "green" : "red" %>" } ]
+              }]
+          });
+        });
+    </script>
+
     <h3>Cash vs Credit Card Debt</h3>
     Cash: $ <%= (accounts.cash()).toLocaleString() %><br>
-    Debt: $ <%= (accounts.credit())%><br>
+    Debt: $ <%= (accounts.credit()).toLocaleString()%><br>
   </section>
 
   <section class="six-month-net-income">
