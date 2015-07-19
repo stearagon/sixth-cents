@@ -5,6 +5,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
   },
   events: {
     "click button.add-account" : "newAccount",
+    "click .close-edit" : "close"
   },
   render: function(){
     var content = this.template({ accounts: this.collection })
@@ -18,10 +19,14 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
   newAccount: function() {
     var account = new SixthCents.Models.Account();
     var formView = new SixthCents.Views.FormView({ model: account, collection: this.accounts })
-    debugger
-    $(".edit-accounts-window").html("");
-    this.addSubview(".edit-accounts-window", formView);
 
+    $(".edit-accounts-window").addClass("display-none");
+    this.addSubview(".edit-window", formView);
+
+  },
+  close: function(){
+    event.preventDefault();
+    this.remove();
   },
 
   addInstitutionView: function(account, el){
@@ -42,7 +47,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
         $(".edit-accounts-window").append(newInst)
       }
       var addToEl = "." + account.institutionHyphen()
-      debugger
+
 
       that.addInstitutionView(account, addToEl)
     })

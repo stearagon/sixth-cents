@@ -15,6 +15,7 @@ gem 'newrelic_rpm'
 gem 'sprockets', '~> 3.2.0'
 gem 'rename'
 gem 'kaminari'
+gem 'chartkick'
 
 group :test do
   gem 'annotate'

@@ -78,6 +78,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   close: function(){
     event.preventDefault();
     this.remove();
+    $(".edit-accounts-window").removeClass("display-none");
   },
 
   customInput: function(event){
