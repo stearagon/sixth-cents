@@ -1,10 +1,12 @@
 SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
   template: JST["accounts/index"],
+  className: 'group',
   events: {
     "click .edit-accounts" : "editAccounts"
   },
   initialize: function(options){
     this.institutions = options.institutions;
+    this.bills = options.bills;
     this.listenTo(this.collection, "sync destroy", this.render);
     this.listenTo(this.institutions, "sync add", this.render)
   },
@@ -14,6 +16,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     this.$el.html(content);
 
     this.addAccounts();
+    this.addBillsView();
 
     return this;
   },
@@ -34,9 +37,15 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
 
   editAccounts: function(event) {
     event.preventDefault();
-    var formView = new SixthCents.Views.EditAccountsView({ accounts: this.collection })
+    var formView = new SixthCents.Views.EditAccountsView({ accounts: this.collection });
 
     this.addSubview(".modal-window", formView);
 
+  },
+  addBillsView: function(){
+
+    var billsView = new SixthCents.Views.BillsView({ collection: this.bills, accounts: this.collection });
+
+    this.addSubview(".bills", billsView)
   }
 })

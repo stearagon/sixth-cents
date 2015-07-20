@@ -27,6 +27,7 @@ class Account < ActiveRecord::Base
   belongs_to :user, inverse_of: :accounts
   belongs_to :institution, inverse_of: :accounts
   has_many :transactions, inverse_of: :account, dependent: :destroy
+  has_many :bills, inverse_of: :account
 
   def amount
     result = 0

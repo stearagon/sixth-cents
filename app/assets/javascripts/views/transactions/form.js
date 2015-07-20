@@ -1,5 +1,6 @@
 SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
   template: JST["transactions/form"],
+  tagName: "form",
   events: {
     "click .create-transaction" : "submit",
     "click .cancel-form" : "cancel"
@@ -34,11 +35,11 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     this.accounts = options.accounts;
     this.account_id = options.id;
   },
-  tagName: "form",
   render: function(){
     var content = this.template({ model: this.model, categories: this.categoryNames, accounts: this.accounts, id: this.account_id });
 
     this.$el.html(content);
+    this.$el.addClass("transaction-form")
 
     return this;
   },

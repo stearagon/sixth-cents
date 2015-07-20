@@ -94,6 +94,10 @@ body {
   padding: 20px;
 }
 
+.main-logo {
+    text-decoration: none;
+}
+
 .top-bar ul {
   padding: 29px;
 }
@@ -113,6 +117,7 @@ body {
 
 .logging-links {
   float: right;
+  padding: 25px;
 }
 
 .logout-button button {
@@ -120,7 +125,9 @@ body {
 }
 
 .logging-links a {
-  font-size: 20px;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 5px;
 }
 
 .top-container {
@@ -162,9 +169,8 @@ body {
   font-size: 12px;
 }
 
-.alerts, .budgets, .bills, .goals {
+.alerts, .budgets, .goals {
   margin-bottom: 100px;
-  width: 600px;
 }
 
 .modal-window {
@@ -214,8 +220,13 @@ body {
   width: 75%;
 }
 
+  .main-window {
+    float: right;
+  }
+
 .main-window section {
   padding: 20px;
+  width: 600px;
 }
 
 .account-summary-head {
@@ -316,4 +327,17 @@ body {
   color: #fff;
   background: #87CEFA;
   margin: auto;
+}
+
+.transaction-form {
+  border: 1px solid #000;
+  border-radius: 5%;
+  background: #fff;
+  padding: 5px;
+}
+
+.login-signup {
+  margin: 0 auto;
+  background: #fff;
+  text-align: center;
 }

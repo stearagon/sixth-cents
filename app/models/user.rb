@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :institutions, through: :accounts, source: :institution
   has_many :budgets, inverse_of: :user, dependent: :destroy
   has_many :budget_instructions, inverse_of: :user, dependent: :destroy
+  has_many :bills, through: :accounts, source: :bills;
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)

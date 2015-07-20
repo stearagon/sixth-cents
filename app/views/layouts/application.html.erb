@@ -20,8 +20,8 @@
   </div>
   <% end %>
   <div class="top-bar-container group">
-    <div class="top-bar">
-      <a href="#" class="main-logo">Sixth Cents</a>
+    <div class="top-bar group">
+      <a href="#" class="main-logo">sixth cents</a>
       <% if logged_in? %>
         <ul class="right-nav group">
           <li><a href="#/">Overview</a></li>
@@ -33,7 +33,8 @@
     </div>
     <% else %>
       <div class="logging-links">
-        <a href="<%=  new_session_url %>">Login</a>
+        <a href="<%=  new_session_url %>">Log In</a>
+        |
         <a href="<%=  new_user_url %>">Sign Up!</a>
       </div>
     <% end %>

@@ -11,4 +11,8 @@
 #
 
 class Bill < ActiveRecord::Base
+  validates :amount, :bill_date, :account_id, presence: true
+
+  belongs_to :account, inverse_of: :bills
+  has_one :user, through: :account, source: :user
 end

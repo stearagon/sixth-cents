@@ -12,11 +12,13 @@ window.SixthCents = {
     var transactions = SixthCents.Collections.transactions;
     var budgets = SixthCents.Collections.budgets
     var budgetInstructions = SixthCents.Collections.budgetInstructions
+    var bills = SixthCents.Collections.bills
     institutions.fetch();
     transactions.fetch();
     budgets.fetch();
     budgetInstructions.fetch();
     accounts.fetch();
+    bills.fetch();
 
     new SixthCents.Routers.Router({
       accounts: accounts,
@@ -25,7 +27,8 @@ window.SixthCents = {
       institutions: institutions,
       transactions: transactions,
       budgets: budgets,
-      budgetInstructions: budgetInstructions
+      budgetInstructions: budgetInstructions,
+      bills: bills
     });
 
     Backbone.history.start();
