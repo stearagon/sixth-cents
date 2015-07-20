@@ -4,6 +4,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
     this.accounts = options.accounts;
     this.listenTo(this.accounts, "destroy sync", this.render)
   },
+  className: "group",
   events: {
     "click button.add-account" : "newAccount",
     "click .close-edit" : "close"
@@ -27,6 +28,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
   },
   close: function(){
     event.preventDefault();
+    $("body").css({ overflow: "scroll"});
     this.remove();
   },
 
@@ -44,7 +46,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
         var newInst = $("<div>")
         newInst.addClass(account.institutionHyphen())
         newInst.addClass("sub-account-window")
-        newInst.append("<h1>" + account.institution().get("name") + "</h1>")
+        newInst.append("<h2>" + account.institution().get("name") + "</h2>")
         $(".edit-accounts-window").append(newInst)
       }
       var addToEl = "." + account.institutionHyphen()

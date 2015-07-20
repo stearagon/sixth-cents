@@ -4,6 +4,14 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
   comparator: function(transaction){
     return transaction.get("transaction_date")
   },
+
+  sum: function(){
+    var sum = 0;
+    this.each(function(transaction){
+      sum += parseInt(transaction.get("amount"));
+    })
+    return sum;
+  },
   getOrFetch: function(id){
     var transaction = this.get(id);
     var that = this;
@@ -35,12 +43,12 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
         if (transaction.get("category") === "Income") {
           income += parseInt(transaction.get("amount"));
         } else if (transaction.get("category") !== "Repay Debt"){
-          
+
           spend += parseInt(transaction.get("amount"));
         };
       }
     })
-    
+
 
     return { income: income, spend: spend }
   }

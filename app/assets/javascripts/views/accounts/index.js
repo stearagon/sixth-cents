@@ -38,7 +38,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
   editAccounts: function(event) {
     event.preventDefault();
     var formView = new SixthCents.Views.EditAccountsView({ accounts: this.collection });
-
+    $("body").css({ overflow: "hidden"});
     this.addSubview(".modal-window", formView);
 
   },

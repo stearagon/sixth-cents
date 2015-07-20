@@ -44,6 +44,7 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     return this;
   },
   submit: function(event){
+
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
 
@@ -56,6 +57,7 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
         this.collection.sort();
         Backbone.history.navigate("/accounts/" + this.account_id, { trigger: true })
         this.remove();
+        $("body").css({ overflow: "scroll"});
       }.bind(this),
       error: function(){
       }
@@ -64,5 +66,6 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
   cancel: function(){
     event.preventDefault();
     this.remove();
+    $("body").css({ overflow: "scroll"});
   }
 })

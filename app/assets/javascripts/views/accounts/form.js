@@ -78,6 +78,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   close: function(){
     event.preventDefault();
     this.remove();
+    $("body").css({ overflow: "scroll"});
     $(".edit-accounts-window").removeClass("display-none");
   },
 

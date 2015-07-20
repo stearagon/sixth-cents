@@ -191,40 +191,58 @@ body {
   display: block;
 }
 
+.budgets-calendar {
+  display:block;
+  width: 900px;
+  margin-left: 200px;
+  padding-bottom: 20px;
+}
+
+.add-budget{
+    display: block;
+}
+
+.bills {
+  padding: 20px 0px;
+}
+
 .income {
   display:block;
-  background: purple;
+  width: 900px;
+  height: 100px;
+}
+
+.spend {
+  display:block;
   width: 900px;
   height: 100px;
 }
 
 .income-sidebar {
   float: left;
-  width: 25%;
+  width: 200px;
 }
 .income-main {
-  float: right;
-  width: 75%;
+  float: left;
+  width: 700px;
 }
 
-.budgets-calendar {
-  margin-left: 250px;
-}
 
 .spends-sidebar {
   float: left;
-  width: 25%;
+  width: 200px;
 }
 .spends-main {
-  float: right;
-  width: 75%;
+  float: left;
+  width: 700px;
 }
 
-  .main-window {
-    float: right;
-  }
+.main-window {
+  float: left;
+  padding: 20px;
+}
 
-.main-window section {
+.main-window {
   padding: 20px;
   width: 600px;
 }
@@ -271,16 +289,24 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
+.edit-accounts-header {
+  border: 1px solid #eee;
+  border-radius: 5%;
+  position: relative;
+  background: #fff;
+}
+
+.edit-accounts-header h1 {
+  padding: 5px;
+  text-align: center;
+  font-size: 24px;
+}
+
 .edit-window {
   border: 1px solid #eee;
   border-radius: 5%;
   position: relative;
-}
-
-.edit-window h1 {
-  padding: 5px;
-  text-align: center;
-  font-size: 24px;
+  background: #fff;
 }
 
 
@@ -292,9 +318,11 @@ body {
   list-style: none;
 }
 
-.sub-account-window h1 {
+.sub-account-window  h2 {
   margin: 5px;
   font-size: 24px;
+  display: block;
+  float: none;
 }
 
 .sub-account-window li {
@@ -340,4 +368,24 @@ body {
   margin: 0 auto;
   background: #fff;
   text-align: center;
+}
+
+.modal-window h1 {
+  float: left;
+  font-size: 20px;
+}
+
+.modal-window a {
+  float: right;
+  font-size: 20px;
+}
+
+.budget-form {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5%;
+}
+
+.add-bill-form {
+  background: #fff;
 }

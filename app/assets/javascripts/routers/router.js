@@ -50,6 +50,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   budgetsIndex: function(){
     this.budgets.fetch();
     this.budgetInstructions.fetch();
+    this.transactions.fetch();
 
     var budgetsIndexView = new SixthCents.Views.BudgetsIndex({ collection: this.budgets, budgetInstructions: this.budgetInstructions , transactions: this.transactions });
 

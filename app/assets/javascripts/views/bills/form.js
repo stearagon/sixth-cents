@@ -1,6 +1,7 @@
 SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
   template: JST["bills/form"],
   tagName: "form",
+  className: "add-bill-form",
   events: {
     "click .submit-bill" : "create",
     "click .cancel-form" : "cancel"
@@ -9,7 +10,7 @@ SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
     this.accounts = options.accounts;
   },
   render: function(){
-    
+
     var content = this.template({ bill: this.model, bills: this.collection, accounts: this.accounts });
 
     this.$el.html(content);
@@ -17,7 +18,7 @@ SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
     return this;
   },
   create: function(event){
-    
+
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var that = this;
@@ -29,10 +30,12 @@ SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
       that.collection.add(that.model)
       Backbone.history.navigate("#", { trigger: true })
       that.remove();
+      $("body").css({ overflow: "scroll"});
     }})
   },
   cancel: function(event){
     event.preventDefault();
+    $("body").css({ overflow: "scroll"});
     this.remove();
   }
 })

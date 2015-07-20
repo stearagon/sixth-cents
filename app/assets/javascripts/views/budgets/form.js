@@ -7,6 +7,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
     "change input[id=once]" : "onceInput",
     "change input[id=monthly]" : "monthlyInput"
   },
+  className: "budget-form",
   categoryNames: [
     "Auto Transport",
     "Bills & Utilities",
@@ -71,6 +72,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
           this.collection.add(this.model, { merge: true });
           Backbone.history.navigate("#/budgets", { trigger: true })
           this.remove();
+          $("body").css({ overflow: "scroll"});
         }.bind(this),
         error: function(){
         }
@@ -79,6 +81,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
   cancel: function(){
     event.preventDefault();
     this.remove();
+    $("body").css({ overflow: "scroll"});
   },
 
   monthsInput: function(event){
