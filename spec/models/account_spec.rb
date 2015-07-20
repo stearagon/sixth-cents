@@ -8,6 +8,7 @@
 #  account_type   :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  identifier     :string
 #
 
 require 'rails_helper'

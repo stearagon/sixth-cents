@@ -16,6 +16,15 @@ class Api::AccountsController < ApplicationController
     end
   end
 
+  def destroy
+    @account = current_user.accounts.find_by_id(params[:id])
+
+    @account.destroy
+
+    render json: @account
+
+  end
+
   def show
     @account = Account.includes(:institution).find(params[:id])
 

@@ -172,8 +172,9 @@ body {
   left: 45%;
   right: 45%;
   width: 250px;
-  top: 80px;
-  background: red;
+  top: 20%;
+  height: 50%;
+  overflow:scroll;
 }
 
 .display-none {
@@ -257,4 +258,62 @@ body {
   font-weight: bold;
   padding-top: 10px;
   border-bottom: 1px solid #ccc;
+}
+
+.edit-window {
+  border: 1px solid #eee;
+  border-radius: 5%;
+  position: relative;
+}
+
+.edit-window h1 {
+  padding: 5px;
+  text-align: center;
+  font-size: 24px;
+}
+
+
+.sub-account-window {
+  border: 1px solid #eee;
+  margin: 5px;
+  border-radius: 5%;
+  background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+  list-style: none;
+}
+
+.sub-account-window h1 {
+  margin: 5px;
+  font-size: 24px;
+}
+
+.sub-account-window li {
+  margin: 5px;
+  display: block;
+  border-bottom: 1px solid #000;
+}
+
+.sub-account-window:last-child {
+  border-bottom: none;
+}
+
+.sub-account-window .acct-type {
+  float: left;
+}
+
+.sub-account-window .acct-amount {
+  float: right;
+}
+
+.sub-account-window button {
+  background: red;
+  border-radius: 50%;
+}
+
+.add-account {
+  width: 80%;
+  padding: 5px;
+  left: 20%;
+  color: #fff;
+  background: #87CEFA;
+  margin: auto;
 }

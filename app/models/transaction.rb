@@ -7,7 +7,7 @@
 #  amount           :integer          not null
 #  description      :text             not null
 #  transaction_date :date             not null
-#  notes            :text             not null
+#  notes            :text
 #  category         :string           not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

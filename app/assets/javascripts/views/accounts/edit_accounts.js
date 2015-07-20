@@ -2,6 +2,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
   template: JST["accounts/edit_accounts"],
   initialize: function(options){
     this.accounts = options.accounts;
+    this.listenTo(this.accounts, "destroy sync", this.render)
   },
   events: {
     "click button.add-account" : "newAccount",
