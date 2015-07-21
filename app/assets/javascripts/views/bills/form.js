@@ -30,12 +30,14 @@ SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
       that.collection.add(that.model)
       Backbone.history.navigate("#", { trigger: true })
       that.remove();
+      $(".modal-window").addClass("display-none");
       $("body").css({ overflow: "scroll"});
     }})
   },
   cancel: function(event){
     event.preventDefault();
     $("body").css({ overflow: "scroll"});
+    $(".modal-window").addClass("display-none");
     this.remove();
   }
 })

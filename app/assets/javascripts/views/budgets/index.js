@@ -19,6 +19,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
 
   createBudget: function(){
     $("body").css({ overflow: "hidden"});
+    $(".modal-window").removeClass("display-none");
     var budget = new SixthCents.Models.BudgetInstruction();
     var formView = new SixthCents.Views.BudgetFormView({ model: budget,
       collection: this.collection, budgetInstructions: this.budgetInstructions})

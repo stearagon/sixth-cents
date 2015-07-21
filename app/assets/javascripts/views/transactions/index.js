@@ -25,6 +25,7 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   },
   createTransaction: function(){
     $("body").css({ overflow: "hidden"});
+    $(".modal-window").removeClass("display-none");
     var transaction = new SixthCents.Models.Transaction();
     var formView = new SixthCents.Views.TransactionFormView({ model: transaction, collection: this.collection, accounts: this.accounts, id: "" })
 

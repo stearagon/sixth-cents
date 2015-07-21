@@ -294,6 +294,7 @@ body {
   border-radius: 5%;
   position: relative;
   background: #fff;
+  padding: 20px;
 }
 
 .edit-accounts-header h1 {

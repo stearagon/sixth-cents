@@ -58,6 +58,7 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
         Backbone.history.navigate("/accounts/" + this.account_id, { trigger: true })
         this.remove();
         $("body").css({ overflow: "scroll"});
+        $(".modal-window").addClass("display-none");
       }.bind(this),
       error: function(){
       }
@@ -67,5 +68,6 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     event.preventDefault();
     this.remove();
     $("body").css({ overflow: "scroll"});
+    $(".modal-window").addClass("display-none");
   }
 })

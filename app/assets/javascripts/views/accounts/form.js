@@ -48,6 +48,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
               success: function(){
                 that.collection.add(that.model, { merge: true, parse: true });
                 Backbone.history.navigate("", { trigger: true })
+                $("body").css({ overflow: "scroll"});
                 return
               },
               error: function(){
@@ -66,6 +67,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
         success: function(){
           that.collection.add(that.model, { merge: true, parse: true });
           Backbone.history.navigate("", { trigger: true })
+          $("body").css({ overflow: "scroll"});
         },
         error: function(){
           //show error on new form
@@ -80,6 +82,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
     this.remove();
     $("body").css({ overflow: "scroll"});
     $(".edit-accounts-window").removeClass("display-none");
+    $(".modal-window").addClass("display-none");
   },
 
   customInput: function(event){

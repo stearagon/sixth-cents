@@ -33,6 +33,7 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
   },
   newBill: function(event){
     event.preventDefault();
+    $(".modal-window").removeClass("display-none");
     $("body").css({ overflow: "hidden"});
     var bill = new SixthCents.Models.Bill();
     var billFormView = new SixthCents.Views.BillFormView({ model: bill, collection: this.collection, accounts: this.accounts });

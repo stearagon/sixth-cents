@@ -72,6 +72,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
           this.collection.add(this.model, { merge: true });
           Backbone.history.navigate("#/budgets", { trigger: true })
           this.remove();
+          $(".modal-window").addClass("display-none");
           $("body").css({ overflow: "scroll"});
         }.bind(this),
         error: function(){
@@ -81,6 +82,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
   cancel: function(){
     event.preventDefault();
     this.remove();
+    $(".modal-window").addClass("display-none");
     $("body").css({ overflow: "scroll"});
   },
 
