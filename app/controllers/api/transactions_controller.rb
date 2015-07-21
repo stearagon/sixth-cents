@@ -3,7 +3,7 @@ class Api::TransactionsController < ApplicationController
 
   def index
     @transactions = current_user.transactions #.find_by_account_id(params[:id])
-    render json: @transactions
+    render :index
   end
 
   def create
@@ -21,7 +21,7 @@ class Api::TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
 
     if @transaction
-      render json: @transaction
+      render :show
     else
       render json: @transaction.errors.full_messages, status: :unprocessable_entity
     end

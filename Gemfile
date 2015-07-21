@@ -16,6 +16,7 @@ gem 'sprockets', '~> 3.2.0'
 gem 'rename'
 gem 'kaminari'
 gem 'chartkick'
+gem 'faker'
 
 group :test do
   gem 'annotate'

@@ -81,6 +81,12 @@ body {
  cursor: pointer;
 }
 
+.guest-login  {
+  height: 20px;
+  padding: 0;
+  margin: 0;
+}
+
 .top-bar-container {
   background: #ccc;
 }

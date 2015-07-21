@@ -28,29 +28,72 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   },
 
   addBudget: function(budget){
-    spendTotal = 0;
-    var spending = this.transactions.where({category: budget.get("category")});
-    if (spending.length > 0){
+    var currDate = new Date()
+    var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth(), currDate.getDate())
+    var y = currDate.getFullYear(), m = (currDate.getMonth())
+    var firstDay = new Date(y, m, 0)
+    var lastDay = new Date(y, m + 1, 0)
+    var incomeAndSpend = { income: 0, spend: 0 }
 
-      spending.forEach(function(transaction){
-        spendTotal += -parseInt(transaction.get("amount"))
-      })
-    }
+    var date1 = Date.parse(firstDay)
+    var date2 = Date.parse(lastDay)
+
+    spendTotal = 0;
+
+    this.transactions.each(function(transaction){
+      var tdate = Date.parse(transaction.get("transaction_date"))
+      if(tdate >= date1 && tdate < date2){
+        if(transaction.get("category") === budget.get("category")){
+          spendTotal += parseInt(transaction.get("amount"))
+        }
+      }
+    })
+
+    spendTotal = parseInt(spendTotal) * -1;
+
+    // var spending = this.transactions.where({category: budget.get("category")});
+    // if (spending.length > 0){
+    //
+    //   spending.forEach(function(transaction){
+    //     spendTotal += -parseInt(transaction.get("amount"))
+    //   })
+    // }
 
     var budgetItem = new SixthCents.Views.BudgetItem({ model: budget, total: spendTotal });
     this.addSubview(".spends-list", budgetItem);
   },
 
   addIncome: function(budget){
-    this.budgetIncome += parseInt(budget.escape("amount"))
+    var currDate = new Date()
+    var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth(), currDate.getDate())
+    var y = currDate.getFullYear(), m = (currDate.getMonth())
+    var firstDay = new Date(y, m, 0)
+    var lastDay = new Date(y, m + 1, 0)
+    var incomeAndSpend = { income: 0, spend: 0 }
+
+    var date1 = Date.parse(firstDay)
+    var date2 = Date.parse(lastDay)
+
     spendTotal = 0;
 
-    var spending = this.transactions.where({category: "Income"});
-    if (spending.length > 0){
-      spending.forEach(function(transaction){
-        spendTotal += parseInt(transaction.get("amount"))
-      })
-    }
+    this.transactions.each(function(transaction){
+      var tdate = Date.parse(transaction.get("transaction_date"))
+      if(tdate >= date1 && tdate < date2){
+        if(transaction.get("category") === budget.get("category")){
+          spendTotal += parseInt(transaction.get("amount"))
+        }
+      }
+    })
+
+    this.budgetIncome += parseInt(budget.escape("amount"))
+
+
+    // var spending = this.transactions.transactions_time.where({category: "Income"});
+    // if (spending.length > 0){
+    //   spending.forEach(function(transaction){
+    //     spendTotal += parseInt(transaction.get("amount"))
+    //   })
+    // }
 
     var budgetItem = new SixthCents.Views.BudgetItem({ model: budget, total: spendTotal });
     this.addSubview(".income-list", budgetItem);
@@ -60,8 +103,8 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     var currDate = new Date()
     var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth(), currDate.getDate())
     var y = currDate.getFullYear(), m = (currDate.getMonth())
-    var firstDay = new Date(y, m, 1)
-    var lastDay = new Date(y, m + 1, 1)
+    var firstDay = new Date(y, m, 0)
+    var lastDay = new Date(y, m + 1, 0)
     var incomeAndSpend = { income: 0, spend: 0 }
 
 
@@ -85,7 +128,6 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
           }
         })
       }
-
+    
   }
-
 })

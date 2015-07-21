@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :transactions, only: [:show, :index, :create]
     resources :budgets, only: [:show, :index, :create]
     resources :budget_instructions, only: [:show, :index, :create]
-    resources :bills, only: [:index, :show, :create, :delete]
+    resources :bills, only: [:index, :show, :create, :destroy]
   end
 end

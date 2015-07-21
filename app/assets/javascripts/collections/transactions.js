@@ -28,7 +28,7 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
     return transaction;
   },
 
-  transactions_time: function(startDate, endDate){
+  transactions_time: function(startDate, endDate, category){
     var income = 0;
     var spend = 0;
 
@@ -42,8 +42,8 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
 
         if (transaction.get("category") === "Income") {
           income += parseInt(transaction.get("amount"));
-        } else if (transaction.get("category") !== "Repay Debt"){
-
+        } else if (transaction.get("category") !== "Repay Debt" && transaction._accountType.account_type !== "Loan" &&
+           transaction._accountType.account_type !== "Investment"){
           spend += parseInt(transaction.get("amount"));
         };
       }

@@ -12,4 +12,11 @@
 
     <button>Log In</button>
   </form>
+
+  <form class="guest-login-form" action="<%= session_url %>" method="post">
+    <%= form_auth %>
+    <input type="hidden" name="user[email]" value="steve@example.com">
+    <input type="hidden" name="user[password]" value="secretss">
+    <button class="guest-login">Guest Log In</button>
+  </form>
 </div>

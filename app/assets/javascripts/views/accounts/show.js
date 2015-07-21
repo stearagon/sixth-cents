@@ -1,7 +1,8 @@
 SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
   template: JST["accounts/show"],
   events: {
-    "click .add-trans" : "createTransaction"
+    "click .add-trans" : "createTransaction",
+    "click .filter" : "filter"
   },
   initialize: function(options){
     this.listenTo(this.model, "sync", this.render);
@@ -31,6 +32,13 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
 
   addTransactions: function(){
       this.model.transactions().forEach(this.addTransaction.bind(this))
+  },
+  filter: function(event){
+    event.preventDefault();
+    Backbone.history.navigate("accounts", {trigger: true})
+    var clickTag =  $(event.currentTarget).data("value");
+    debugger
+    $("#" + clickTag).click();
   }
 
 })

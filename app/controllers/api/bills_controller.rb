@@ -26,6 +26,15 @@ class Api::BillsController < ApplicationController
     end
   end
 
+  def destroy
+    @bill = current_user.bills.find_by_id(params[:id])
+
+    @bill.destroy
+
+    render json: @bill
+
+  end
+
   private
 
   def bill_params

@@ -3,7 +3,6 @@ SixthCents.Models.Bill = Backbone.Model.extend({
   dateFormat: function(){
     var date = new Date(this.get("bill_date"));
 
-
-    return date.getMonth() + "/" + date.getDate() + "/" + (parseInt(date.getYear()) + 1900);
+    return (parseInt(date.getMonth()) + 1)  + "/" + date.getDate() + "/" + (parseInt(date.getYear()) + 1900);
   }
 });

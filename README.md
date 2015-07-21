@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: https://sixthcents.herokuapp.com/
+[heroku]: https://www.sixthcents.co/
 
 ## Minimum Viable Product
 Sixth Cents is a clone of Mint built on Rails and Backbone. Users can:
@@ -10,8 +10,9 @@ Sixth Cents is a clone of Mint built on Rails and Backbone. Users can:
 - [X] Create accounts
 - [X] Create sessions (log in)
 - [X] Create financial accounts (bank, credit card, loan, investment, etc.)
-- [ ] Create budgets
-- [ ] View a feed of financial events (upcoming bills, transactions)
+- [X] Create budgets
+- [X] View a feed of financial events (upcoming bills, transactions)
+- [ ] View trends on financial status
 - [ ] Search transactions
 - [ ] Email alerts (low balance, weekly snapshot of changes in financial condition)
 
@@ -69,7 +70,7 @@ that might require payment.
 - [ ] Pull transactions using bank api
 - [ ] Add tags to transactions
 - [ ] Create goals
-- [ ] View trends on financial status
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

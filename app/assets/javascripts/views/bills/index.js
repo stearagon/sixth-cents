@@ -2,7 +2,7 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
   template: JST["bills/index"],
   initialize: function(options){
     this.accounts = options.accounts;
-    this.listenTo(this.collection, "sync add", this.render)
+    this.listenTo(this.collection, "add destroy", this.render)
   },
   events: {
     "click .add-bill" : "newBill"
@@ -19,7 +19,9 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
   },
 
   addBills: function(){
-    this.collection.each(this.addBill.bind(this))
+    if (this.accounts.length > 0){
+      this.collection.each(this.addBill.bind(this))
+    }
   },
 
   addBill: function(bill) {
@@ -28,7 +30,7 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
     var accountInfo = account.get("account_type") + "-" + account.get("identifier")
 
 
-    var billItem = new SixthCents.Views.BillItem({ model: bill, instName: instName, accountInfo: accountInfo });
+    var billItem = new SixthCents.Views.BillItem({ model: bill, instName: instName, accountInfo: accountInfo, collection: this.collection });
     this.addSubview(".bill-list", billItem);
   },
   newBill: function(event){

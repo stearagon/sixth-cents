@@ -140,8 +140,8 @@
     <% var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth()-5, currDate.getDate()) %>
     <% for(var i = 1; i < 7; i++) {%>
       <% var y = currDate.getFullYear(), m = (currDate.getMonth()) %>
-      <% var firstDay = new Date(y, m, 1) %>
-      <% var lastDay = new Date(y, m + 1, 1) %>
+      <% var firstDay = new Date(y, m, 0) %>
+      <% var lastDay = new Date(y, m + 1, 0) %>
       <% var incomeAndSpend = { income: 0, spend: 0 } %>
       <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]%>
 
