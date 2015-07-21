@@ -1,5 +1,5 @@
 class Api::BillsController < ApplicationController
-  before_action :require_log_in
+  # before_action :require_log_in
 
   def index
     @bills = current_user.bills

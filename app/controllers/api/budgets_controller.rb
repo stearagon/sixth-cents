@@ -1,5 +1,5 @@
 class Api::BudgetsController < ApplicationController
-  before_action :require_log_in
+  # before_action :require_log_in
 
   def index
     @budgets = current_user.budgets

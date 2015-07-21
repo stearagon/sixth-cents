@@ -10,11 +10,15 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.budgetInstructions = options.budgetInstructions;
     this.bills = options.bills;
   },
+  
   routes: {
     "" : "index",
     "accounts" : "transactionsIndex",
     "accounts/:id" : "show",
-    "budgets" : "budgetsIndex"
+    "budgets" : "budgetsIndex",
+    "users/new" : "new",
+    "users/:id" : "showUser",
+    "session/new" : "signIn"
   },
 
   index: function(){
@@ -62,5 +66,70 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
+  },
+
+
+  // index: function(){
+  //   var callback = this.index.bind(this);
+  //   if (!this._requireSignedIn(callback)) { return; }
+  //
+  //   var indexView = new SixthCents.Views.UsersIndex({
+  //     collection: this.users
+  //   });
+  //   this._swapView(indexView);
+  // },
+
+  new: function(){
+    if (!this._requireSignedOut()) { return; }
+
+    var model = new this.collection.model();
+    var formView = new SixthCents.Views.UsersForm({
+      collection: this.collection,
+      model: model
+    });
+    this._swapView(formView);
+  },
+
+  showUser: function(id){
+    var callback = this.show.bind(this, id);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var model = this.collection.getOrFetch(id);
+    var showView = new SixthCents.Views.UsersShow({
+      model: model
+    });
+    this._swapView(showView);
+  },
+
+  signIn: function(callback){
+    if (!this._requireSignedOut(callback)) { return; }
+
+    var signInView = new SixthCents.Views.SignIn({
+      callback: callback
+    });
+    this._swapView(signInView);
+  },
+
+  _requireSignedIn: function(callback){
+    if (!SixthCents.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  },
+  _requireSignedOut: function(callback){
+    if (SixthCents.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
   }
 })

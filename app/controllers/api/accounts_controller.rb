@@ -1,5 +1,5 @@
 class Api::AccountsController < ApplicationController
-  before_action :require_log_in
+  # before_action :require_log_in
 
   def index
     @accounts = current_user.accounts

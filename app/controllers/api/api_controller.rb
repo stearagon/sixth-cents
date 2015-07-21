@@ -1,4 +1,4 @@
 class ApiController < ApplicationController
-  
+
 
 end
