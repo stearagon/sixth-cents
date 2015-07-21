@@ -126,7 +126,7 @@ i = 6
   end
 
   user_id = 1
-  amount = (rand(5000))
+  amount = (10000)
   BudgetInstruction.create( user_id: user_id, category: "Income", amount: amount, months: 1)
 
   account_id = 4

@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: https://www.sixthcents.co/
+[heroku]: http://www.sixthcents.co/
 
 ##User Instructions
 User can try guest account "Guest Login" Button at bottom of login page.
