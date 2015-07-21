@@ -4,6 +4,19 @@
 
 [heroku]: https://www.sixthcents.co/
 
+##User Instructions
+User can try guest account "Guest Login" Button at bottom of login page.
+
+Landing Page shows a summary of bank account amounts as well as upcoming bills.
+
+Create Accounts using the "edit accounts" link on the landing page/overview page.
+
+View transactions by account by clicking on specific account.
+
+Add upcoming bills on your landing page using the "Add Bill" button.
+
+View and create budgets using the "Budgets" link on the nav tab.
+
 ## Minimum Viable Product
 Sixth Cents is a clone of Mint built on Rails and Backbone. Users can:
 
