@@ -92,7 +92,7 @@ i = 6
     j = 0
     while j < 2
       category = "Financial"
-      amount = (rand(5000))
+      amount = -(rand(5000))
       description = "Loan"
       date = Faker::Date.backward(180)
       notes = Faker::Lorem.word
