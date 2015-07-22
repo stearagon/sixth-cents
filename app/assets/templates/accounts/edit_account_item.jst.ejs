@@ -1,2 +1,2 @@
 <div class="acct-type"><%= account.escape("account_type") %></div>
-<div class="acct-amount">$ <%= account.amount %> <button class="delete-account" data-id="<%= account.escape("id") %>">-</button></div>
+<div class="acct-amount">$ <%= parseInt(account.amount).toLocaleString() %> <button class="delete-account" data-id="<%= account.escape("id") %>">-</button></div>

@@ -21,8 +21,8 @@ SixthCents.Views.EditAccountItem = Backbone.CompositeView.extend({
 
     var id = $(event.currentTarget).data("id");
     var account = this.collection.getOrFetch(id);
-    account.destroy()
+    account.destroy();
     $("body").css({ overflow: "scroll"});
-    $(".modal-window").addClass("display-none");
+    
   }
 })

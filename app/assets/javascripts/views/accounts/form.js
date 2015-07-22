@@ -24,8 +24,8 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
                                   types: this.typesOfAccounts });
 
     this.$el.html(content);
-
     return this;
+
   },
 
   submit: function(event){
@@ -47,8 +47,11 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
             that.model.save({}, {
               success: function(){
                 that.collection.add(that.model, { merge: true, parse: true });
-                Backbone.history.navigate("", { trigger: true })
-                $("body").css({ overflow: "scroll"});
+                // $("body").css({ overflow: "scroll"});
+                $(".edit-accounts-window").removeClass("display-none");
+                $(".edit-accounts-window-list").removeClass("display-none");
+                $(".close-edit").removeClass("display-none");
+                $(".edit-window").removeClass("display-none")
                 return
               },
               error: function(){
@@ -66,8 +69,11 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
       that.model.save({}, {
         success: function(){
           that.collection.add(that.model, { merge: true, parse: true });
-          Backbone.history.navigate("", { trigger: true })
-          $("body").css({ overflow: "scroll"});
+          // $("body").css({ overflow: "scroll"});
+          $(".edit-accounts-window").removeClass("display-none");
+          $(".edit-accounts-window-list").removeClass("display-none");
+          $(".close-edit").removeClass("display-none");
+          $(".edit-window").removeClass("display-none")
         },
         error: function(){
           //show error on new form
@@ -80,9 +86,12 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   close: function(){
     event.preventDefault();
     this.remove();
-    $("body").css({ overflow: "scroll"});
+    // $("body").css({ overflow: "scroll"});
     $(".edit-accounts-window").removeClass("display-none");
-    $(".modal-window").addClass("display-none");
+    $(".edit-accounts-window-list").removeClass("display-none");
+    $(".close-edit").removeClass("display-none");
+    $(".edit-window").removeClass("display-none");
+    // $(".modal-window").addClass("display-none");
   },
 
   customInput: function(event){

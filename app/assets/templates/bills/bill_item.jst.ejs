@@ -1,5 +1,5 @@
 
-  <td><%= bill.dateFormat() %></td>
-  <td><%= instName %> <%= accountInfo %></td>
-  <td>$<%= parseInt(bill.escape("amount")).toLocaleString() %></td>
-  <td><button class="delete-bill" data-id="<%= bill.escape("id") %>">Delete</button></td>
+  <div class="bill-date"><%= bill.dateFormat() %></div>
+  <div class="bill-account"><%= instName %> <%= accountInfo %></div>
+  <div class="bill-amount">$<%= parseInt(bill.escape("amount")).toLocaleString() %></div>
+  <button class="delete-bill" data-id="<%= bill.escape("id") %>">-</button>

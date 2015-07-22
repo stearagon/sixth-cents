@@ -1,21 +1,42 @@
 
-<h1>Sixth Cents</h1>
 
 <% if(SixthCents.currentUser.isSignedIn()) { %>
 
-  <p>
-    Signed in as:
-    <a href="#"><%= SixthCents.currentUser.escape("name") %></a> |
-    <a href="#" id="sign-out-link">Sign Out</a>
-  </p>
+  <div id="header-top" class="group">
+    <div class="header-top-container">
+      <div class="logged-in-header">
+        <p>
+          Signed in as:
+          <a href="#" class="non-link"><%= SixthCents.currentUser.escape("name") %></a> |
+          <a href="#" id="sign-out-link">Sign Out</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-bottom-container">
+    <div id="header-bottom" class="group">
+        <a href="#" class="main-logo">sixth cents</a>
+          <ul class="right-nav group">
+            <li><a href="#/">Overview</a></li>
+            <li><a href="#/accounts">Transactions</a></li>
+            <li><a href="#/budgets">Budgets</a></li>
+            <li><a href="#">Trends</a></li>
+          </ul>
+    </div>
+  </div>
+
 
 <% } else { %>
 
-  <p>
-    <a href="#users/new">Sign Up</a> |
-    <a href="#session/new">Sign In</a>
-  </p>
+  <div id="header-top" class="group">
+    <h1><a href="#">Sixth Cents</a></h1>
+
+    <div class="sign-in">
+      <a href="#users/new">Sign Up</a> |
+      <a href="#session/new">Sign In</a>
+    <div>
+
+  </div>
 
 <% } %>
-
-<hr>

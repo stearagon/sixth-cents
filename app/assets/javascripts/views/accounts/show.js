@@ -37,7 +37,7 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
     event.preventDefault();
     Backbone.history.navigate("accounts", {trigger: true})
     var clickTag =  $(event.currentTarget).data("value");
-    debugger
+    
     $("#" + clickTag).click();
   }
 

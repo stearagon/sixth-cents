@@ -32,12 +32,14 @@ SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
       that.remove();
       $(".modal-window").addClass("display-none");
       $("body").css({ overflow: "scroll"});
+      $(".modal-window").removeClass("add-bill");
     }})
   },
   cancel: function(event){
     event.preventDefault();
     $("body").css({ overflow: "scroll"});
     $(".modal-window").addClass("display-none");
+    $(".modal-window").removeClass("add-bill");
     this.remove();
   }
 })

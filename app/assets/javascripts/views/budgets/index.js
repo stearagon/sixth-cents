@@ -3,7 +3,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   events: {
     "click .add-budget" : "createBudget"
   },
-  className: "group",
+  className: "budget-index group",
   initialize: function(options){
     this.budgetInstructions = options.budgetInstructions;
     this.transactions = options.transactions;
@@ -128,6 +128,6 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
           }
         })
       }
-    
+
   }
 })

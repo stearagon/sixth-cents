@@ -1,2 +1,5 @@
-<a href="/#accounts/<%= account.get("id") %>" class="account-link" data-id="<%= account.get("id") %>"><%= account.institution().escape("name") %> - <%= account.escape("account_type") %>(<%= account.escape("identifier") %>)</a>
-<p>$<%= account.amount %></p>
+<a href="/#accounts/<%= account.get("id") %>" class="account-link" data-id="<%= account.get("id") %>">
+<div class="left-side-acct"><%= account.institution().escape("name") %>
+<br><a class="account-list-type"><%= account.escape("account_type") %>(<%= account.escape("identifier") %>)</a>
+</div>
+<p>$<%= parseInt(account.amount).toLocaleString() %></p></a>

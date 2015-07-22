@@ -1,8 +1,10 @@
-SixthCents.Views.UsersForm = Backbone.View.extend({
+SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.listenTo(this.model, "sync change", this.render);
   },
+
+  className: "sign-up-form",
 
   template: JST['users/form'],
 
@@ -28,7 +30,7 @@ SixthCents.Views.UsersForm = Backbone.View.extend({
     this.model.save({}, {
       success: function(){
         SixthCents.currentUser.fetch();
-        that.collection.add(that.model, { merge: true });
+        // that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("", { trigger: true });
       },
       error: function(data){

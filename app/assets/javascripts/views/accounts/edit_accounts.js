@@ -4,9 +4,8 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
     this.accounts = options.accounts;
     this.listenTo(this.accounts, "destroy sync", this.render)
   },
-  className: "group",
   events: {
-    "click button.add-account" : "newAccount",
+    "click .add-account" : "newAccount",
     "click .close-edit" : "close"
   },
   render: function(){
@@ -19,15 +18,19 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
     return this;
   },
   newAccount: function() {
+    $(".edit-accounts-window").addClass("display-none");
+    $(".edit-accounts-window-list").addClass("display-none");
+    $(".close-edit").addClass("display-none");
     var account = new SixthCents.Models.Account();
     var formView = new SixthCents.Views.FormView({ model: account, collection: this.accounts })
-    $(".edit-accounts-window").addClass("display-none");
-    this.addSubview(".edit-window", formView);
+    this.addSubview(".all-edit-accounts", formView);
 
   },
   close: function(){
+    
     event.preventDefault();
     $("body").css({ overflow: "scroll"});
+    $(".modal-window").removeClass("edit-accounts");
     $(".modal-window").addClass("display-none");
     this.remove();
   },
@@ -42,12 +45,12 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
   addInstitutionViews: function() {
     var that = this;
     this.accounts.each(function(account){
-      if($(".edit-accounts-window").find("." + account.institutionHyphen()).length === 0) {
+      if($(".edit-accounts-window-list").find("." + account.institutionHyphen()).length === 0) {
         var newInst = $("<div>")
         newInst.addClass(account.institutionHyphen())
         newInst.addClass("sub-account-window")
         newInst.append("<h2>" + account.institution().get("name") + "</h2>")
-        $(".edit-accounts-window").append(newInst)
+        $(".edit-accounts-window-list").append(newInst)
       }
       var addToEl = "." + account.institutionHyphen()
 

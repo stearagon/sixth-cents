@@ -1,32 +1,38 @@
 
-<h2>Sign Up</h2>
+<h2>Create a new account</h2>
 
 <form>
 
-  <label>
-    Name
-    <input type="text" name="user[name]"
-           value="<%= user.escape("name") %>">
-  </label>
+  <div class="sign-up-field">
+    <label>
+      Your Name<br>
+      <input type="text" name="user[name]"
+             value="<%= user.escape("name") %>">
+    </label>
+  </div>
 
   <br>
 
-  <label>
-    Email
-    <input type="email" name="user[email]"
-           value="<%= user.escape("email") %>">
-  </label>
+  <div class="sign-up-field">
+    <label>
+      Your Email<br>
+      <input type="email" name="user[email]"
+             value="<%= user.escape("email") %>">
+    </label>
+  </div>
 
   <br>
 
-  <label>
-    Password
-    <input type="password" name="user[password]"
-           value="<%= user.escape("password") %>">
-  </label>
+  <div class="sign-up-field">
+    <label>
+      Password<br>
+      <input type="password" name="user[password]"
+             value="<%= user.escape("password") %>">
+    </label>
+  </div>
 
   <br>
 
-  <button>Create Account</button>
+  <button class="create-account">Create Account</button>
 
 </form>

@@ -1,4 +1,4 @@
-SixthCents.Views.SignIn = Backbone.View.extend({
+SixthCents.Views.SignIn = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.callback = options.callback;
@@ -8,6 +8,7 @@ SixthCents.Views.SignIn = Backbone.View.extend({
   events: {
     "submit form": "submit"
   },
+  className: "sign-in-form",
 
   template: JST['shared/sign_in'],
 
@@ -35,7 +36,7 @@ SixthCents.Views.SignIn = Backbone.View.extend({
     if(this.callback) {
       this.callback();
     } else {
-      Backbone.history.navigate("", { trigger: true });
+      Backbone.history.navigate("start", { trigger: true });
     }
   }
 

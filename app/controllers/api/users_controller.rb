@@ -7,11 +7,6 @@ class Api::UsersController < ApplicationController
     render :new
   end
 
-  def index
-    @users = User.all
-    render :index
-  end
-
   def show
     @user = User.find(params[:id])
     render :show
@@ -22,9 +17,9 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      redirect_to root_url
+      render :show
     else
-      flash.now[:errors] = @user.errors.full_messages
+      render json: @user.errors.full_messages, status: :unprocessable_entity
     end
   end
 

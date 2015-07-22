@@ -1,4 +1,4 @@
-SixthCents.Views.Header = Backbone.View.extend({
+SixthCents.Views.Header = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.listenTo(SixthCents.currentUser, "signIn signOut", this.render);

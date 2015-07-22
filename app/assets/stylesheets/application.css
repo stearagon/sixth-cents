@@ -21,11 +21,13 @@ article {
   padding: 0;
   margin: 0;
   outline: 0;
+
   box-sizing: inherit;
   font: inherit;
   text-decoration: inherit;
   text-align: inherit;
   color: inherit;
+
   background: transparent;
 }
 
@@ -33,12 +35,14 @@ ul {
   list-style: none;
 }
 
-a {
-  text-decoration: underline;
-}
-
 button {
   cursor: pointer;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .group:after {
@@ -47,127 +51,278 @@ button {
   clear: both;
 }
 
+.display-none {
+  display: none;
+}
+
 body {
-  margin: 0 auto;
   position: relative;
   background: #fff;
+  font-family: Helvetica;
 }
 
-.top-header-container {
-  display: block;
-  text-align: right;
-  padding: 5px;
-  margin: 0 auto;
-  background: black;
-  color: #ccc;
-  font-size: 12px;
-  font-family: sans-serif;
+
+/*----header-top-------*/
+
+#header-top {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
 }
 
-.top-header {
+#header-top h1 {
+  float: left;
+  font-size: 36px;
+}
+
+#header-top .sign-in {
+  float: right;
+  font-size: 16px;
+  padding-top: 10px;
+}
+
+.header-top-container {
   width: 900px;
   margin: 0 auto;
 }
 
-.top-header form {
-  display: inline;
-}
-
-.logout-button {
- background: none;
- border: none;
- color: #ccc;
- text-decoration: underline;
- cursor: pointer;
-}
-
-.guest-login  {
-  height: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-.top-bar-container {
-  background: #ccc;
-}
-
-.top-bar {
-  width: 900px;
-  margin: 0 auto;
-}
-
-.top-bar a {
-  padding: 20px;
-}
-
-.main-logo {
-    text-decoration: none;
-}
-
-.top-bar ul {
-  padding: 29px;
-}
-
-.top-bar li {
-  float: left;
-}
-
-.main-logo {
-  float: left;
-  font-size: 30px;
-}
-
-.right-nav {
-  float: right;
-}
-
-.logging-links {
-  float: right;
-  padding: 25px;
-}
-
-.logout-button button {
-  font-size: 20px;
-}
-
-.logging-links a {
-  font-size: 15px;
-  text-decoration: none;
-  padding: 5px;
-}
-
-.top-container {
+#header-top a:hover {
   background: #fff;
-  /*position: relative;*/
+  color: #000;
+  text-decoration: underline;
 }
 
-.main-div {
+#header-top .logged-in-header {
+  font-size: 12px;
+  color: #ccc;
+  padding-top: 0px;
+  float: right;
+}
+
+#header-top .non-link:hover {
+  text-decoration: none;
+  background: #000;
+  color: #ccc;
+  cursor: text;
+}
+
+/*----header-bottom-------*/
+
+.header-bottom-container {
+  background: rgb(247, 247, 247);
+  color: #000;
+}
+
+#header-bottom {
+
+  padding: 10px 20px;
   width: 900px;
   margin: 0 auto;
 }
+
+#header-bottom > a {
+  float: left;
+  font-size: 36px;
+}
+
+#header-bottom ul {
+  float: right;
+  font-size: 16px;
+}
+
+#header-bottom li {
+  float: left;
+  font-size: 16px;
+  padding: 15px 20px 5px 20px;
+}
+
+#header-bottom li:hover {
+  color: #ccc;
+  border-bottom: 3px solid #ccc;
+}
+
+
+/*---splash-screen-------*/
+
+.splash-img img {
+  opacity: .4;
+  display: block;
+}
+
+.splash-title {
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  color: rgb(0, 201, 109);
+  font-weight: bold;
+  font-size: 60px;
+  text-transform: uppercase;
+}
+
+.splash-bottom {
+  color: #000;
+  top: 25%
+}
+
+.splash-title .sign-up {
+  background: rgb(253, 138, 16);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-radius: 5%;
+  font-size: 15px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.splash-title .sign-up:hover {
+  background: #000;
+}
+
+/*----sign-up-------*/
+
+.sign-up-form {
+  width: 400px;
+  border: 1px solid #000;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.sign-up-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+
+.sign-up-field {
+  padding-left: 50px;
+}
+
+.sign-up-field label {
+  font-size: 18px;
+}
+
+.sign-up-field input {
+  border-radius: 5px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.sign-up-form .create-account {
+  background: rgb(69, 202, 230);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-radius: 5%;
+  font-size: 15px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: normal;
+  margin-left: 50px;
+}
+
+.sign-up-form .create-account:hover {
+  background: #000;
+}
+
+/*----sign-in-------*/
+
+
+.sign-in-form {
+  width: 400px;
+  border: 1px solid #000;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.sign-in-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+
+.sign-in-field {
+  padding-left: 50px;
+}
+
+.sign-in-field label {
+  font-size: 18px;
+}
+
+.sign-in-field input {
+  border-radius: 5px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.sign-in-form button {
+  background: rgb(69, 202, 230);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-radius: 5%;
+  font-size: 15px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: normal;
+  margin-left: 50px;
+}
+
+.sign-in-form .sign-in-guest {
+  background: #0c0;
+}
+
+.sign-in-form button:hover {
+  background: #000;
+}
+
+/*-------main-div-container------*/
+
+.main-log-div {
+  width: 900px;
+  margin: 0 auto;
+}
+
+/*-----landing-page------*/
 
 #sidebar {
-  margin: 15px;
+  margin: 10px 10px 10px 0px;
   background: #fff;
   box-shadow: 6px 2px 10px -3px rgba(0,0,0,0.75);
-  width: 200px;
+  width: 300px;
   float: left;
-  height: 1000px;
 }
 
-#sidebar h1 {
+#sidebar .accounts-top {
+  border-bottom: 1px solid #eee;
+}
+
+#sidebar .accounts-top h1 {
   float: left;
-  padding: 10px;
+  padding: 5px;
+  padding-left: 20px;
   font-size: 20px;
 }
 
-.accounts-top a {
+#sidebar .accounts-top a {
   float: right;
   padding: 10px;
 }
 
+#sidebar .accounts-top a:hover {
+  color: #ccc;
+}
+
+
 #sidebar ul {
-  padding-left: 5px;
+  padding-left: 10px;
   padding-bottom: 5px;
 }
 
@@ -175,97 +330,58 @@ body {
   font-size: 12px;
 }
 
-.alerts, .budgets, .goals {
-  margin-bottom: 100px;
+#sidebar .account-summary ul {
 }
 
-.modal-window {
-  position: fixed;
-  left: 45%;
-  right: 45%;
-  width: 250px;
-  top: 20%;
-  height: 50%;
-  overflow:scroll;
-}
-
-.display-none {
-  display: none;
-}
-
-.occurrence {
-  display: block;
-}
-
-.budgets-calendar {
-  display:block;
-  width: 900px;
-  margin-left: 200px;
-  padding-bottom: 20px;
-}
-
-.add-budget{
-    display: block;
-}
-
-.bills {
-  padding: 20px 0px;
-}
-
-.income {
-  display:block;
-  width: 900px;
-  height: 100px;
-}
-
-.spend {
-  display:block;
-  width: 900px;
-  height: 100px;
-}
-
-.income-sidebar {
-  float: left;
-  width: 200px;
-}
-.income-main {
-  float: left;
-  width: 700px;
-}
-
-
-.spends-sidebar {
-  float: left;
-  width: 200px;
-}
-.spends-main {
-  float: left;
-  width: 700px;
-}
-
-.main-window {
-  float: left;
-  padding: 20px;
-}
-
-.main-window {
-  padding: 20px;
-  width: 600px;
-}
-
-.account-summary-head {
-  padding: 5px;
-  border-top: 1px solid #eee;
+#sidebar .account-summary-head {
+  font-weight: bold;
   border-bottom: 1px solid #eee;
-  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+  padding: 10px;
+  font-size: 14px;
 }
 
-.account-summary-head .amount {
+#sidebar .account-summary-head:hover {
+  background: linear-gradient(0deg, #ffffff 0%,#f3f3f3 0%,#ededed 0%,#ffffff 100%);
+  cursor: pointer;
+}
+
+#sidebar .sign {
+  float: left;
+  padding-right: 7px;
+}
+
+#sidebar .title {
+  float: left;
+}
+
+#sidebar .amount {
   float: right;
 }
 
-.account-summary-head .sidebar-title {
+#sidebar li {
+  padding: 5px;
+}
+
+#sidebar li:hover {
+  background: linear-gradient(0deg, #ffffff 0%,#f3f3f3 0%,#ededed 0%,#ffffff 100%);
+}
+
+#sidebar .left-side-acct {
   float: left;
+}
+
+#sidebar li p {
+  float: right;
+}
+
+#sidebar .account-link {
+  font-size: 12px;
+}
+
+#sidebar .account-list-type {
+  font-size: 10px;
+  color: #aaa;
 }
 
 .assets-debts-item {
@@ -278,50 +394,82 @@ body {
 
 .assets-debts-title {
   float: left;
+  margin-left: 20px;
 }
 
 .assets-debts-amount {
   float: right;
+  margin-right: 20px;
 }
 
 .assets-total {
+  padding: 0px;
+  margin: 10px;
+  padding-top: 10px;
   border-top: 1px solid #ccc;
   color: #383635;
 }
 
 .trends-title {
-  font-weight: bold;
-  padding-top: 10px;
+  font-size: 20px;
+  padding-top: 20px;
+  margin: 0px 20px;
   border-bottom: 1px solid #ccc;
 }
 
-.edit-accounts-header {
-  border: 1px solid #eee;
-  border-radius: 5%;
-  position: relative;
+/*------modal-window-edit accounts------*/
+
+.modal-window.edit-accounts-modal {
   background: #fff;
-  padding: 20px;
+  position: fixed;
+  width: 400px;
+  overflow: scroll;
+  list-style: none;
+  border: 1px solid #ccc;
+  top: 0;
+  bottom: 0;
+  left: 425px;
 }
 
-.edit-accounts-header h1 {
+.edit-accounts-window {
+  overflow: scroll;
+  width: 95%;
+  margin: 5px;
+  padding: 10px 0px;
+}
+
+.edit-accounts-window .add-account{
+  overflow: scroll;
+  width: 100%;
   padding: 5px;
-  text-align: center;
-  font-size: 24px;
+  background: rgb(69, 202, 230);
+  color: #fff;
+  background: rgb(69, 202, 230);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: normal;
 }
 
-.edit-window {
-  border: 1px solid #eee;
-  border-radius: 5%;
-  position: relative;
-  background: #fff;
+.all-edit-accounts footer {
+  padding: 5px 15px;
 }
 
+.close-edit {
+  float: right;
+  padding: 10px 10px;
+}
+
+.close-edit:hover {
+  background: red;
+}
 
 .sub-account-window {
   border: 1px solid #eee;
   margin: 5px;
   border-radius: 5%;
-  background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
   list-style: none;
 }
 
@@ -333,13 +481,8 @@ body {
 }
 
 .sub-account-window li {
-  margin: 5px;
+  margin: 10px;
   display: block;
-  border-bottom: 1px solid #000;
-}
-
-.sub-account-window:last-child {
-  border-bottom: none;
 }
 
 .sub-account-window .acct-type {
@@ -351,48 +494,194 @@ body {
 }
 
 .sub-account-window button {
+  background: #eee;
+  padding: 0px 5px;
+}
+
+.sub-account-window button:hover {
   background: red;
-  border-radius: 50%;
 }
 
-.add-account {
-  width: 80%;
+/*------Modal-window add account-------*/
+
+.all-edit-accounts form{
+  overflow: scroll;
+  position: absolute;
+  width: 100%;
   padding: 5px;
-  left: 20%;
-  color: #fff;
-  background: #87CEFA;
-  margin: auto;
+  background: black;
+  color: #000;
+  background: #eee;
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-size: 15px;
+  top: 30%;
+  font-weight: normal;
 }
 
-.transaction-form {
-  border: 1px solid #000;
-  border-radius: 5%;
+
+/*------Add Bills-------*/
+
+.modal-window.add-bill{
   background: #fff;
-  padding: 5px;
+  position: fixed;
+  width: 250px;
+  height: 225px;
+  bottom: 10%;
+  overflow: scroll;
+  list-style: none;
+  border: 1px solid #ccc;
+  left: 500px;
 }
 
-.login-signup {
-  margin: 0 auto;
-  background: #fff;
+.modal-window.add-bill h2{
   text-align: center;
+  font-weight: bold;
 }
 
-.modal-window h1 {
+.modal-window.add-bill label,
+.modal-window.add-bill select,
+.modal-window.add-bill input {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-window.add-bill label {
+  font-size: 14px;
+}
+
+.modal-window.add-bill select {
+  margin-top: 10px;
+}
+
+.modal-window .cancel-form {
+  color: red;
+  font-size: 14px;
+}
+
+.modal-window .submit-bill {
+  padding: 5px;
+  background: rgb(69, 202, 230);
+  color: #fff;
+  margin: 5px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+  border-radius: 10%
+}
+
+.modal-window .submit-bill:hover {
+  background: #000;
+}
+
+.modal-window .cancel-form:hover {
+  background: red;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 10%
+}
+
+
+/*------main-window------*/
+
+.main-window {
   float: left;
-  font-size: 20px;
-}
-
-.modal-window a {
-  float: right;
-  font-size: 20px;
-}
-
-.budget-form {
-  background: #fff;
+  width: 560px;
   padding: 10px;
-  border-radius: 5%;
 }
 
-.add-bill-form {
-  background: #fff;
+
+/*----bill-list-----*/
+
+.bills {
+  margin: 10px 0px;
+}
+
+.bills .add-bill {
+  background: rgb(69, 202, 230);
+  color: #fff;
+}
+
+.bills .add-bill:hover {
+  background: #000;
+}
+
+.bill-list-top div {
+  float: left;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-style: dotted;
+}
+
+.bill-list-top .bill-date {
+  border-right: 1px solid #000;
+  padding: 5px 5px 5px 0px;
+  width: 85px;
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+}
+
+.bill-list-top .bill-account {
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+  padding: 5px 5px;
+  width: 290px;;
+}
+
+.bill-list-top .bill-amount {
+  border-left: 1px solid #000;
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+  padding: 5px 5px;
+  width: 150px;
+}
+
+.bill-list-item div {
+  float: left;
+  padding-top: 5px;
+}
+
+.bill-list {
+  font-size: 14px;
+}
+
+.bill-list .bill-date {
+  border-right: 1px solid #000;
+  width: 90px;
+  border-style: dotted;
+}
+
+.bill-list .bill-account {
+  border-right: 1px solid #000;
+  width: 294px;
+  margin: 0;
+  border-style: dotted;
+  padding-left: 5px;
+  overflow: hidden;
+}
+
+.bill-list .bill-amount {
+  width: 90px;
+  border-style: dotted;
+  padding-left: 5px;
+}
+
+.bill-list .delete-bill {
+  background: red;
+  height: 1px;
+  width: 2px;
+  vertical-align: middle;
+}
+
+.bill-list .delete-bill:hover {
+  background: #DC143C;
+}
+
+
+/*------footer------*/
+.footer {
+  padding: 20px;
+  background: rgb(247, 247, 247);
+  text-align: center;
+  font-size: 15px;
+  border-top: 1px solid #ccc;
 }

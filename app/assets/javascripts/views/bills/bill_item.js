@@ -8,7 +8,8 @@ SixthCents.Views.BillItem = Backbone.CompositeView.extend({
   events: {
     "click .delete-bill" : "delete"
   },
-  tagName: "tr",
+  tagName: "div",
+  className: "bill-list-item group",
   render: function(){
     var content = this.template({ bill: this.model, instName: this.instName, accountInfo: this.accountInfo });
 
@@ -17,7 +18,7 @@ SixthCents.Views.BillItem = Backbone.CompositeView.extend({
     return this;
   },
   delete: function(event){
-    
+
     event.preventDefault();
     var bill = this.collection.getOrFetch($(event.currentTarget).data("id"));
     bill.destroy();
