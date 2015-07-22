@@ -1,5 +1,5 @@
 
-  <td><%= transaction.escape("transaction_date") %></td>
-  <td><%= transaction.escape("description") %></td>
-  <td><%= transaction.escape("category") %></td>
-  <td>$<%= parseInt(transaction.escape("amount")).toLocaleString() %></td>
+      <div class="trans-date-item"><%= transaction.escape("transaction_date") %></div>
+      <div class="trans-desc-item"><%= transaction.escape("description") %></div>
+      <div class="trans-cat-item"><%= transaction.escape("category") %></div>
+      <div class="trans-amt-item">$<%= parseInt(transaction.escape("amount")).toLocaleString() %></div>

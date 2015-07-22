@@ -4,25 +4,29 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
     "click .add-trans" : "createTransaction",
     "click .filter" : "filter"
   },
+  className: "group",
   initialize: function(options){
-    this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "add", this.addTransaction);
+    // this.listenTo(this.collection, "add", this.addTransaction);
     this.accounts = options.accounts;
+    this.listenTo(this.accounts, "sync add", this.render);
+    this.listenTo(this.model, "sync add", this.render);
+    this.listenTo(this.collection, "sync", this.addTransactions);
   },
   render: function(){
     var content = this.template({ model: this.model, accounts: this.accounts })
     this.$el.html(content);
     this.addTransactions();
     return this;
+
   },
 
   createTransaction: function(){
     var transaction = new SixthCents.Models.Transaction();
     var account_id = this.model.get("id");
     var formView = new SixthCents.Views.TransactionFormView({ model: transaction, collection: this.collection, accounts: this.accounts, id: account_id })
-    $(".modal-window").removeClass("display-none");
+    $(".modal-window-transaction").removeClass("display-none");
     $("body").css({ overflow: "hidden"});
-    this.addSubview(".modal-window", formView);
+    this.addSubview(".modal-window-transaction", formView);
   },
 
   addTransaction: function(transaction){
@@ -31,14 +35,12 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
   },
 
   addTransactions: function(){
-      this.model.transactions().forEach(this.addTransaction.bind(this))
+      this.collection.forEach(this.addTransaction.bind(this))
   },
   filter: function(event){
     event.preventDefault();
     Backbone.history.navigate("accounts", {trigger: true})
     var clickTag =  $(event.currentTarget).data("value");
-    
     $("#" + clickTag).click();
   }
-
 })

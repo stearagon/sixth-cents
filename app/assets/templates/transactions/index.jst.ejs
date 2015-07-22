@@ -1,40 +1,42 @@
-<div class="group" id="sidebar">
-  <div>
+<div class="main-log-div">
+  <div class="group transactions-view" id="sidebar-transactions">
+  <div class="sidebar-items">
     <h2>Type</h2>
-    <ul>
-      <li><a href="#" class="filter" id="cash-credit" data-value="cash-credit">Cash & Credit</a></li>
-      <li><a href="#" class="filter" id="investment" data-value="investment">Investment</a></li>
-      <li><a href="#" class="filter" id="loan" data-value="loan">Loan</a></li>
-    </ul><br>
+    <div class="top-level-filters">
+      <div class="transaction-sidebar-item"><a href="#" class="filter" id="cash-credit" data-value="cash-credit">Cash & Credit</a></div>
+      <div class="transaction-sidebar-item"><a href="#" class="filter" id="investment" data-value="investment">Investment</a></div>
+      <div class="transaction-sidebar-item"><a href="#" class="filter" id="loan" data-value="loan">Loan</a></div>
+    </div><br>
 
     <h2>Accounts</h2>
     <ul>
-      <li><a href="#" class="filter">All Accounts</a></li><br>
+      <div class="transaction-sidebar-item"><a href="#accounts" class="sidebar-account-title">All Accounts</a></div>
       <% accounts.forEach(function(account){ %>
-        <li><a href="#/accounts/<%= account.get("id") %>">
-          <p class="sidebar-account-title"><%= account.institution().escape("name") %><p>
-          <p class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %>(<%= account.escape("identifier") %>)<p>
+        <div class="transaction-sidebar-item"><a href="#accounts/<%= account.get("id") %>" class="group">
+          <div class="sidebar-account-title"><%= account.institution().escape("name") %></div>
+          <div class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %>(<%= account.escape("identifier") %>)</div>
           </a>
-        </li><br>
+        </div>
       <% }) %>
     </ul>
   </div>
 </div>
 
-<div class="main-window">
+  <div class="main-window transactions">
 
-<h1>All Accounts</h1>
-<h1>You have <%=  accounts.length %> account(s)</h1>
+  <h1 class="top-title">All Accounts</h1>
+  <h1>You have <%=  accounts.length %> account(s)</h1>
 
-<button class="add-trans">Add Transaction</button>
+  <button class="add-trans">Add A Transaction</button>
 
-<table class="transactions-list">
-    <th>Date</th>
-    <th>Description</th>
-    <th>Category</th>
-    <th>Amount</th>
-</table>
+  <div class="transactions-list">
+    <div class="transactions-list-head group">
+      <div class="trans-date-top">Date</div>
+      <div class="trans-desc-top">Description</div>
+      <div class="trans-cat-top">Category</div>
+      <div class="trans-amt-top">Amount</div>
+    </div>
+  </div>
 
+  <div class="modal-window-transaction display-none"></div>
 </div>
-
-<div class="modal-window display-none"></div>

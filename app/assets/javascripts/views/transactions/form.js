@@ -55,10 +55,11 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     this.model.save({}, { success: function() {
         this.collection.add(this.model, { merge: true });
         this.collection.sort();
-        Backbone.history.navigate("/accounts/" + this.account_id, { trigger: true })
+        if (this.account_id === ""){Backbone.history.navigate("accounts", { trigger: true })
+      } else {Backbone.history.navigate("#/accounts/" + this.account_id, { trigger: true })}
         this.remove();
         $("body").css({ overflow: "scroll"});
-        $(".modal-window").addClass("display-none");
+        $(".modal-window-transaction").addClass("display-none");
       }.bind(this),
       error: function(){
       }
@@ -68,6 +69,6 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     event.preventDefault();
     this.remove();
     $("body").css({ overflow: "scroll"});
-    $(".modal-window").addClass("display-none");
+    $(".modal-window-transaction").addClass("display-none");
   }
 })

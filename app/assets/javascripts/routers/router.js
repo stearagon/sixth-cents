@@ -17,7 +17,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     "accounts/:id" : "show",
     "budgets" : "budgetsIndex",
     "users/new" : "new",
-    "users/:id" : "showUser",
     "session/new" : "signIn",
     "" : "splash"
   },
@@ -38,16 +37,15 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();
     this.transactions.fetch();
-
     var account = this.accounts.getOrFetch(id);
 
-    var showView = new SixthCents.Views.AccountShow({ model: account, collection: this.transactions, accounts: this.accounts });
+    var showView = new SixthCents.Views.AccountShow({ model: account, accounts: this.accounts, collection: account.transactions() });
 
     this._swapView(showView);
-
   },
 
   transactionsIndex: function(){
+    debugger
     var callback = this.transactionsIndex.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();

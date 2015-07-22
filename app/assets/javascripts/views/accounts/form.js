@@ -51,7 +51,8 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
                 $(".edit-accounts-window").removeClass("display-none");
                 $(".edit-accounts-window-list").removeClass("display-none");
                 $(".close-edit").removeClass("display-none");
-                $(".edit-window").removeClass("display-none")
+                $(".edit-window").removeClass("display-none");
+                $("body").css({ overflow: "scroll"});
                 return
               },
               error: function(){
@@ -73,7 +74,8 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
           $(".edit-accounts-window").removeClass("display-none");
           $(".edit-accounts-window-list").removeClass("display-none");
           $(".close-edit").removeClass("display-none");
-          $(".edit-window").removeClass("display-none")
+          $(".edit-window").removeClass("display-none");
+          $("body").css({ overflow: "scroll"});
         },
         error: function(){
           //show error on new form

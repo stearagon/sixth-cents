@@ -1,4 +1,4 @@
-<h1> New Transaction </h1>
+<h1> Add a Transaction</h1>
 
 <label for="account">Account: </label><br>
 <select name="account_id" id="account">
@@ -24,17 +24,17 @@
   <% }) %>
 </select><br>
 
-Type:<br>
+<label>Type:</label><br>
 <input id="type1" name="type_trans" type="radio" value="1" checked="checked">
-<label for="type1">Income/Repayment</label><br>
+<label class="income-label" for="type1">Income/Repayment</label><br>
 
 <input id="type2" type="radio" name="type_trans" value="-1">
-<label for="type2">Expense</label><br>
+<label class="income-label" for="type2">Expense</label><br>
 
 <label for="amount">Amount: </label><br>
-$ <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
+  <label>$</label> <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
 
 <label for="notes">Notes: </label><br>
-<textarea id="notes" name="notes"><%= model.escape("notes") %></textarea><br>
+<label><textarea id="notes" name="notes"><%= model.escape("notes") %></textarea><br></label>
 
 <button class="create-transaction">Create Transaction</button> or <a class="cancel-form" href="#">Cancel</a>
