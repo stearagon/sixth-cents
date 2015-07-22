@@ -9,8 +9,11 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
 
     this.institutions = options.institutions;
     this.bills = options.bills;
+    this.budgets = options.budgets;
+    this.transactions = options.transactions;
     this.listenTo(this.collection, "sync destroy", this.render);
-    this.listenTo(this.institutions, "sync add", this.render)
+    this.listenTo(this.institutions, "sync add", this.render);
+    this.listenTo(this.budgets, "sync add", this.render);
   },
 
   render: function(){
@@ -20,6 +23,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
 
     this.addAccounts();
     this.addBillsView();
+    this.addBudgets();
 
     return this;
   },
@@ -40,7 +44,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
 
   editAccounts: function(event) {
     event.preventDefault();
-    
+
     var formView = new SixthCents.Views.EditAccountsView({ accounts: this.collection });
     $(".modal-window").removeClass("display-none");
     $(".modal-window").addClass("edit-accounts-modal");
@@ -58,5 +62,48 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     $(event.currentTarget.nextSibling.nextSibling).toggleClass("display-none")
     $($(event.currentTarget).children()[0]).toggleClass("display-none")
     $($(event.currentTarget).children()[1]).toggleClass("display-none")
+  },
+  addBudgets: function(){
+
+    this.budgets.each(this.addBudget.bind(this));
+  },
+
+  addBudget: function(budget){
+    var currDate = new Date()
+    var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth(), currDate.getDate())
+    var y = currDate.getFullYear(), m = (currDate.getMonth())
+    var firstDay = new Date(y, m, 0)
+    var lastDay = new Date(y, m + 1, 0)
+    var incomeAndSpend = { income: 0, spend: 0 }
+
+    var date1 = Date.parse(firstDay)
+    var date2 = Date.parse(lastDay)
+
+    var spendTotal = 0;
+
+    this.transactions.each(function(transaction){
+      var tdate = Date.parse(transaction.get("transaction_date"))
+      if(tdate >= date1 && tdate < date2){
+        if(transaction.get("category") === budget.get("category")){
+          spendTotal += parseInt(transaction.get("amount"))
+        }
+      }
+    })
+    if (budget.get("category") === "Income"){
+      spendTotal = parseInt(spendTotal);
+
+      var budgetsView = new SixthCents.Views.BudgetItem({ model: budget, total: spendTotal });
+
+      this.addSubview(".budgets", budgetsView, "prepend")
+    } else {
+      spendTotal = parseInt(spendTotal) * -1;
+
+      var budgetsView = new SixthCents.Views.BudgetItem({ model: budget, total: spendTotal });
+
+      this.addSubview(".budgets", budgetsView)
+
+    }
+
+
   }
 })

@@ -3,9 +3,12 @@ SixthCents.Views.BudgetItem = Backbone.CompositeView.extend({
   initialize: function(options){
     this.total = options.total;
   },
-  tagName: "tr",
+  tagName: "div",
+  className: "group",
   render: function(){
-    var content = this.template({ budget: this.model, total: this.total })
+    
+    var budgetClass = this.model.budgetHyphen()
+    var content = this.template({ budget: this.model, total: this.total, budgetClass: budgetClass })
 
     this.$el.html(content);
 

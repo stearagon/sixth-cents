@@ -18,13 +18,14 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   },
 
   createBudget: function(){
+    debugger
     $("body").css({ overflow: "hidden"});
-    $(".modal-window").removeClass("display-none");
+    $(".modal-window-budgets").removeClass("display-none");
     var budget = new SixthCents.Models.BudgetInstruction();
     var formView = new SixthCents.Views.BudgetFormView({ model: budget,
       collection: this.collection, budgetInstructions: this.budgetInstructions})
 
-    this.addSubview(".modal-window", formView);
+    this.addSubview(".modal-window-budgets", formView);
   },
 
   addBudget: function(budget){
@@ -38,7 +39,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     var date1 = Date.parse(firstDay)
     var date2 = Date.parse(lastDay)
 
-    spendTotal = 0;
+    var spendTotal = 0;
 
     this.transactions.each(function(transaction){
       var tdate = Date.parse(transaction.get("transaction_date"))
@@ -60,7 +61,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     // }
 
     var budgetItem = new SixthCents.Views.BudgetItem({ model: budget, total: spendTotal });
-    this.addSubview(".spends-list", budgetItem);
+    this.addSubview(".spends-main", budgetItem);
   },
 
   addIncome: function(budget){
@@ -96,7 +97,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     // }
 
     var budgetItem = new SixthCents.Views.BudgetItem({ model: budget, total: spendTotal });
-    this.addSubview(".income-list", budgetItem);
+    this.addSubview(".income-main", budgetItem);
   },
 
   addBudgets: function(){

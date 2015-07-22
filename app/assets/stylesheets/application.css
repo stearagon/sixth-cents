@@ -603,6 +603,7 @@ body {
 .bills .add-bill {
   background: rgb(69, 202, 230);
   color: #fff;
+  margin: 0px 0px 10px 10px;
 }
 
 .bills .add-bill:hover {
@@ -676,6 +677,46 @@ body {
 .bill-list .delete-bill:hover {
   background: #DC143C;
 }
+
+/*------budgets-heading--------*/
+.main-log-div .bills-landing-top {
+  padding-left: 10px;
+  padding-top: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.main-log-div .buds-heading {
+  padding-left: 10px;
+  padding-top: 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+}
+
+.main-log-div .bills-heading {
+  float: left;
+  font-weight: bold;
+}
+
+.main-log-div .bills-sub-heading {
+  float: left;
+  color: #aaa;
+  font-weight: normal;
+  padding-left: 10px;
+}
+
+.main-log-div .budgettitle {
+  font-size: 12px;
+}
+
+.main-log-div .budget-chart{
+  font-size: 12px;
+  height: 50px;
+  width: 600px;
+}
+
+
 
 /*------sidebar-transactions------*/
 
@@ -896,6 +937,143 @@ body {
 }
 
 .modal-window-transaction .cancel-form:hover {
+  background: red;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 10%
+}
+
+/*------main-budgets-----*/
+
+.main-window-budgets {
+  width: 900px;
+  margin: 0 auto;
+}
+
+
+.main-window-budgets .add-budget {
+  padding: 7px 8px 6px 5px;
+  text-transform: uppercase;
+  margin-left: 260px;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.main-window-budgets .add-budget:hover {
+  background: #ccc;
+  color: #fff;
+}
+
+.main-window-budgets .income {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.main-window-budgets .income-sidebar {
+  float: left;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 200px;
+  border: 1px solid #ccc;
+  height: 100%;
+}
+
+
+.main-window-budgets .income-main {
+  float: left;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+
+.main-window-budgets .spend {
+  display: block;
+  padding-bottom: 20px;
+}
+
+.main-window-budgets .spends-sidebar {
+  float: left;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 200px;
+  border: 1px solid #ccc;
+}
+
+
+.main-window-budgets .spends-main {
+  float: left;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.main-window-budgets .spends-main,
+.main-window-budgets .income-main  {
+  font-size: 12px;
+  font-weight: bold;
+  float: left;
+}
+
+.main-window-budgets .budget-chart{
+  font-size: 12px;
+  height: 60px;
+  width: 600px;
+}
+
+
+/*-------budget-creation-window-----*/
+
+.modal-window-budgets {
+  background: #fff;
+  position: fixed;
+  top: 10%;
+  overflow: scroll;
+  list-style: none;
+  border: 1px solid #ccc;
+  left: 45%;
+  width: 350px;
+}
+
+.modal-window-budgets h2{
+  text-align: center;
+  font-weight: bold;
+}
+
+.modal-window-budgets label,
+.modal-window-budgets select,
+.modal-window-budgets input {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-window-budgets label {
+  font-size: 14px;
+}
+
+.modal-window-budgets .cancel-form {
+  color: red;
+  font-size: 14px;
+}
+
+.modal-window-budgets .create-budget {
+  padding: 5px;
+  background: rgb(69, 202, 230);
+  color: #fff;
+  margin: 5px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+  border-radius: 10%
+}
+
+.modal-window-budgets .create-budget:hover {
+  background: #000;
+}
+
+.modal-window-budgets .cancel-form:hover {
   background: red;
   color: #fff;
   font-size: 14px;

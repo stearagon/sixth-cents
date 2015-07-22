@@ -27,7 +27,8 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.accounts.fetch();
     this.bills.fetch();
     this.institutions.fetch();
-    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions, bills: this.bills });
+    this.budgetInstructions.fetch();
+    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions, bills: this.bills, budgets: this.budgetInstructions, transactions: this.transactions });
 
     this._swapView(indexView);
   },
@@ -45,7 +46,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   transactionsIndex: function(){
-    debugger
+
     var callback = this.transactionsIndex.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();

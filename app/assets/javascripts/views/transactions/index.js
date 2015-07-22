@@ -10,9 +10,10 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     this.accounts = options.accounts;
     this.newTitle = "All Accounts"
     this.listenTo(this.accounts, "sync", this.render);
-    this.listenTo(this.collection, "sync add", this.render);
+    this.listenTo(this.collection, "add", this.addTransaction);
   },
   render: function(newTitle){
+    
     var content = this.template({ model: this.model, accounts: this.accounts })
     this.$el.html(content);
     this.addTransactions();
@@ -46,6 +47,7 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
 
     if(that.collection.length > 0){
       if($(event.currentTarget).data("value") === "cash-credit"){
+
         this.newTitle = "Cash & Credit";
         that.collection = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Checking" || transaction._accountType.account_type === "Credit Card"

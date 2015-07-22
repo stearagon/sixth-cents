@@ -1,4 +1,4 @@
-<h2> New Budget </h2>
+<h2> Add a Budget </h2>
 
 <label for="category">Category: </label><br>
 <select name="category" id="category">
@@ -8,7 +8,7 @@
 </select><br>
 
 <label for="amount">Amount: </label><br>
-$ <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
+<label>$ <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"></label><br>
 
 <section class="occurrence">
   <input id="monthly" type="radio" name="months" value="1">

@@ -20,7 +20,7 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
 
   addBills: function(){
     if (this.accounts.length > 0){
-      this.collection.each(this.addBill.bind(this))
+      this.collection.billsTime().forEach(this.addBill.bind(this))
     }
   },
 
