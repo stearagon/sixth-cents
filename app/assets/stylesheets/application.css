@@ -74,7 +74,7 @@ body {
 
 #main-logo-img {
   float: left;
-  height: 125px;
+  height: 60px;
 }
 
 #sign-in {
@@ -82,7 +82,7 @@ body {
   font-size: 16px;
   padding-top: 10px;
   position: absolute;
-  top: 115px;
+  top: 40px;
   right: 5px;
 }
 
