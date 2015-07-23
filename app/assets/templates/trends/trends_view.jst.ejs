@@ -146,148 +146,108 @@
       </script>
     </section>
 
-    <section class="six-month-net-income">
-      <% var monthsData = [] %>
-      <% var incomeData = [] %>
+<section class="six-month-net-income">
+  <% var monthsData = [] %>
+  <% var incomeData = [] %>
+  <% var currDate = new Date() %>
+  <% var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth()-5, currDate.getDate()) %>
+  <% for(var i = 1; i < 7; i++) {%>
+    <% var y = currDate.getFullYear(), m = (currDate.getMonth()) %>
+    <% var firstDay = new Date(y, m, 0) %>
+    <% var lastDay = new Date(y, m + 1, 0) %>
+    <% var incomeAndSpend = { income: 0, spend: 0 } %>
+    <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]%>
 
-      <% for(var i = 0; i < 30; i++) {%>
-        <% var currDate = new Date() %>
-        <% var firstDay = currDate.setDate(currDate.getDate() - i - i) %>
-        <% var lastDay = currDate.setDate(currDate.getDate() - i )%>
-        <% var incomeAndSpend = { income: 0, spend: 0 } %>
-        <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]%>
+    <% if (this.collection.length > 0) { %>
+      <% this.collection.each(function(account){ %>
+        <% var newIncomeAndSpend = account.transactions_time(firstDay, lastDay) %>
+        <% incomeAndSpend.income += newIncomeAndSpend.income %>
+        <% incomeAndSpend.spend += newIncomeAndSpend.spend %>
+      <% }) %>
+    <% } %>
 
-        <% if (this.collection.length > 0) { %>
-          <% this.collection.each(function(account){ %>
-            <% var newIncomeAndSpend = account.transactions_time(firstDay, lastDay) %>
-            <% incomeAndSpend.income += newIncomeAndSpend.income %>
-            <% incomeAndSpend.spend += newIncomeAndSpend.spend %>
-            <% console.log(incomeAndSpend.)%>
-          <% }) %>
-        <% } %>
+    <% monthsData.push(months[currDate.getMonth()]) %>
+    <% incomeData.push(incomeAndSpend.income + incomeAndSpend.spend) %>
+    <!-- <br><h3><%=months[currDate.getMonth()]%> Net Income</h3>
+    Income: <%= incomeAndSpend.income %>
+    Spend: <%= incomeAndSpend.spend %>
+    <br> -->
+    <% currDate.setMonth(currDate.getMonth() + 1) %>
+  <% } %>
 
-        <% monthsData.push(firstDay) %>
-        <% incomeData.push(incomeAndSpend.income + incomeAndSpend.spend) %>
-      <% } %>
+</section>
 
-    </section>
-
-  </div>
-
-  <div class="main-window">
-
-    <div id="net-income-chart" style="width:100%; height:200px;"></div>
-      <% if (monthsData.length > 0) { %>
-        <script type="text/javascript">
-          $(function () {
-            $('#net-income-chart').highcharts({
-                chart: {
-                    type: 'column'
+<div id="net-income-chart" style="width:100%; height:200px;"></div>
+  <% if (monthsData.length > 0) { %>
+    <script type="text/javascript">
+      $(function () {
+        $('#net-income-chart').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Net Income',
+                style: {
+                  "fontSize": "14px"
                 },
+                marginTop: 2
+            },
+            xAxis: {
+                categories: [
+                    "<%= monthsData[0]%>",
+                    "<%= monthsData[1] %>",
+                    "<%= monthsData[2] %>",
+                    "<%= monthsData[3] %>",
+                    "<%= monthsData[4] %>",
+                    "<%= monthsData[5] %>"
+                ],
+                crosshair: true
+            },
+            yAxis: {
                 title: {
-                    text: 'Net Income',
-                    style: {
-                      "fontSize": "14px"
-                    },
-                    marginTop: 2
-                },
-                xAxis: {
-                    categories: [
-                        "<%= monthsData[0]%>",
-                        "<%= monthsData[1] %>",
-                        "<%= monthsData[2] %>",
-                        "<%= monthsData[3] %>",
-                        "<%= monthsData[4] %>",
-                        "<%= monthsData[5] %>",
-                        "<%= monthsData[6] %>",
-                        "<%= monthsData[7] %>",
-                        "<%= monthsData[8] %>",
-                        "<%= monthsData[9] %>",
-                        "<%= monthsData[10] %>",
-                        "<%= monthsData[11] %>",
-                        "<%= monthsData[12] %>",
-                        "<%= monthsData[13] %>",
-                        "<%= monthsData[14] %>",
-                        "<%= monthsData[15] %>",
-                        "<%= monthsData[16] %>",
-                        "<%= monthsData[17] %>",
-                        "<%= monthsData[18] %>",
-                        "<%= monthsData[19] %>",
-                        "<%= monthsData[20] %>",
-                        "<%= monthsData[21] %>",
-                        "<%= monthsData[22] %>",
-                        "<%= monthsData[23] %>",
-                        "<%= monthsData[24] %>",
-                        "<%= monthsData[25] %>",
-                        "<%= monthsData[26] %>",
-                        "<%= monthsData[27] %>",
-                        "<%= monthsData[28] %>",
-                        "<%= monthsData[29] %>"
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    title: {
-                        text: null
-                        }
-                },
-                legend: {
-                    enabled: false
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
+                    text: null
                     }
-                },
-                series: [{
-                    name: 'Income',
-                    data: [
-                    { y: <%= incomeData[0] %>, color: "<%= incomeData[0] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[1] %>, color: "<%= incomeData[1] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[2] %>, color: "<%= incomeData[2] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[3] %>, color: "<%= incomeData[3] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[4] %>, color: "<%= incomeData[4] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[5] %>, color: "<%= incomeData[5] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[6] %>, color: "<%= incomeData[6] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[7] %>, color: "<%= incomeData[7] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[8] %>, color: "<%= incomeData[8] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[9] %>, color: "<%= incomeData[9] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[10] %>, color: "<%= incomeData[10] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[11] %>, color: "<%= incomeData[11] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[12] %>, color: "<%= incomeData[12] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[13] %>, color: "<%= incomeData[13] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[14] %>, color: "<%= incomeData[14] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[15] %>, color: "<%= incomeData[15] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[16] %>, color: "<%= incomeData[16] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[17] %>, color: "<%= incomeData[17] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[18] %>, color: "<%= incomeData[18] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[19] %>, color: "<%= incomeData[19] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[20] %>, color: "<%= incomeData[20] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[21] %>, color: "<%= incomeData[21] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[22] %>, color: "<%= incomeData[22] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[23] %>, color: "<%= incomeData[23] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[24] %>, color: "<%= incomeData[24] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[25] %>, color: "<%= incomeData[25] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[26] %>, color: "<%= incomeData[26] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[27] %>, color: "<%= incomeData[27] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[28] %>, color: "<%= incomeData[28] > 0 ? "green" : "red" %>" },
-                    { y: <%= incomeData[29] %>, color: "<%= incomeData[29] > 0 ? "green" : "red" %>" }]
-                }]
-            });
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Income',
+                data: [
+                { y: <%= incomeData[0] %>, color: "<%= incomeData[0] > 0 ? "green" : "red" %>" },
+                { y: <%= incomeData[1] %>, color: "<%= incomeData[1] > 0 ? "green" : "red" %>" },
+                { y: <%= incomeData[2] %>, color: "<%= incomeData[2] > 0 ? "green" : "red" %>" },
+                { y: <%= incomeData[3] %>, color: "<%= incomeData[3] > 0 ? "green" : "red" %>" },
+                { y: <%= incomeData[4] %>, color: "<%= incomeData[4] > 0 ? "green" : "red" %>" },
+                { y: <%= incomeData[5] %>, color: "<%= incomeData[5] > 0 ? "green" : "red" %>" }]
+            }]
         });
-        </script>
-      <% } %>
+    });
+    </script>
+  <% } %>
 
 
+</section>
+
+
+</div>
+
+
+<div class="main-window">
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <script type="text/javascript">
 $(function () {
@@ -331,6 +291,8 @@ $(function () {
     });
 });
 </script>
+
+</section>
 
   </div>
     <div class="modal-window group display-none"></div>

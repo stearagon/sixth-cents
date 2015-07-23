@@ -78,7 +78,7 @@ SixthCents.Views.TrendsView = Backbone.CompositeView.extend({
     this.categoryNames.forEach(function(catName){
       catData.push(this.categorySpend(catName))
     }.bind(this))
-    debugger
+    
     return catData;
   }
 
