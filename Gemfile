@@ -17,6 +17,10 @@ gem 'rename'
 gem 'kaminari'
 gem 'chartkick'
 gem 'faker'
+gem  'omniauth'
+gem 'omniauth-twitter'
+gem 'figaro'
+
 
 group :test do
   gem 'annotate'

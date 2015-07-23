@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
 
+  get "/auth/:provider/callback", to: "api/sessions#omniauth"
+
   namespace :api, defaults: {format: :json } do
     resources :users, only: [:index, :create, :show]
     resource :session, only: [:show, :create, :destroy]

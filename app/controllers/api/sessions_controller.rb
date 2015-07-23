@@ -29,4 +29,17 @@ class Api::SessionsController < ApplicationController
     render json: {}
   end
 
+  def omniauth
+  # do something with the auth_hash
+    user = User.find_or_create_by_auth_hash(auth_hash)
+    login!(user)
+    redirect_to root_url
+  end
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
+
 end
