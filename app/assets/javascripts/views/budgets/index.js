@@ -8,6 +8,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     this.budgetInstructions = options.budgetInstructions;
     this.transactions = options.transactions;
     this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.transactions, "sync", this.render);
     this.listenTo(this.budgetInstructions, "sync", this.render);
   },
   render: function(){
@@ -18,7 +19,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   },
 
   createBudget: function(){
-    
+
     $("body").css({ overflow: "hidden"});
     $(".modal-window-budgets").removeClass("display-none");
     var budget = new SixthCents.Models.BudgetInstruction();

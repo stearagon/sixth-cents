@@ -2,6 +2,7 @@
 
 <label for="category">Category: </label><br>
 <select name="category" id="category">
+    <option value="blank">Select Category</option>
   <% categories.forEach(function(category){ %>
     <option value="<%= category %>"><%= category %></option>
   <% }) %>

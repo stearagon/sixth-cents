@@ -62,7 +62,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   budgetsIndex: function(){
     var callback = this.budgetsIndex.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-    this.budgets.fetch();
     this.budgetInstructions.fetch();
     this.transactions.fetch();
 

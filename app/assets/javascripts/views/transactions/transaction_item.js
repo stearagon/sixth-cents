@@ -6,6 +6,7 @@ SixthCents.Views.TransactionItem = Backbone.CompositeView.extend({
     var content = this.template({ transaction: this.model })
 
     this.$el.html(content);
+    this.$el.data("id", this.model.get("id"))
 
     return this;
   }

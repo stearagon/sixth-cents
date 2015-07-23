@@ -873,9 +873,13 @@ body {
   border-left: 1px solid #ccc;
 }
 
+.transactions-list-item:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
 .transactions-list-item > div {
   float: left;
-
 }
 
 .transactions-list-head {

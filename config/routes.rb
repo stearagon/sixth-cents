@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     resources :accounts, only: [:show, :index, :create, :destroy]
     resources :institutions, only: [:show, :index, :create]
     resources :transactions, only: [:show, :index, :create]
-    resources :budgets, only: [:show, :index, :create]
-    resources :budget_instructions, only: [:show, :index, :create]
+    resources :budgets, only: [:show, :index, :create, :update]
+    resources :budget_instructions, only: [:show, :index, :create, :update]
     resources :bills, only: [:index, :show, :create, :destroy]
   end
 end

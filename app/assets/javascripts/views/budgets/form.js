@@ -5,7 +5,8 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
     "click .cancel-form" : "cancel",
     "change input[id=few-months]" : "monthsInput",
     "change input[id=once]" : "onceInput",
-    "change input[id=monthly]" : "monthlyInput"
+    "change input[id=monthly]" : "monthlyInput",
+    "change #category" : "checkExists"
   },
   className: "budget-form",
   categoryNames: [
@@ -47,8 +48,15 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
   },
   submit: function(event){
     event.preventDefault();
+    
 
     var attrs = this.$el.serializeJSON();
+
+    var budget = this.budgetInstructions.where({ category: attrs.category })
+
+    if (budget.length > 0) {
+      this.model = budget[0];
+    }
 
     if (attrs.months === "1"){
       delete attrs.month_denom;
@@ -72,7 +80,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
           this.collection.add(this.model, { merge: true });
           Backbone.history.navigate("#/budgets", { trigger: true })
           this.remove();
-          $(".modal-window").addClass("display-none");
+          $(".modal-window-budgets").addClass("display-none");
           $("body").css({ overflow: "scroll"});
         }.bind(this),
         error: function(){
@@ -82,7 +90,7 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
   cancel: function(){
     event.preventDefault();
     this.remove();
-    $(".modal-window").addClass("display-none");
+    $(".modal-window-budgets").addClass("display-none");
     $("body").css({ overflow: "scroll"});
   },
 
@@ -99,5 +107,16 @@ SixthCents.Views.BudgetFormView = Backbone.CompositeView.extend({
   monthlyInput: function(event){
       $("#hidden-input-months").addClass("display-none")
       $("#hidden-input-start-month").addClass("display-none")
+  },
+  checkExists: function(){
+
+    var catName = $("#category").val()
+    this.budgetInstructions.forEach( function(budget){
+
+      if(catName === budget.get("category")){
+        alert ("This will modify already existing budget.")
+      }
+    })
   }
+
 })

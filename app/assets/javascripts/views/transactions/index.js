@@ -3,7 +3,8 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   events: {
     "click .add-trans" : "createTransaction",
     "click .filter" : "filter",
-    "click .sidebar-account-title" : "refresh"
+    "click .sidebar-account-title" : "refresh",
+    "dblclick .transactions-list-item" : "edit"
   },
   className: "group",
   initialize: function(options){
@@ -61,7 +62,7 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
 
       } else if($(event.currentTarget).data("value") === "loan"){
         that.newTitle = "Loan";
-        
+
         collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Loan"
         })
@@ -82,6 +83,17 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     this.collection = new SixthCents.Collections.Transactions();
     this.listenTo(this.collection, "sync", this.render);
     this.collection.fetch();
+  },
+
+  edit: function(event){
+
+    $("body").css({ overflow: "hidden"});
+    $(".modal-window-transaction").removeClass("display-none");
+    var id = $(event.currentTarget).data("id")
+    var transaction = this.collection.get(id);
+    var formView = new SixthCents.Views.TransactionFormView({ model: transaction, collection: this.collection, accounts: this.accounts, id: "" })
+
+    this.addSubview(".modal-window-transaction", formView);
   }
 
 })

@@ -27,6 +27,16 @@ class Api::BudgetsController < ApplicationController
     end
   end
 
+  def update
+    @budget = Budget.find(params[:id])
+
+    if @budget.save
+      render json: @budget
+    else
+      render json: @budget.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def budget_params
