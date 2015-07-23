@@ -33,7 +33,7 @@ class Api::SessionsController < ApplicationController
   # do something with the auth_hash
     user = User.find_or_create_by_auth_hash(auth_hash)
     login!(user)
-    redirect_to root_url
+    render :show
   end
 
   protected
