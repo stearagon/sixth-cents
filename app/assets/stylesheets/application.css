@@ -398,7 +398,8 @@ body {
 }
 
 
-#sidebar .account-summary-head {
+#sidebar .account-summary-head,
+#sidebar .account-summary-trend {
   font-weight: bold;
   border-bottom: 1px solid #eee;
   background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);

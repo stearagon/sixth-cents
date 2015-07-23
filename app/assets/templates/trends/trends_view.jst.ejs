@@ -1,13 +1,11 @@
 <div class="main-log-div">
   <div class="group" id="sidebar">
     <div class="group accounts-top">
-      <h1>Accounts</h1><a href="#" class="edit-accounts">edit</a>
+      <h1>Totals by Type</h1><a href="#" class="edit-accounts">edit</a>
     </div>
 
       <section class="account-summary">
-        <div class="account-summary-head group">
-          <p class="sign">-</p>
-          <p class="sign display-none">+</p>
+        <div class="account-summary-trend group">
           <p class="title">Cash</p>
           <p class="amount">$ <%= accounts.cash().toLocaleString() %> </p>
         </div>
@@ -18,9 +16,7 @@
       </section>
 
       <section class="account-summary">
-        <div class="account-summary-head group">
-          <p class="sign">-</p>
-          <p class="sign display-none">+</p>
+        <div class="account-summary-trend group">
           <p class="title">Credit Cards</p>
           <p class="amount">$ <%= accounts.credit().toLocaleString() %></p>
         </div>
@@ -29,9 +25,7 @@
       </section>
 
       <section class="account-summary">
-        <div class="account-summary-head group">
-          <p class="sign">-</p>
-          <p class="sign display-none">+</p>
+        <div class="account-summary-trend group">
           <p class="title">Loans</p>
           <p class="amount">$ <%= accounts.loans().toLocaleString() %></p>
         </div>
@@ -40,9 +34,7 @@
       </section>
 
       <section class="account-summary">
-        <div class="account-summary-head group">
-          <p class="sign">-</p>
-          <p class="sign display-none">+</p>
+        <div class="account-summary-trend group">
           <p class="title">Investments</p>
           <p class="amount">$ <%= accounts.investments().toLocaleString() %></p>
         </div>
@@ -51,9 +43,7 @@
       </section>
 
       <section class="account-summary">
-        <div class="account-summary-head group">
-          <p class="sign">-</p>
-          <p class="sign display-none">+</p>
+        <div class="account-summary-trend group">
           <p class="title">Property</p>
           <p class="amount">$ <%= accounts.property().toLocaleString() %></p>
         </div>
