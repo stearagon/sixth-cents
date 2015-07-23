@@ -13,7 +13,7 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
     return sum;
   },
   parse: function(response){
-    
+
     if (response.account) {
       this._accountType = response.account;
       delete response.account;
@@ -59,6 +59,34 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
 
 
     return { income: income, spend: spend }
-  }
+  },
+
+  transactions_time_debt: function(){
+    var data = []
+    var currDate = new Date()
+    var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth()-5, currDate.getDate())
+    for(var i = 1; i < 7; i++) {
+      var y = currDate.getFullYear(), m = (currDate.getMonth())
+      var lastDay = new Date(y, m + 1, 0)
+      var debtTotal = 0;
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      var date1 = Date.parse(lastDay)
+
+      if (this.length > 0) {
+        this.each(function(transaction){
+          var tdate = Date.parse(transaction.get("transaction_date"))
+            if(tdate < date1 && (transaction._accountType.account_type === "Loan" || transaction._accountType.account_type === "Credit Card" )){
+              debtTotal += parseInt(transaction.get("amount"));
+
+          }
+        })
+      }
+
+      data.push([months[currDate.getMonth()], debtTotal])
+      currDate.setMonth(currDate.getMonth() + 1)
+      }
+  return data
+}
+
 })
 SixthCents.Collections.transactions = new SixthCents.Collections.Transactions()

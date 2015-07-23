@@ -34,14 +34,14 @@ SixthCents.Views.TrendsView = Backbone.CompositeView.extend({
     this.budgets = options.budgets;
     this.transactions = options.transactions;
     this.listenTo(this.collection, "sync destroy", this.render);
-    this.listenTo(this.institutions, "sync add", this.render);
-    this.listenTo(this.budgets, "sync add", this.render);
+    this.listenTo(this.institutions, "sync", this.render);
+    this.listenTo(this.budgets, "sync", this.render);
     this.listenTo(this.transactions, "sync", this.render);
   },
 
   render: function(){
-
-    var content = this.template({ collection: this.getCategorySpending() , accounts: this.collection });
+    var debtData = this.debts();
+    var content = this.template({ collection: this.getCategorySpending() , accounts: this.collection, debt: debtData });
 
     this.$el.html(content);
 
@@ -78,9 +78,11 @@ SixthCents.Views.TrendsView = Backbone.CompositeView.extend({
     this.categoryNames.forEach(function(catName){
       catData.push(this.categorySpend(catName))
     }.bind(this))
-    
-    return catData;
-  }
 
+    return catData;
+  },
+  debts: function(){
+    return this.transactions.transactions_time_debt();
+  }
 
 })
