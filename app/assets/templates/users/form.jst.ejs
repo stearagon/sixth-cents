@@ -6,7 +6,7 @@
   <div class="sign-up-field">
     <label>
       Your Name<br>
-      <input type="text" name="user[name]"
+      <input id="input-user-name" type="text" name="user[name]"
              value="<%= user.escape("name") %>">
     </label>
   </div>
@@ -16,7 +16,7 @@
   <div class="sign-up-field">
     <label>
       Your Email<br>
-      <input type="email" name="user[email]"
+      <input id="input-user-email" type="email" name="user[email]"
              value="<%= user.escape("email") %>">
     </label>
   </div>
@@ -26,10 +26,21 @@
   <div class="sign-up-field">
     <label>
       Password<br>
-      <input type="password" name="user[password]"
+      <input id="input-user-password" type="password" name="user[password]"
              value="<%= user.escape("password") %>">
     </label>
   </div>
+
+  <br>
+
+    <label>
+      Image
+      <input type="file" name="user[image]" id="input-user-image">
+    </label>
+
+  <br>
+
+    <img src="" id="preview-user-image" width="50">
 
   <br>
 

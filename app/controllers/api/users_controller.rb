@@ -1,6 +1,8 @@
 class Api::UsersController < ApplicationController
   # skip_before_action :require_log_in, only: [:new, :create]
   # before_action :disable_sign_in_or_log_in, only: [:new, :create]
+  wrap_parameters false
+
   def new
     @user = User.new
 
@@ -25,7 +27,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :image)
   end
 
 end

@@ -9,7 +9,8 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
   template: JST['users/form'],
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "change #input-user-image": "fileInputChange"
   },
 
   render: function(){
@@ -21,23 +22,55 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
 
   submit: function(event){
     event.preventDefault();
+    var file = this.$("#input-user-image")[0].files[0];
+    var name = this.$("#input-user-name").val();
+    var email = this.$("#input-user-email").val();
+    var password = this.$("#input-user-password").val();
+    var formData = new FormData();
 
-    var $form = $(event.currentTarget);
-    var userData = $form.serializeJSON().user;
+    formData.append("user[image]", file);
+    formData.append("user[name]", name);
+    formData.append("user[email]", email);
+    formData.append("user[password]", password);
+
+    // var $form = $(event.currentTarget);
+    // var userData = $form.serializeJSON().user;
     var that = this;
 
-    this.model.set(userData);
-    this.model.save({}, {
+    // this.model.set(userData);
+    this.model.saveFromData(formData, {
       success: function(){
         SixthCents.currentUser.fetch();
         // that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("", { trigger: true });
       },
       error: function(data){
-        alert("Form invalid. Let the user know what went wrong.");
+        alert("Form invalid.");
         console.log(data);
       }
     });
+  },
+
+  fileInputChange: function(event){
+      console.log(event.currentTarget.files[0]);
+
+      var that = this;
+      var file = event.currentTarget.files[0];
+      var reader = new FileReader();
+
+      reader.onloadend = function(){
+        that._updatePreview(reader.result);
+      }
+
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        that._updatePreview("");
+      }
+    },
+
+  _updatePreview: function(src){
+    this.$el.find("#preview-user-image").attr("src", src);
   }
 
 });

@@ -40,6 +40,12 @@ GEM
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.2)
+    aws-sdk (2.1.7)
+      aws-sdk-resources (= 2.1.7)
+    aws-sdk-core (2.1.7)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.1.7)
+      aws-sdk-core (= 2.1.7)
     backbone-on-rails (1.2.0.0)
       eco
       ejs
@@ -62,6 +68,10 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     chartkick (1.3.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -100,6 +110,8 @@ GEM
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     jquery-rails (4.0.4)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -114,6 +126,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.6.1)
+    mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.2)
@@ -130,6 +143,12 @@ GEM
     omniauth-twitter (1.2.0)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
+    paperclip (4.3.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     pg (0.18.2)
     phantomjs (1.9.8.0)
     pry (0.10.1)
@@ -236,6 +255,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk
   backbone-on-rails
   bcrypt
   better_errors
@@ -254,6 +274,7 @@ DEPENDENCIES
   newrelic_rpm
   omniauth
   omniauth-twitter
+  paperclip (~> 4.3)
   pg
   pry-rails
   quiet_assets

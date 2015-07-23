@@ -20,6 +20,8 @@ gem 'faker'
 gem  'omniauth'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem "paperclip", "~> 4.3"
+gem "aws-sdk"
 
 
 group :test do

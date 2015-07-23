@@ -12,6 +12,9 @@
 #
 
 class User < ActiveRecord::Base
+  has_attached_file :image, default_url: "square-logo.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  
   validates :email, :name, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates :password, presence: { length: 8, allow_nil: true }
