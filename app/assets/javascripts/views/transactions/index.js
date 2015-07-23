@@ -10,10 +10,10 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     this.accounts = options.accounts;
     this.newTitle = "All Accounts"
     this.listenTo(this.accounts, "sync", this.render);
-    this.listenTo(this.collection, "add", this.addTransaction);
+    this.listenTo(this.collection, "add", this.render);
   },
   render: function(newTitle){
-    
+
     var content = this.template({ model: this.model, accounts: this.accounts })
     this.$el.html(content);
     this.addTransactions();
@@ -41,42 +41,40 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   filter: function(event){
     event.preventDefault();
     var that = this;
+    var collectionFilter;
+
     this.newTitle = "All Accounts";
-
-
 
     if(that.collection.length > 0){
       if($(event.currentTarget).data("value") === "cash-credit"){
 
-        this.newTitle = "Cash & Credit";
-        that.collection = _.filter(that.collection.models, function(transaction){
+        that.newTitle = "Cash & Credit";
+        collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Checking" || transaction._accountType.account_type === "Credit Card"
         })
-        that.render();
-        that.collection = new SixthCents.Collections.Transactions();
-        that.collection.fetch();
-        return
+
       } else if($(event.currentTarget).data("value") === "investment"){
         that.newTitle = "Investment";
-        that.collection = _.filter(that.collection.models, function(transaction){
+        collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Savings" || transaction._accountType.account_type === "Investment"
         })
-        that.render();
-        that.collection = new SixthCents.Collections.Transactions();
-        that.collection.fetch();
-        return
+
       } else if($(event.currentTarget).data("value") === "loan"){
         that.newTitle = "Loan";
-        that.collection = _.filter(that.collection.models, function(transaction){
+        
+        collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Loan"
         })
-        that.render();
-        that.collection = new SixthCents.Collections.Transactions();
-        that.collection.fetch();
-        return
       }
     }
 
+    var content = this.template({ model: this.model, accounts: this.accounts })
+    this.$el.html(content);
+
+    collectionFilter.forEach(this.addTransaction.bind(this))
+
+    $(".top-title").html(that.newTitle)
+    that.collection.fetch();
   },
 
   refresh: function(){

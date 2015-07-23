@@ -11,7 +11,7 @@ class Api::TransactionsController < ApplicationController
 
 
     if @transaction.save
-      render json: @transaction
+      render :show
     else
       render json: @transaction.errors.full_messages, status: :unprocessable_entity;
     end

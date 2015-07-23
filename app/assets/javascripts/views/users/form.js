@@ -22,7 +22,7 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
 
   submit: function(event){
     event.preventDefault();
-    debugger
+    
     var file = this.$("#input-user-image")[0].files[0];
     var name = this.$("#input-user-name").val();
     var email = this.$("#input-user-email").val();

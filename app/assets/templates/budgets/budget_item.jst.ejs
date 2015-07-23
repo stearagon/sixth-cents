@@ -5,7 +5,9 @@
         $(function () {
           $('<%= "#" + budgetClass %>').highcharts({
           chart: {
-              type: 'bar'
+              type: 'bar',
+              plotBorderColor: '#eee',
+              plotBorderWidth: 2
           },
           title: {
               text: '',
@@ -44,7 +46,7 @@
           },
           series: [{
               data: [{y: <%= parseInt(total) %>, color: "<%= (parseInt(total) > .75 * parseInt(budget.escape("amount"))) ?
-              "red" : (parseInt(total) > parseInt(budget.escape("amount"))/2) ? "yellow" : "green" %>"}]
+              colors[0] : (parseInt(total) > parseInt(budget.escape("amount"))/2) ? colors[1] : colors[2] %>"}]
           }]
       });
     });

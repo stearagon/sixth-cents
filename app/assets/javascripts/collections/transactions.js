@@ -12,6 +12,14 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
     })
     return sum;
   },
+  parse: function(response){
+    
+    if (response.account) {
+      this._accountType = response.account;
+      delete response.account;
+    }
+    return response;
+  },
   getOrFetch: function(id){
     var transaction = this.get(id);
     var that = this;

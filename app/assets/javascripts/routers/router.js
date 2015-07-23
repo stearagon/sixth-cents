@@ -48,7 +48,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   transactionsIndex: function(){
-
     var callback = this.transactionsIndex.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();
@@ -114,7 +113,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
 
   splash: function(callback){
 
-    if (!this._requireSignedOut(this._goHome.bind(this))) { return; }
+    if (!this._requireSignedOut(callback)) { return; }
 
     var splashView = new SixthCents.Views.Splash();
 

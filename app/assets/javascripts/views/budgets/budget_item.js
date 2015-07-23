@@ -6,9 +6,14 @@ SixthCents.Views.BudgetItem = Backbone.CompositeView.extend({
   tagName: "div",
   className: "group",
   render: function(){
-    
+    var colors;
+    if (this.model.get("category") === "Income"){
+      colors = ["green", "yellow", "red"]
+    } else {
+      colors = ["red", "yellow", "green"]
+    }
     var budgetClass = this.model.budgetHyphen()
-    var content = this.template({ budget: this.model, total: this.total, budgetClass: budgetClass })
+    var content = this.template({ budget: this.model, total: this.total, budgetClass: budgetClass, colors: colors })
 
     this.$el.html(content);
 
