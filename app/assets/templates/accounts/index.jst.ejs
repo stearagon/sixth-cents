@@ -128,12 +128,14 @@
                 yAxis: {
                     title: {
                       text: null
-                    }
+                    },
+
                 },
                 legend: {
                     enabled: false
                 },
                 series: [{
+                    name: "Total",
                     data: [{y: <%= (accounts.cash()) %>, color: "green"}, {y:<%= -(accounts.credit())%>, color: "red"},
                       {y: <%= (((accounts.cash()) + (accounts.credit())) > 0) ? (((accounts.cash()) + (accounts.credit()))) :
                        -(((accounts.cash()) + (accounts.credit()))) %> , color: "<%= (((accounts.cash()) + (accounts.credit())) > 0) ?

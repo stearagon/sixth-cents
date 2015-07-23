@@ -26,6 +26,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();
     this.bills.fetch();
+    this.transactions.fetch();
     this.institutions.fetch();
     this.budgetInstructions.fetch();
     var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions, bills: this.bills, budgets: this.budgetInstructions, transactions: this.transactions });
