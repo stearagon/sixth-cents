@@ -90,6 +90,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
         }
       }
     })
+    
     if (budget.get("category") === "Income"){
       spendTotal = parseInt(spendTotal);
 

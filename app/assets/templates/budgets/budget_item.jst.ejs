@@ -1,4 +1,3 @@
-
 <div class="budgettitle"><%= budget.escape("category") %>: $ <%=parseInt(total).toLocaleString()%> of $ <%=parseInt(budget.escape("amount")).toLocaleString()%>  </div>
 
 <div id="<%= budgetClass %>" class="budget-chart"></div>
@@ -44,8 +43,8 @@
               enabled: false
           },
           series: [{
-              data: [{y: <%= parseInt(total) %>, color: "<%= (parseInt(total) > parseInt(budget.escape("amount"))) ?
-              "red" : "green" %>"}]
+              data: [{y: <%= parseInt(total) %>, color: "<%= (parseInt(total) > .75 * parseInt(budget.escape("amount"))) ?
+              "red" : (parseInt(total) > parseInt(budget.escape("amount"))/2) ? "yellow" : "green" %>"}]
           }]
       });
     });

@@ -152,10 +152,8 @@
 
       <% for(var i = 0; i < 30; i++) {%>
         <% var currDate = new Date() %>
-        <% var currDate = new Date( currDate.getYear() + 1900, currDate.getMonth(), currDate.getDate()) %>
-        <% var y = currDate.getFullYear(), m = (currDate.getMonth()), d = (currDate.getDate() + i) %>
-        <% var firstDay = new Date(y, m, d) %>
-        <% var lastDay = new Date(y, m, d+1) %>
+        <% var firstDay = currDate.setDate(currDate.getDate() - i - i) %>
+        <% var lastDay = currDate.setDate(currDate.getDate() - i )%>
         <% var incomeAndSpend = { income: 0, spend: 0 } %>
         <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]%>
 
@@ -164,6 +162,7 @@
             <% var newIncomeAndSpend = account.transactions_time(firstDay, lastDay) %>
             <% incomeAndSpend.income += newIncomeAndSpend.income %>
             <% incomeAndSpend.spend += newIncomeAndSpend.spend %>
+            <% console.log(incomeAndSpend.)%>
           <% }) %>
         <% } %>
 
@@ -287,6 +286,51 @@
         });
         </script>
       <% } %>
+
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Spending over last 30 days'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: "Categories",
+            colorByPoint: true,
+            data: [
+              <% collection.forEach( function(cat){ %>
+                {
+                  name: "<%= cat[0] %>",
+                  y: <%= parseInt(cat[1]) %>
+                },
+              <% }) %>]
+        }]
+    });
+});
+</script>
 
   </div>
     <div class="modal-window group display-none"></div>
