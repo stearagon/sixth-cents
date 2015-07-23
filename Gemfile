@@ -21,7 +21,7 @@ gem  'omniauth'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem "paperclip", "~> 4.3"
-gem "aws-sdk"
+gem "aws-sdk", '< 2.0'
 
 
 group :test do

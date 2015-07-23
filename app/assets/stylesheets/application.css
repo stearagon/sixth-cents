@@ -110,6 +110,15 @@ body {
   float: right;
 }
 
+.sign-in-label {
+  float: left;
+  margin-right: 5px;
+}
+
+#header-top .non-link {
+  margin-left: 5px;
+}
+
 #header-top .non-link:hover {
   text-decoration: none;
   background: #000;
@@ -117,6 +126,12 @@ body {
   cursor: text;
 }
 
+#avatar {
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin-top: -3px;
+}
 /*----header-bottom-------*/
 
 .header-bottom-container {

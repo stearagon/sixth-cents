@@ -2,7 +2,7 @@ SixthCents.Views.FormView = Backbone.CompositeView.extend({
   template: JST["accounts/form"],
   tagName: "form",
   events: {
-    "click button" : "submit",
+    "click .button" : "submit",
     "click .cancel-form" : "close",
     "change select[name=institution_id]" : "customInput"
   },

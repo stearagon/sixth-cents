@@ -4,12 +4,11 @@
 
   <div id="header-top" class="group">
     <div class="header-top-container">
-      <div class="logged-in-header">
-        <p>
-          Signed in as:
+      <div class="logged-in-header group">
+          <a class="sign-in-label">Signed in as: </a>
+          <div id="avatar"><a href="#" id="avatar"><img src="<%= SixthCents.currentUser.escape("image_url") %>"></a></div>
           <a href="#" class="non-link"><%= SixthCents.currentUser.escape("name") %></a> |
           <a href="#" id="sign-out-link">Sign Out</a>
-        </p>
       </div>
     </div>
   </div>
