@@ -18,7 +18,8 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     "budgets" : "budgetsIndex",
     "users/new" : "new",
     "session/new" : "signIn",
-    "" : "splash"
+    "" : "splash",
+    "trends" : "trends"
   },
 
   index: function(){
@@ -69,6 +70,20 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     var budgetsIndexView = new SixthCents.Views.BudgetsIndex({ collection: this.budgets, budgetInstructions: this.budgetInstructions , transactions: this.transactions });
 
     this._swapView(budgetsIndexView);
+
+  },
+
+  trends: function(){
+    var callback = this.budgetsIndex.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+    this.accounts.fetch();
+    this.bills.fetch();
+    this.transactions.fetch();
+    this.institutions.fetch();
+    this.budgetInstructions.fetch();
+    var trendsView = new SixthCents.Views.TrendsView({ collection: this.accounts, institutions: this.institutions, bills: this.bills, budgets: this.budgetInstructions, transactions: this.transactions });
+
+    this._swapView(trendsView);
 
   },
 
