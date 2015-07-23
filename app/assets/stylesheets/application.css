@@ -190,6 +190,26 @@ body {
   background: #000;
 }
 
+
+.splash-title .twitter-container:hover {
+  opacity: .5;
+}
+
+.splash-title .twitter-container {
+  width: 145px;
+  height: 60px;
+  background: transparent;
+}
+
+.splash-title .twitter {
+  background: transparent;
+}
+
+.splash-title .twitter-container img {
+  opacity: 1;
+  padding-top: 10px;
+}
+
 /*----sign-up-------*/
 
 .sign-up-form {
@@ -229,14 +249,24 @@ body {
   border-bottom-right-radius: 2px;
   border-radius: 5%;
   font-size: 15px;
-  padding: 10px 20px;
+  padding: 3px 15px;
   color: #fff;
   font-weight: normal;
   margin-left: 50px;
+  float: left;
+}
+
+.twitter-container-sign-up {
+  float: left;
+  padding-left: 10px;
 }
 
 .sign-up-form .create-account:hover {
   background: #000;
+}
+
+.twitter-container-sign-up:hover {
+  opacity: .5;
 }
 
 /*----sign-in-------*/

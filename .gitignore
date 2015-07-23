@@ -1,2 +1,8 @@
 log/*
 tmp/*
+
+# Ignore application configuration
+/config/application.yml
+
+# Ignore secrets.yml
+/config/secrets.yml
