@@ -116,7 +116,8 @@ body {
 }
 
 #header-top .non-link {
-  margin-left: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 #header-top .non-link:hover {
@@ -879,6 +880,10 @@ body {
   text-align: left;
   font-size: 12px;
   padding-top: 10px;
+}
+
+.transaction-sidebar-item-account {
+  border-bottom: 1px solid #000;
 }
 
 

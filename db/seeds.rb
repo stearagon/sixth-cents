@@ -1,4 +1,4 @@
-User.create(name: "Aubrey Drake Graham", email: "OctobersVeryOwn@gmail.com", password: "headlines")
+# User.create(name: "Aubrey Drake Graham", email: "OctobersVeryOwn@gmail.com", password: "headlines")
 Institution.create(name: "Bank Of America", api_id: 1)
 Institution.create(name: "Citibank", api_id: 2)
 Institution.create(name: "Schwab Bank", api_id: 3)
@@ -49,7 +49,7 @@ incomeDescriptions = [
     ["Universal Music Group", "Record Contract Salary"]
 ]
 
-i = 1
+i = 4
 while i < 6 do
   j = 0
   while j < 20
@@ -71,12 +71,13 @@ end
 i = 1
 while i < 4 do
   j = 0
-  while j < 6
+  while j < 10
+    cat_num = rand(incomeDescriptions.length)
+    description= incomeDescriptions[cat_num][0]
     category = "Income"
-    amount = (rand(10000))
-    description = "Work Paycheck"
+    amount = (rand(500000))
     date = Faker::Date.backward(180)
-    notes = Faker::Lorem.word
+    notes= incomeDescriptions[cat_num][1]
 
     Transaction.create( account_id: i, category: category, amount: amount, description: description,
       transaction_date: date, notes: notes)
