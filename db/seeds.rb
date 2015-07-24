@@ -17,7 +17,7 @@ Account.create(user_id: 1, institution_id: 1, account_type: "Credit Card", ident
 Account.create(user_id: 1, institution_id: 2, account_type: "Credit Card", identifier: "4526")
 Account.create(user_id: 1, institution_id: 7, account_type: "Savings", identifier: "9106")
 Account.create(user_id: 1, institution_id: 9, account_type: "Loan", identifier: "3942")
-Account.create(user_id: 1, institution_id: 10, account_type: "Loan", identifier: "3942")
+Account.create(user_id: 1, institution_id: 10, account_type: "Loan", identifier: "3342")
 Account.create(user_id: 1, institution_id: 8, account_type: "Investment", identifier: "6662")
 Account.create(user_id: 1, institution_id: 5, account_type: "Investment", identifier: "6662")
 
@@ -52,15 +52,31 @@ incomeDescriptions = [
 i = 4
 while i < 6 do
   j = 0
-  while j < 20
+  while j < 30
     cat_num = rand(categories.length)
     category = categories[cat_num]
-    amount = -(rand(1000))
+    amount = -(rand(20000))
     description = Faker::Company.name
     date = Faker::Date.backward(180)
     notes = Faker::Lorem.word
 
     Transaction.create( account_id: i, category: category, amount: amount, description: description,
+      transaction_date: date, notes: notes)
+    j+=1
+  end
+  i+=1
+end
+
+i = 4
+while i < 6 do
+  j = 0
+  while j < 2
+    amount = (rand(10000))
+    description = "Credit Card Bill"
+    date = Faker::Date.backward(180)
+    notes = Faker::Lorem.word
+
+    Transaction.create( account_id: i, category: "Repay Debt", amount: amount, description: description,
       transaction_date: date, notes: notes)
     j+=1
   end
@@ -104,7 +120,9 @@ i = 6
   end
 
   i = 7
-    j = 0
+
+    while i < 9
+      j = 0
     while j < 2
       category = "Financial"
       amount = -(rand(5000))
@@ -116,8 +134,11 @@ i = 6
         transaction_date: date, notes: notes)
       j+=1
     end
+    i += 1
+    end
 
-    i = 8
+    i = 9
+      while i < 11
       j = 0
       while j < 4
         category = "Investments"
@@ -133,22 +154,24 @@ i = 6
         transaction_date: date, notes: notes)
         j+=1
       end
+      i+=1
+      end
 
   categories.each do |category|
     user_id = 1
-    amount = (rand(1500))
+    amount = (rand(20000))
     BudgetInstruction.create( user_id: user_id, category: category, amount: amount, months: 1)
   end
 
   user_id = 1
-  amount = (10000)
+  amount = (2000000)
   BudgetInstruction.create( user_id: user_id, category: "Income", amount: amount, months: 1)
 
   account_id = 4
   i = 0
   while i < 4
     date = Faker::Date.forward(30)
-    amount = rand(1000)
+    amount = rand(100000)
     Bill.create(account_id: account_id, amount: amount, bill_date: date)
     i+=1
   end
@@ -157,7 +180,7 @@ i = 6
   i = 0
   while i < 4
     date = Faker::Date.forward(30)
-    amount = rand(1000)
+    amount = rand(100000)
     Bill.create(account_id: account_id, amount: amount, bill_date: date)
     i+=1
   end
@@ -166,7 +189,16 @@ i = 6
   i = 0
   while i < 4
     date = Faker::Date.forward(30)
-    amount = rand(1000)
+    amount = rand(100000)
+    Bill.create(account_id: account_id, amount: amount, bill_date: date)
+    i+=1
+  end
+
+  account_id = 8
+  i = 0
+  while i < 4
+    date = Faker::Date.forward(30)
+    amount = rand(100000)
     Bill.create(account_id: account_id, amount: amount, bill_date: date)
     i+=1
   end

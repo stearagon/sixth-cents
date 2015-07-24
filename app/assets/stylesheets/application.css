@@ -1230,7 +1230,7 @@ body {
 /*------footer------*/
 .footer {
   padding: 20px;
-  background: rgb(247, 247, 247);
+  background: #eee;
   text-align: center;
   font-size: 15px;
   border-top: 1px solid #ccc;

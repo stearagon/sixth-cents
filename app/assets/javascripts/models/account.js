@@ -75,7 +75,7 @@ SixthCents.Models.Account = Backbone.Model.extend({
     }
 
     if (response.transactions && response.transactions.length !== 0) {
-      this.transactions().set(response.transactions, { merge: true })
+      this.transactions().set(response.transactions, { merge: true, parse: true })
       delete response.transaction;
     }
 

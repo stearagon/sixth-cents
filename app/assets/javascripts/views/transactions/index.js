@@ -47,7 +47,7 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
 
     this.newTitle = "All Accounts";
 
-    if(that.collection.length > 0){
+    // if(that.collection.length > 0){
       if($(event.currentTarget).data("value") === "cash-credit"){
 
         that.newTitle = "Cash & Credit";
@@ -68,7 +68,7 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
           return transaction._accountType.account_type === "Loan"
         })
       }
-    }
+    // }
 
     var content = this.template({ model: this.model, accounts: this.accounts })
     this.$el.html(content);
@@ -76,7 +76,7 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     collectionFilter.forEach(this.addTransaction.bind(this))
 
     $(".top-title").html(that.newTitle)
-    that.collection.fetch();
+    // that.collection.fetch();
   },
 
   refresh: function(){
