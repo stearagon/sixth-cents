@@ -2,4 +2,4 @@
   <div class="bill-date"><%= bill.dateFormat() %></div>
   <div class="bill-account"><%= instName %> <%= accountInfo %></div>
   <div class="bill-amount">$<%= parseInt(bill.escape("amount")).toLocaleString() %></div>
-  <button class="delete-bill" data-id="<%= bill.escape("id") %>">-</button>
+  <button class="delete-bill" data-id="<%= bill.escape("id") %>"> </button>

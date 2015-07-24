@@ -83,7 +83,7 @@ body {
   padding-top: 10px;
   position: absolute;
   top: 40px;
-  right: 5px;
+  right: 20px;
 }
 
 .header-top-container {
@@ -730,8 +730,10 @@ body {
 
 .bill-list .delete-bill {
   background: red;
-  height: 1px;
-  width: 2px;
+  height: 4px;
+  width: 10px;
+  padding: 0px 2px;
+  border: .25px solid #ccc;
   vertical-align: middle;
 }
 
