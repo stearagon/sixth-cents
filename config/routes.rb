@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :institutions, only: [:show, :index, :create]
     resources :transactions, only: [:show, :index, :create]
     resources :budgets, only: [:show, :index, :create, :update]
-    resources :budget_instructions, only: [:show, :index, :create, :update]
+    resources :budget_instructions, only: [:show, :index, :create, :update, :destroy]
     resources :bills, only: [:index, :show, :create, :destroy]
   end
 end

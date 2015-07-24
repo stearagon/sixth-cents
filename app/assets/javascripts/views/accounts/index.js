@@ -13,8 +13,9 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     this.transactions = options.transactions;
     this.listenTo(this.collection, "sync destroy", this.render);
     this.listenTo(this.institutions, "sync add", this.render);
-    this.listenTo(this.budgets, "sync add", this.render);
-    this.listenTo(this.transactions, "sync", this.render);
+    this.listenTo(this.bills, "sync add destroy", this.render)
+    this.listenTo(this.budgets, "sync add destroy", this.render);
+    this.listenTo(this.transactions, "sync add destroy", this.render);
   },
 
   render: function(){
@@ -90,7 +91,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
         }
       }
     })
-    
+
     if (budget.get("category") === "Income"){
       spendTotal = parseInt(spendTotal);
 

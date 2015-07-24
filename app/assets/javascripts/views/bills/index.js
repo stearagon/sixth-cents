@@ -2,7 +2,7 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
   template: JST["bills/index"],
   initialize: function(options){
     this.accounts = options.accounts;
-    this.listenTo(this.collection, "add destroy", this.render)
+    this.listenTo(this.collection, "sync destroy add", this.render)
   },
   events: {
     "click .add-bill" : "newBill"
@@ -25,6 +25,7 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
   },
 
   addBill: function(bill) {
+
     var account = this.accounts.get(bill.get("account_id"));
     var instName = account.institution().escape("name");
     var accountInfo = account.get("account_type") + "-" + account.get("identifier")

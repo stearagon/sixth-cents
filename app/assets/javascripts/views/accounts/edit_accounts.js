@@ -18,6 +18,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
     return this;
   },
   newAccount: function() {
+    $(".edit-accounts-modal").addClass("shrink");
     $(".edit-accounts-window").addClass("display-none");
     $(".edit-accounts-window-list").addClass("display-none");
     $(".close-edit").addClass("display-none");
@@ -27,7 +28,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
 
   },
   close: function(){
-    
+
     event.preventDefault();
     $("body").css({ overflow: "scroll"});
     $(".modal-window").removeClass("edit-accounts");

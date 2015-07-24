@@ -30,7 +30,7 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
     var formData = new FormData();
 
     if (file !== undefined) {formData.append("user[image]", file);}
-    debugger
+    
     formData.append("user[name]", name);
     formData.append("user[email]", email);
     formData.append("user[password]", password);

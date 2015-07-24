@@ -2,7 +2,7 @@ class Api::TransactionsController < ApplicationController
   # before_action :require_log_in
 
   def index
-    @transactions = current_user.transactions #.find_by_account_id(params[:id])
+    @transactions = current_user.transactions.includes(:account) 
     render :index
   end
 

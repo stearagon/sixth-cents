@@ -2,6 +2,7 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   template: JST["budgets/index"],
   events: {
     "click .add-budget" : "createBudget"
+    // "click .budget-container-box" : "addDelete"
   },
   className: "budget-index group",
   initialize: function(options){
@@ -130,6 +131,5 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
           }
         })
       }
-
   }
 })

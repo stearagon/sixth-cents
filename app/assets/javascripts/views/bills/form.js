@@ -18,11 +18,10 @@ SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
     return this;
   },
   create: function(event){
-
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var that = this;
-
+    attrs.bill_date = new Date(Date.parse(attrs.bill_date) + 86400000)
 
     this.model.set(attrs);
 

@@ -4,7 +4,7 @@ SixthCents.Views.BudgetItem = Backbone.CompositeView.extend({
     this.total = options.total;
   },
   tagName: "div",
-  className: "group",
+  className: "budget-container-box group",
   render: function(){
     var colors;
     if (this.model.get("category") === "Income"){

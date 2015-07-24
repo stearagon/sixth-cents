@@ -37,6 +37,15 @@ class Api::BudgetInstructionsController < ApplicationController
     end
   end
 
+  def destroy
+    @budget_instructions= BudgetInstruction.find_by_id(params[:id])
+
+    @budget_instruction.destroy
+
+    render json: @budget_instruction
+
+  end
+
   private
 
   def budget_params
