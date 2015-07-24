@@ -29,7 +29,8 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
     var password = this.$("#input-user-password").val();
     var formData = new FormData();
 
-    formData.append("user[image]", file);
+    if (file !== undefined) {formData.append("user[image]", file);}
+    debugger
     formData.append("user[name]", name);
     formData.append("user[email]", email);
     formData.append("user[password]", password);
@@ -47,13 +48,11 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
       },
       error: function(data){
         alert("Form invalid.");
-        console.log(data);
       }
     });
   },
 
   fileInputChange: function(event){
-      console.log(event.currentTarget.files[0]);
 
       var that = this;
       var file = event.currentTarget.files[0];

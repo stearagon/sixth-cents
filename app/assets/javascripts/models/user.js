@@ -13,7 +13,7 @@ SixthCents.Models.User = Backbone.Model.extend({
   saveFormData: function(formData, options){
     var method = this.isNew() ? "POST" : "PUT";
     var model = this;
-    
+
     $.ajax({
       url: _.result(model, "url"),
       type: method,
@@ -83,10 +83,8 @@ SixthCents.Models.CurrentUser = SixthCents.Models.User.extend({
   fireSessionEvent: function(){
     if(this.isSignedIn()){
       this.trigger("signIn");
-      console.log("currentUser is signed in!", this);
     } else {
       this.trigger("signOut");
-      console.log("currentUser is signed out!", this);
     }
   }
 

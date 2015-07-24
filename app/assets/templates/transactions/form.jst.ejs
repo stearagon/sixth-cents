@@ -26,10 +26,10 @@
 
 <label>Type:</label><br>
 
-<input id="type1" name="type_trans" type="radio" value="1" checked="<%= this.model.escape("amount") >= 0  ? "checked" : "" %>">
+<input id="type1" name="type_trans" type="radio" value="1" <%= parseInt(this.model.escape("amount")) > 0  ? "checked" : "" %>>
 <label class="income-label" for="type1">Income/Repayment</label><br>
 
-<input id="type2" type="radio" name="type_trans" value="-1" checked="<%= this.model.escape("amount") >= 0  ? "checked" : "" %>">
+<input id="type2" type="radio" name="type_trans" value="-1" <%= parseInt(this.model.escape("amount")) < 0  ? "checked" : "" %>>
 <label class="income-label" for="type2">Expense</label><br>
 
 <label for="amount">Amount: </label><br>
