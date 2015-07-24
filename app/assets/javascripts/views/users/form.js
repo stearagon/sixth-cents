@@ -22,7 +22,7 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
 
   submit: function(event){
     event.preventDefault();
-    
+
     var file = this.$("#input-user-image")[0].files[0];
     var name = this.$("#input-user-name").val();
     var email = this.$("#input-user-email").val();
@@ -43,7 +43,7 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
       success: function(){
         SixthCents.currentUser.fetch();
         // that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("", { trigger: true });
+        Backbone.history.navigate("start", { trigger: true });
       },
       error: function(data){
         alert("Form invalid.");
