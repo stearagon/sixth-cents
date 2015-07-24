@@ -899,6 +899,22 @@ body {
   float: left;
 }
 
+.transactions-list-item.gray-back {
+  background: #eee;
+}
+
+.transactions-list-item.white-back {
+  background: #fff;
+}
+
+.transactions-list-item.gray-back:hover {
+  background: #aaa;
+}
+
+.transactions-list-item.white-back:hover {
+  background: #aaa;
+}
+
 .transactions-list-head {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;

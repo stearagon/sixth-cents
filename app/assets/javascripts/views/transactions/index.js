@@ -24,7 +24,8 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   },
 
   addTransaction: function(transaction){
-    var transactionItem = new SixthCents.Views.TransactionItem({ model: transaction });
+    var color = transaction.collection.indexOf(transaction) % 2 === 0 ? "gray-back" : "white-back";
+    var transactionItem = new SixthCents.Views.TransactionItem({ model: transaction, color: color });
     this.addSubview(".transactions-list", transactionItem);
   },
 
@@ -86,7 +87,6 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   },
 
   edit: function(event){
-
     $("body").css({ overflow: "hidden"});
     $(".modal-window-transaction").removeClass("display-none");
     var id = $(event.currentTarget).data("id")

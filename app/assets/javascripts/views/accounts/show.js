@@ -2,7 +2,8 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
   template: JST["accounts/show"],
   events: {
     "click .add-trans" : "createTransaction",
-    "click .filter" : "filter"
+    "click .filter" : "filter",
+    "dblclick .transactions-list-item" : "edit"
   },
   className: "group",
   initialize: function(options){
@@ -42,5 +43,14 @@ SixthCents.Views.AccountShow = Backbone.CompositeView.extend({
     Backbone.history.navigate("accounts", {trigger: true})
     var clickTag =  $(event.currentTarget).data("value");
     $("#" + clickTag).click();
-  }
+  },
+  edit: function(event){
+      $("body").css({ overflow: "hidden"});
+      $(".modal-window-transaction").removeClass("display-none");
+      var id = $(event.currentTarget).data("id")
+      var transaction = this.collection.get(id);
+      var formView = new SixthCents.Views.TransactionFormView({ model: transaction, collection: this.collection, accounts: this.accounts, id: "" })
+
+      this.addSubview(".modal-window-transaction", formView);
+    }
 })
