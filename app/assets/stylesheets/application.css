@@ -132,6 +132,13 @@ body {
   float: left;
   margin-top: -3px;
 }
+
+#avatar:hover {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-top: -3px;
+}
 /*----header-bottom-------*/
 
 .header-bottom-container {
