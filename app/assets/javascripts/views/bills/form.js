@@ -25,6 +25,8 @@ SixthCents.Views.BillFormView = Backbone.CompositeView.extend({
 
     this.model.set(attrs);
 
+    debugger
+
     this.model.save({}, { success: function() {
       that.collection.add(that.model)
       Backbone.history.navigate("#", { trigger: true })

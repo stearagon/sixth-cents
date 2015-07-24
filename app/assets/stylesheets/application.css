@@ -551,7 +551,6 @@ img.twitter-butt {
 }
 
 .edit-accounts-window {
-  overflow: scroll;
   width: 95%;
   margin: 0px 5px;
   padding: 0px 0px;
@@ -583,6 +582,10 @@ img.twitter-butt {
 
 .close-edit:hover {
   background: red;
+}
+
+.add-account.sub-account-window {
+  border: 0;
 }
 
 .sub-account-window {
