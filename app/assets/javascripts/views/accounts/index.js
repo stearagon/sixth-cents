@@ -13,8 +13,8 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync destroy", this.render);
     this.listenTo(this.institutions, "sync add", this.render);
     this.listenTo(this.bills, "sync add destroy", this.render)
-    this.listenTo(this.budgets, "sync add destroy", this.render);
-    this.listenTo(this.transactions, "sync add destroy", this.render);
+    this.listenTo(this.budgets, "sync", this.render);
+    this.listenTo(this.transactions, "sync", this.render);
   },
 
   render: function(){
@@ -24,7 +24,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
 
     this.addAccounts();
     this.addBillsView();
-    this.addBudgets()
+    this.addBudgets();
     return this;
   },
 
@@ -79,6 +79,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     var date2 = Date.parse(lastDay)
 
     var spendTotal = 0;
+
 
     this.transactions.each(function(transaction){
       var tdate = Date.parse(transaction.get("transaction_date"))

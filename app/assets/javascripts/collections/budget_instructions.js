@@ -2,7 +2,7 @@ SixthCents.Collections.BudgetInstructions = Backbone.Collection.extend({
   url: "/api/budget_instructions",
   model: SixthCents.Models.BudgetInstruction,
   comparator: function(budgetInstruction){
-    return budgetInstruction.get("category")
+    return budgetInstruction.get("amount")
   },
   getOrFetch: function(id){
     var budgetInstruction = this.get(id);
