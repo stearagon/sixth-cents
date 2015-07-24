@@ -2,7 +2,7 @@ SixthCents.Collections.Transactions = Backbone.Collection.extend({
   url: "/api/transactions",
   model: SixthCents.Models.Transaction,
   comparator: function(transaction){
-    return transaction.get("transaction_date")
+    return -Date.parse(transaction.get("transaction_date"))
   },
 
   sum: function(){

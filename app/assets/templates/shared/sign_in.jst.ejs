@@ -1,6 +1,6 @@
 <h2>Log in to Sixth Cents</h2>
 
-<form>
+<form class="sign-in-main-form">
 
   <div class="sign-in-field">
     <label>
@@ -20,12 +20,13 @@
 
   <br>
 
-    <button class="sign-in">Sign In</button>
+    <button class="sign-in-main">Sign In</button>
+    <button class="sign-in-guest">Guest Log In</button>
 
-    <form>
-      <input type="hidden" name="user[email]" value="steve@example.com">
-      <input type="hidden" name="user[password]" value="secretss">
-      <button class="sign-in-guest">Guest Log In</button>
-    </form>
 
+</form>
+
+<form class="sign-in-guest-form">
+  <input type="hidden" name="user[email]" value="steve@example.com">
+  <input type="hidden" name="user[password]" value="secretss">
 </form>

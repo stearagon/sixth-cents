@@ -6,7 +6,6 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     "click .account-summary-head" : "collapseAccounts"
   },
   initialize: function(options){
-
     this.institutions = options.institutions;
     this.bills = options.bills;
     this.budgets = options.budgets;
@@ -25,8 +24,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
 
     this.addAccounts();
     this.addBillsView();
-    this.addBudgets();
-
+    this.addBudgets()
     return this;
   },
 
@@ -66,7 +64,6 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     $($(event.currentTarget).children()[1]).toggleClass("display-none")
   },
   addBudgets: function(){
-
     this.budgets.each(this.addBudget.bind(this));
   },
 

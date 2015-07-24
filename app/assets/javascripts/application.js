@@ -16,6 +16,7 @@
 //= require highcharts
 //= require underscore
 //= require backbone
+//= require spin
 //= require sixth_cents
 //= require_tree ../templates
 //= require_tree ./models

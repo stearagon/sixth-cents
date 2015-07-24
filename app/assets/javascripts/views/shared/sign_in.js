@@ -6,7 +6,8 @@ SixthCents.Views.SignIn = Backbone.CompositeView.extend({
   },
 
   events: {
-    "submit form": "submit"
+    "click .sign-in-guest": "submitGuest",
+    "click .sign-in-main" : "submitMain"
   },
   className: "sign-in-form",
 
@@ -18,9 +19,16 @@ SixthCents.Views.SignIn = Backbone.CompositeView.extend({
     return this;
   },
 
-  submit: function(event){
+  signInCallback: function(event){
+    if(this.callback) {
+      this.callback();
+    } else {
+      Backbone.history.navigate("start", { trigger: true });
+    }
+  },
+  submitMain: function(event){
     event.preventDefault();
-    var $form = $(event.currentTarget);
+    var $form = $(".sign-in-main-form");
     var formData = $form.serializeJSON().user;
 
     SixthCents.currentUser.signIn({
@@ -32,12 +40,18 @@ SixthCents.Views.SignIn = Backbone.CompositeView.extend({
     });
   },
 
-  signInCallback: function(event){
-    if(this.callback) {
-      this.callback();
-    } else {
-      Backbone.history.navigate("start", { trigger: true });
-    }
+  submitGuest: function(event){
+    event.preventDefault();
+    var $form = $(".sign-in-guest-form");
+    var formData = $form.serializeJSON().user;
+
+    SixthCents.currentUser.signIn({
+      email: formData.email,
+      password: formData.password,
+      error: function(){
+        alert("Wrong username/password combination. Please try again.");
+      }
+    });
   }
 
 });

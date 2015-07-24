@@ -139,10 +139,16 @@ body {
   float: left;
   margin-top: -3px;
 }
+
+#sign-out-link:hover {
+  text-decoration: underline;
+  background: #fff;
+  color: #000;
+}
 /*----header-bottom-------*/
 
 .header-bottom-container {
-  background: rgb(247, 247, 247);
+  background: #eee;
   color: #000;
 }
 
@@ -150,6 +156,7 @@ body {
   padding: 10px 20px;
   width: 900px;
   margin: 0 auto;
+  background: #eee;
 }
 
 #header-bottom > a {
@@ -212,6 +219,25 @@ body {
   background: #000;
 }
 
+#sign-in-guest-container {
+  margin: 10px 0px;
+  font-size: 0px;
+}
+
+.sign-in-guest-splash {
+  border-radius: 5%;
+  padding: auto;
+  width: 145px;
+  height: 37px;
+  font-size: 14px;
+  background: rgb(0, 201, 109);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.sign-in-guest-splash:hover {
+  background: #000;
+}
 
 .splash-title .twitter-container:hover {
   opacity: .5;
