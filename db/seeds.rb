@@ -1,20 +1,25 @@
-User.create(name: "Steve Aragon", email: "steve@example.com", password: "secretss")
+User.create(name: "Aubrey Drake Graham", email: "OctobersVeryOwn@gmail.com", password: "headlines")
 Institution.create(name: "Bank Of America", api_id: 1)
 Institution.create(name: "Citibank", api_id: 2)
 Institution.create(name: "Schwab Bank", api_id: 3)
-Institution.create(name: "Chase Bank", api_id: 3)
-Institution.create(name: "Long Island Credit Union", api_id: 3)
-Institution.create(name: "ING", api_id: 3)
-Institution.create(name: "Apple Bank", api_id: 3)
-Institution.create(name: "Stonybrook Vaults", api_id: 3)
-Account.create(user_id: 1, institution_id: 1, account_type: "Checking", identifier: "4538")
-Account.create(user_id: 1, institution_id: 2, account_type: "Checking", identifier: "4864")
-Account.create(user_id: 1, institution_id: 3, account_type: "Checking", identifier: "3468")
-Account.create(user_id: 1, institution_id: 4, account_type: "Credit Card", identifier: "1302")
-Account.create(user_id: 1, institution_id: 6, account_type: "Credit Card", identifier: "4526")
+Institution.create(name: "Cash Money Bank", api_id: 3)
+Institution.create(name: "Toronto-Dominion Bank", api_id: 3)
+Institution.create(name: "YMCMBank", api_id: 3)
+Institution.create(name: "Degrassi Credit Union", api_id: 3)
+Institution.create(name: "YOLO Mutual", api_id: 3)
+Institution.create(name: "Toronto Savings", api_id: 3)
+Institution.create(name: "Memphis Credit Union", api_id: 3)
+
+Account.create(user_id: 1, institution_id: 4, account_type: "Checking", identifier: "6969")
+Account.create(user_id: 1, institution_id: 5, account_type: "Checking", identifier: "1111")
+Account.create(user_id: 1, institution_id: 6, account_type: "Checking", identifier: "3468")
+Account.create(user_id: 1, institution_id: 1, account_type: "Credit Card", identifier: "1302")
+Account.create(user_id: 1, institution_id: 2, account_type: "Credit Card", identifier: "4526")
 Account.create(user_id: 1, institution_id: 7, account_type: "Savings", identifier: "9106")
-Account.create(user_id: 1, institution_id: 8, account_type: "Loan", identifier: "3942")
-Account.create(user_id: 1, institution_id: 3, account_type: "Investment", identifier: "6662")
+Account.create(user_id: 1, institution_id: 9, account_type: "Loan", identifier: "3942")
+Account.create(user_id: 1, institution_id: 10, account_type: "Loan", identifier: "3942")
+Account.create(user_id: 1, institution_id: 8, account_type: "Investment", identifier: "6662")
+Account.create(user_id: 1, institution_id: 5, account_type: "Investment", identifier: "6662")
 
 
 categories = ["Auto Transport",
@@ -36,6 +41,14 @@ categories = ["Auto Transport",
               "Travel"
             ]
 
+incomeDescriptions = [
+    ["Degrassi", "Degrassi Royalties"],
+    ["Cash Money Records Inc.", "Album Earnings"],
+    ["National Basketball Association", "Toronto Team Rep Payment"],
+    ["Nike Inc.", "Clothes Endorsement"],
+    ["Universal Music Group", "Record Contract Salary"]
+]
+
 i = 1
 while i < 6 do
   j = 0
@@ -53,6 +66,7 @@ while i < 6 do
   end
   i+=1
 end
+
 
 i = 1
 while i < 4 do
