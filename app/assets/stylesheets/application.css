@@ -206,9 +206,9 @@ img.twitter-butt {
 .splash-title {
   color: rgb(0, 201, 109);
   font-weight: bold;
-  font-size: 60px;
+  font-size: 4vw;
   text-transform: uppercase;
-  top: 175px;
+  top: 100px;
   left: 20px;
   position: absolute;
 }
@@ -224,8 +224,8 @@ img.twitter-butt {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   border-radius: 5%;
-  font-size: 15px;
-  padding: 10px 20px;
+  font-size: 1.8vw;
+  padding: 1vw 1.5vw;
   color: #fff;
   font-weight: normal;
 }
@@ -242,10 +242,8 @@ img.twitter-butt {
 
 .sign-in-guest-splash {
   border-radius: 5%;
-  padding: auto;
-  width: 145px;
-  height: 37px;
-  font-size: 14px;
+  padding: 1vw 1.1vw;
+  font-size: 1.8vw;
   background: rgb(0, 201, 109);
   color: #fff;
   text-transform: uppercase;
@@ -260,8 +258,8 @@ img.twitter-butt {
 }
 
 .splash-title .twitter-container {
-  width: 145px;
-  height: 60px;
+  width: 16vw;
+  height: 4vw;
   background: transparent;
   padding-top: 0px;
 }
@@ -1246,8 +1244,6 @@ img.twitter-butt {
 /*------footer------*/
 .footer {
   padding: 5px;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background: #eee;
   text-align: center;
