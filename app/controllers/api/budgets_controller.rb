@@ -30,7 +30,7 @@ class Api::BudgetsController < ApplicationController
   def update
     @budget = Budget.find(params[:id])
 
-    if @budget.save
+    if @budget.update(budget_params)
       render json: @budget
     else
       render json: @budget.errors.full_messages, status: :unprocessable_entity

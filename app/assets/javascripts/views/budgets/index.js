@@ -8,9 +8,9 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.budgetInstructions = options.budgetInstructions;
     this.transactions = options.transactions;
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync change", this.render);
     this.listenTo(this.transactions, "sync", this.render);
-    this.listenTo(this.budgetInstructions, "sync", this.render);
+    this.listenTo(this.budgetInstructions, "sync change", this.render);
   },
   render: function(){
     var content = this.template({ budgets: this.collection, spend: this.spend, income: this.income, budgetSpend: this.budgetSpend, budgetIncome: this.budgetIncome })

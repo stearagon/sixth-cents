@@ -10,8 +10,8 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.accounts = options.accounts;
     this.newTitle = "All Accounts"
-    this.listenTo(this.accounts, "sync", this.render);
-    this.listenTo(this.collection, "add", this.render);
+    this.listenTo(this.accounts, "sync change", this.render);
+    this.listenTo(this.collection, "add change", this.render);
   },
   render: function(newTitle){
 

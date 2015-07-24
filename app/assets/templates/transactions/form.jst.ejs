@@ -20,6 +20,8 @@
 <label for="category">Category: </label><br>
 <select name="category" id="category">
   <% categories.forEach(function(category){ %>
+    <% var selected = ""; %>
+    <% if (model.get("category") === category) { selected = "selected" } %>
     <option value="<%= category %>" <%= category === model.escape("category") ? "selected" : "" %>><%= category %></option>
   <% }) %>
 </select><br>

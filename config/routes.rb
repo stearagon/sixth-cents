@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :accounts, only: [:show, :index, :create, :destroy]
     resources :institutions, only: [:show, :index, :create]
-    resources :transactions, only: [:show, :index, :create]
+    resources :transactions, only: [:show, :index, :create, :update]
     resources :budgets, only: [:show, :index, :create, :update]
     resources :budget_instructions, only: [:show, :index, :create, :update, :destroy]
     resources :bills, only: [:index, :show, :create, :destroy]
