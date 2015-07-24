@@ -242,11 +242,12 @@ img.twitter-butt {
 
 .sign-in-guest-splash {
   border-radius: 5%;
-  padding: 1vw 1.1vw;
+  padding: 1vw 1.5vw;
   font-size: 1.8vw;
   background: rgb(0, 201, 109);
   color: #fff;
   text-transform: uppercase;
+  border: 0;
 }
 
 .sign-in-guest-splash:hover {
@@ -258,8 +259,7 @@ img.twitter-butt {
 }
 
 .splash-title .twitter-container {
-  width: 16vw;
-  height: 4vw;
+  width: 10vw;
   background: transparent;
   padding-top: 0px;
 }
