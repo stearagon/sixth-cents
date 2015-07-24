@@ -634,11 +634,10 @@ img.twitter-butt {
 .all-edit-accounts form{
   overflow: scroll;
   position: absolute;
-  width: 390px;
+  width: 360px;
   padding: 5px;
-  background: black;
   color: #000;
-  background: #eee;
+  background: #fff;
   border-bottom-color: rgb(255, 255, 255);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
