@@ -12,13 +12,13 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "start" : "index",
+    "" : "index",
     "accounts" : "transactionsIndex",
     "accounts/:id" : "show",
     "budgets" : "budgetsIndex",
     "users/new" : "new",
     "session/new" : "signIn",
-    "" : "splash",
+    "splash" : "splash",
     "trends" : "trends"
   },
 
@@ -111,10 +111,9 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   splash: function(callback){
-
     if (!this._requireSignedOut(callback)) { return; }
 
-    var splashView = new SixthCents.Views.Splash();
+    var splashView = new SixthCents.Views.Splash({ callback: callback });
 
     this._swapView(splashView);
   },
@@ -123,7 +122,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
 
     if (!SixthCents.currentUser.isSignedIn()) {
       callback = callback || this._goHome.bind(this);
-      this.signIn(callback);
+      this.splash(callback);
       return false;
     }
 
@@ -140,6 +139,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   _goHome: function(){
-    Backbone.history.navigate("start", { trigger: true });
+    Backbone.history.navigate("#", { trigger: true });
   }
 })

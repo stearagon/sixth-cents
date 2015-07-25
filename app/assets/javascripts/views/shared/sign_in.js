@@ -23,7 +23,7 @@ SixthCents.Views.SignIn = Backbone.CompositeView.extend({
     if(this.callback) {
       this.callback();
     } else {
-      Backbone.history.navigate("start", { trigger: true });
+      Backbone.history.navigate("", { trigger: true });
     }
   },
   submitMain: function(event){

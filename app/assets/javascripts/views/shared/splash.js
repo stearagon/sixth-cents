@@ -3,7 +3,12 @@ SixthCents.Views.Splash = Backbone.CompositeView.extend({
   tagName: "div",
   className: "splash-img",
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "click .sign-in-main" : "submitMain"
+  },
+  initialize: function(options){
+    this.callback = options.callback;
+    this.listenTo(SixthCents.currentUser, "signIn", this.signInCallback);
   },
   submit: function(event){
     event.preventDefault();
@@ -27,6 +32,14 @@ SixthCents.Views.Splash = Backbone.CompositeView.extend({
     this.$el.html(content)
 
     return this;
+  },
+
+  signInCallback: function(event){
+    if(this.callback) {
+      this.callback();
+    } else {
+      Backbone.history.navigate("#", { trigger: true });
+    }
   }
 
 })

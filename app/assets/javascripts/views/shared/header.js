@@ -22,7 +22,7 @@ SixthCents.Views.Header = Backbone.CompositeView.extend({
     event.preventDefault();
     SixthCents.currentUser.signOut({
       success: function(){
-        Backbone.history.navigate("session/new", { trigger: true });
+        Backbone.history.navigate("", { trigger: true });
       }
     });
   }

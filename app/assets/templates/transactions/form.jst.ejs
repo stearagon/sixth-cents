@@ -21,6 +21,8 @@
 <select name="category" id="category">
   <% categories.forEach(function(category){ %>
     <% var selected = ""; %>
+    <% console.log(category) %>
+    <% console.log(model.get("category")) %>
     <% if (model.get("category") === category) { selected = "selected" } %>
     <option value="<%= category %>" <%= category === model.escape("category") ? "selected" : "" %>><%= category %></option>
   <% }) %>
@@ -35,7 +37,7 @@
 <label class="income-label" for="type2">Expense</label><br>
 
 <label for="amount">Amount: </label><br>
-  <label>$</label> <input id="amount" type="number" name="amount" value="<%= model.escape("amount") %>"><br>
+  <label>$</label> <input id="amount" type="number" name="amount" value="<%= Math.abs(model.escape("amount")) %>"><br>
 
 <label for="notes">Notes: </label><br>
 <label><textarea id="notes" name="notes"><%= model.escape("notes") %></textarea><br></label>
