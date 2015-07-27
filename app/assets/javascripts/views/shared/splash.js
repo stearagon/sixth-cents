@@ -3,8 +3,7 @@ SixthCents.Views.Splash = Backbone.CompositeView.extend({
   tagName: "div",
   className: "splash-img",
   events: {
-    "submit form": "submit",
-    "click .sign-in-main" : "submitMain"
+    "submit form": "submit"
   },
   initialize: function(options){
     this.callback = options.callback;
@@ -19,7 +18,7 @@ SixthCents.Views.Splash = Backbone.CompositeView.extend({
       email: formData.email,
       password: formData.password,
       success: function() {
-        Backbone.history.navigate("start", { trigger: true });
+        Backbone.history.navigate("", { trigger: true });
       },
       error: function(){
         alert("Wrong username/password combination. Please try again.");
@@ -38,7 +37,7 @@ SixthCents.Views.Splash = Backbone.CompositeView.extend({
     if(this.callback) {
       this.callback();
     } else {
-      Backbone.history.navigate("#", { trigger: true });
+      Backbone.history.navigate("", { trigger: true });
     }
   }
 

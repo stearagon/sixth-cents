@@ -8,29 +8,46 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   },
   className: "group",
   initialize: function(options){
+    // this.transactions = options.transactions;
     this.accounts = options.accounts;
-    this.newTitle = "All Accounts"
-    this.listenTo(this.accounts, "sync change", this.render);
-    this.listenTo(this.collection, "add change", this.render);
+    this.id = options.id;
+    this.listenTo(this.accounts, "add", this.render);
+    // this.listenTo(this.transactions, "add change", this.render);
+    // this.listenTo(this.accounts, "sync", this.render);
+    // this.listenTo(this.transactions, "sync add", this.render);
+    this.listenTo(this.collection, "sync", this.render);
   },
-  render: function(newTitle){
+  render: function(accountsTitle){
 
     var content = this.template({ model: this.model, accounts: this.accounts })
     this.$el.html(content);
     this.addTransactions();
 
-    $(".top-title").html(this.newTitle)
+    $(".top-title").html(this.accountsTitle);
+    $(".bottom-account-title").html(this.accountsSubTitle);
     return this;
   },
 
   addTransaction: function(transaction){
+
     var color = transaction.collection.indexOf(transaction) % 2 === 0 ? "gray-back" : "white-back";
     var transactionItem = new SixthCents.Views.TransactionItem({ model: transaction, color: color });
+
     this.addSubview(".transactions-list", transactionItem);
   },
 
   addTransactions: function(){
-      this.collection.forEach(this.addTransaction.bind(this))
+
+    if (isNaN(this.id)){
+      this.accountsTitle = "All Accounts"
+      this.accountsSubTitle = "You have " + this.accounts.length + " account(s)"
+      this.collection.each(this.addTransaction.bind(this))
+    } else {
+      var account = this.accounts.getOrFetch(this.id)
+      this.accountsTitle = account.institution().escape("name")
+      this.accountsSubTitle = account.escape("account_type") + "(" + account.escape("identifier") + ")"
+      this.collection.where({ account_id: this.id }).forEach(this.addTransaction.bind(this))
+    }
   },
   createTransaction: function(){
     $("body").css({ overflow: "hidden"});
@@ -45,24 +62,24 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     var that = this;
     var collectionFilter;
 
-    this.newTitle = "All Accounts";
+    this.accountsTitle = "All Accounts";
 
     // if(that.collection.length > 0){
       if($(event.currentTarget).data("value") === "cash-credit"){
 
-        that.newTitle = "Cash & Credit";
+        that.accountsTitle = "Cash & Credit";
         collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Checking" || transaction._accountType.account_type === "Credit Card"
         })
 
       } else if($(event.currentTarget).data("value") === "investment"){
-        that.newTitle = "Investment";
+        that.accountsTitle = "Investment";
         collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Savings" || transaction._accountType.account_type === "Investment"
         })
 
       } else if($(event.currentTarget).data("value") === "loan"){
-        that.newTitle = "Loan";
+        that.accountsTitle = "Loan";
 
         collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Loan"
@@ -75,12 +92,12 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
 
     collectionFilter.forEach(this.addTransaction.bind(this))
 
-    $(".top-title").html(that.newTitle)
+    $(".top-title").html(that.accountsTitle)
     // that.collection.fetch();
   },
 
   refresh: function(){
-    this.newTitle = "All Accounts";
+    this.accountsTitle = "All Accounts";
     this.collection = new SixthCents.Collections.Transactions();
     this.listenTo(this.collection, "sync", this.render);
     this.collection.fetch();

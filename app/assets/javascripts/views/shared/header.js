@@ -20,9 +20,11 @@ SixthCents.Views.Header = Backbone.CompositeView.extend({
 
   signOut: function(event){
     event.preventDefault();
+    
     SixthCents.currentUser.signOut({
       success: function(){
-        Backbone.history.navigate("", { trigger: true });
+        
+        Backbone.history.navigate("splash", { trigger: true });
       }
     });
   }

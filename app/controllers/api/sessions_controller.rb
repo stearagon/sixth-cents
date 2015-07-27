@@ -1,6 +1,4 @@
 class Api::SessionsController < ApplicationController
-  # skip_before_action :require_log_in, only: [:new, :create]
-  # before_action :disable_sign_in_or_log_in, only: [:new, :create]
 
 
   def create
@@ -30,10 +28,9 @@ class Api::SessionsController < ApplicationController
   end
 
   def omniauth
-  # do something with the auth_hash
     user = User.find_or_create_by_auth_hash(auth_hash)
     login!(user)
-    redirect_to "/#start"
+    redirect_to "#"
   end
 
   protected

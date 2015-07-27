@@ -13,8 +13,8 @@ SixthCents.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "" : "index",
+    "accounts/:id" : "transactionsIndex",
     "accounts" : "transactionsIndex",
-    "accounts/:id" : "show",
     "budgets" : "budgetsIndex",
     "users/new" : "new",
     "session/new" : "signIn",
@@ -23,6 +23,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   index: function(){
+
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();
@@ -35,25 +36,33 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  show: function(id){
-    var callback = this.show.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-    this.accounts.fetch();
-    this.transactions.fetch();
-    var account = this.accounts.getOrFetch(id);
+  // show: function(id){
+  //   var callback = this.show.bind(this);
+  //   if (!this._requireSignedIn(callback)) { return; }
+  //   this.accounts.fetch();
+  //   this.transactions.fetch();
+  //   var account = this.accounts.getOrFetch(id);
+  //
+  //   var showView = new SixthCents.Views.AccountShow({ model: account, accounts: this.accounts, collection: account.transactions() });
+  //
+  //   this._swapView(showView);
+  // },
 
-    var showView = new SixthCents.Views.AccountShow({ model: account, accounts: this.accounts, collection: account.transactions() });
-
-    this._swapView(showView);
-  },
-
-  transactionsIndex: function(){
+  transactionsIndex: function(id){
     var callback = this.transactionsIndex.bind(this);
+    var accountsTitle = "All Accounts";
+    var account;
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();
+    // var filterTransactions = this.transactions;
     this.transactions.fetch();
+    // if (id !== "") {
+    //   account = this.accounts.getOrFetch(id);
+    //   filterTransactions = this.transactions.where({ account_id: id });
+    //   accountsTitle = account.institution().get("name")
+    // }
 
-    var transactionsIndexView = new SixthCents.Views.TransactionsIndex({ collection: this.transactions, accounts: this.accounts });
+    var transactionsIndexView = new SixthCents.Views.TransactionsIndex({ collection: this.transactions, accounts: this.accounts, id: parseInt(id) });
 
     this._swapView(transactionsIndexView);
 
@@ -86,6 +95,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   _swapView: function(view){
+
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
@@ -102,6 +112,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   signIn: function(callback){
+
     if (!this._requireSignedOut(callback)) { return; }
 
     var signInView = new SixthCents.Views.SignIn({
