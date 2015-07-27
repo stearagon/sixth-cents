@@ -21,8 +21,6 @@
 <select name="category" id="category">
   <% categories.forEach(function(category){ %>
     <% var selected = ""; %>
-    <% console.log(category) %>
-    <% console.log(model.get("category")) %>
     <% if (model.get("category") === category) { selected = "selected" } %>
     <option value="<%= category %>" <%= category === model.escape("category") ? "selected" : "" %>><%= category %></option>
   <% }) %>

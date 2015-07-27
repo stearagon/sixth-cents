@@ -36,7 +36,6 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     this.account_id = options.id;
   },
   render: function(){
-    
     var content = this.template({ model: this.model, categories: this.categoryNames, accounts: this.accounts, id: this.account_id });
 
     this.$el.html(content);
@@ -51,7 +50,7 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
 
     attrs.amount = parseInt(attrs.amount) * parseInt(attrs.type_trans)
     delete attrs.type_trans
-    
+
     this.model.set(attrs);
     this.model.save({}, { success: function() {
         this.collection.add(this.model, { merge: true, parse: true });

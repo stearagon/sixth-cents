@@ -3,25 +3,22 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   events: {
     "click .add-trans" : "createTransaction",
     "click .filter" : "filter",
-    "click .sidebar-account-title" : "refresh",
+    "click .transaction-sidebar-item" : "refresh",
     "click .transactions-list-item" : "edit"
   },
   className: "group",
   initialize: function(options){
-    // this.transactions = options.transactions;
     this.accounts = options.accounts;
     this.id = options.id;
-    this.listenTo(this.accounts, "add", this.render);
-    // this.listenTo(this.transactions, "add change", this.render);
-    // this.listenTo(this.accounts, "sync", this.render);
-    // this.listenTo(this.transactions, "sync add", this.render);
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.accounts, "sync", this.render);
+    this.listenTo(this.collection, "add", this.render);
   },
   render: function(accountsTitle){
 
-    var content = this.template({ model: this.model, accounts: this.accounts })
+    var content = this.template({ accounts: this.accounts })
     this.$el.html(content);
     this.addTransactions();
+
 
     $(".top-title").html(this.accountsTitle);
     $(".bottom-account-title").html(this.accountsSubTitle);
@@ -37,19 +34,21 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
   },
 
   addTransactions: function(){
+    $(".transactions-list-item").remove();
 
     if (isNaN(this.id)){
       this.accountsTitle = "All Accounts"
       this.accountsSubTitle = "You have " + this.accounts.length + " account(s)"
       this.collection.each(this.addTransaction.bind(this))
     } else {
-      var account = this.accounts.getOrFetch(this.id)
+      var account = this.accounts.get(this.id)
       this.accountsTitle = account.institution().escape("name")
       this.accountsSubTitle = account.escape("account_type") + "(" + account.escape("identifier") + ")"
       this.collection.where({ account_id: this.id }).forEach(this.addTransaction.bind(this))
     }
   },
   createTransaction: function(){
+    event.preventDefault();
     $("body").css({ overflow: "hidden"});
     $(".modal-window-transaction").removeClass("display-none");
     var transaction = new SixthCents.Models.Transaction();
@@ -64,7 +63,6 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
 
     this.accountsTitle = "All Accounts";
 
-    // if(that.collection.length > 0){
       if($(event.currentTarget).data("value") === "cash-credit"){
 
         that.accountsTitle = "Cash & Credit";
@@ -85,7 +83,6 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
           return transaction._accountType.account_type === "Loan"
         })
       }
-    // }
 
     var content = this.template({ model: this.model, accounts: this.accounts })
     this.$el.html(content);
@@ -93,17 +90,28 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     collectionFilter.forEach(this.addTransaction.bind(this))
 
     $(".top-title").html(that.accountsTitle)
-    // that.collection.fetch();
   },
 
-  refresh: function(){
-    this.accountsTitle = "All Accounts";
-    this.collection = new SixthCents.Collections.Transactions();
-    this.listenTo(this.collection, "sync", this.render);
-    this.collection.fetch();
+  refresh: function(event){
+
+    event.preventDefault();
+    var id = $(event.currentTarget).data("id");
+    if (id === undefined) {
+      Backbone.history.navigate("accounts", { trigger: true });
+      return;
+    }
+    Backbone.history.navigate("accounts", { trigger: true })
+    Backbone.history.navigate("accounts/" + id, { trigger: true })
+    // Backbone.history.navigate("accounts/:id", { trigger: true })
+    // this.accountsTitle = "All Accounts";
+    // this.collection = new SixthCents.Collections.Transactions();
+    // this.listenTo(this.collection, "sync", this.render);
+    // this.collection.fetch();
   },
 
   edit: function(event){
+
+    event.preventDefault();
     $("body").css({ overflow: "hidden"});
     $(".modal-window-transaction").removeClass("display-none");
     var id = $(event.currentTarget).data("id")

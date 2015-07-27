@@ -49,6 +49,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   // },
 
   transactionsIndex: function(id){
+    
     var callback = this.transactionsIndex.bind(this);
     var accountsTitle = "All Accounts";
     var account;

@@ -12,7 +12,7 @@
     <ul>
       <div class="transaction-sidebar-item"><a href="#accounts" class="sidebar-account-title">All Accounts</a></div>
       <% accounts.forEach(function(account){ %>
-        <div class="transaction-sidebar-item"><a href="#accounts/<%= account.get("id") %>" class="group">
+        <div class="transaction-sidebar-item" data-id="<%= account.escape("id") %>"><a href="#accounts/<%= account.get("id") %>" class="group">
           <div class="sidebar-account-title"><%= account.institution().escape("name") %></div>
           <div class="sidebar-account-description"><%= account.institution().escape("name") %> <%= account.escape("account_type") %>(<%= account.escape("identifier") %>)</div>
           </a>
