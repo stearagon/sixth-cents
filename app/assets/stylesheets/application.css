@@ -1180,6 +1180,8 @@ img.twitter-butt {
   float: left;
   padding-left: 30px;
   padding-top: 20px;
+  height: 300px;
+  overflow: scroll;
 }
 
 .main-window-budgets .spends-main,
