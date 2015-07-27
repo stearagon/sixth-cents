@@ -8,17 +8,19 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.budgetInstructions = options.budgetInstructions;
     this.transactions = options.transactions;
-    this.listenTo(this.collection, "sync change", this.render);
+    // this.listenTo(this.collection, "sync change", this.render);
     this.listenTo(this.transactions, "sync", this.render);
     this.listenTo(this.budgetInstructions, "sync change", this.render);
-    $(".spends-main").on("scroll", this.fetchMoreBudgets.bind(this));
+    // $(document).on("scroll", ".spends-main", this.fetchMoreBudgets.bind(this));
   },
-  fetchMoreBudgets: function (event) {
-    debugger
-    if ($(window).scrollTop() === $(document).height() - $(window).height()) {
-      this.budgetInstructions.fetch();
-    }
-  },
+  // fetchMoreBudgets: function (event) {
+  //   debugger
+  //   // if ($(".spends-main").scrollTop() === $(document).height() - $(window).height()) {
+  //   //   debugger
+  //     this.budgetInstructions.fetch();
+  //   // }
+  //   debugger
+  // },
   render: function(){
     var content = this.template({ budgets: this.collection, spend: this.spend, income: this.income, budgetSpend: this.budgetSpend, budgetIncome: this.budgetIncome })
     this.$el.html(content);
