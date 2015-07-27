@@ -11,9 +11,10 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync change", this.render);
     this.listenTo(this.transactions, "sync", this.render);
     this.listenTo(this.budgetInstructions, "sync change", this.render);
-    $(window).on("scroll", this.fetchMoreBudgets.bind(this));
+    $(".spends-main").on("scroll", this.fetchMoreBudgets.bind(this));
   },
   fetchMoreBudgets: function (event) {
+    debugger
     if ($(window).scrollTop() === $(document).height() - $(window).height()) {
       this.budgetInstructions.fetch();
     }

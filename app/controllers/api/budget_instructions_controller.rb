@@ -2,7 +2,7 @@ class Api::BudgetInstructionsController < ApplicationController
   # before_action :require_log_in
 
   def index
-    @budget_instructions = current_user.budget_instructions.order(:category).page(params[:page]).per(5)
+    @budget_instructions = current_user.budget_instructions.order(:category).page(params[:page]).per(3)
     render json: @budget_instructions
   end
 
