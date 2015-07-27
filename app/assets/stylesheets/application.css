@@ -242,12 +242,13 @@ img.twitter-butt {
 
 .sign-in-guest-splash {
   border-radius: 5%;
-  padding: 1vw 1.5vw;
+  padding: 1vw 1.59vw;
   font-size: 1.8vw;
   background: rgb(0, 201, 109);
   color: #fff;
   text-transform: uppercase;
   border: 0;
+  margin-top: 10px;
 }
 
 .sign-in-guest-splash:hover {
@@ -947,6 +948,11 @@ img.twitter-butt {
 .transactions-list-head {
   background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
   border-left: 1px solid #ccc;
+}
+
+.transaction-item-list {
+  height: 475px;
+  overflow: scroll;
 }
 
 .transactions-list-item:hover {

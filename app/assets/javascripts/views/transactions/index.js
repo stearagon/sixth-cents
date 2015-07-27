@@ -12,7 +12,15 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     this.id = options.id;
     this.listenTo(this.accounts, "sync", this.render);
     this.listenTo(this.collection, "add", this.render);
+    // $(window).on("scroll", this.fetchMorePosts.bind(this));
   },
+
+  // fetchMorePosts: function (event) {
+  //   if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+  //     this.collection.fetch();
+  //   }
+  // },
+
   render: function(accountsTitle){
 
     var content = this.template({ accounts: this.accounts })
@@ -24,13 +32,17 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     $(".bottom-account-title").html(this.accountsSubTitle);
     return this;
   },
-
   addTransaction: function(transaction){
 
-    var color = transaction.collection.indexOf(transaction) % 2 === 0 ? "gray-back" : "white-back";
+    var color;
+    if ($($(".transactions-list-item")[$(".transactions-list-item").length-1]).hasClass("gray-back")){
+      color = "white-back"
+    } else {
+      color = "gray-back"
+    }
+    // $(".transactions-list-item").last ? "gray-back" : "white-back";
     var transactionItem = new SixthCents.Views.TransactionItem({ model: transaction, color: color });
-
-    this.addSubview(".transactions-list", transactionItem);
+    this.addSubview(".transaction-item-list", transactionItem);
   },
 
   addTransactions: function(){

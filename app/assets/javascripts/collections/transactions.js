@@ -1,6 +1,25 @@
 SixthCents.Collections.Transactions = Backbone.Collection.extend({
   url: "/api/transactions",
   model: SixthCents.Models.Transaction,
+  initialize: function(){
+    // this.page = 1;
+    // this.fetchOver = false;
+  },
+
+  // fetch: function(){
+  //   if (this.fetchOver) { return };
+  //
+  //   var that = this;
+  //
+  //   Backbone.Collection.prototype.fetch.call(that, {
+  //     remove: false,
+  //     data: { page: that.page },
+  //     success: function (collection, response, options){
+  //       if (response.length === 0) { that.fecthOver = true }
+  //       that.page++;
+  //     }
+  //   })
+  // },
   comparator: function(transaction){
     return -Date.parse(transaction.get("transaction_date"))
   },
