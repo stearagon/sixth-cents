@@ -66,19 +66,30 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
       if($(event.currentTarget).data("value") === "cash-credit"){
 
         that.accountsTitle = "Cash & Credit";
+        var sumAccounts = 0;
+        sumAccounts += this.accounts.where( { account_type: "Checking"}).length;
+        sumAccounts += this.accounts.where( { account_type: "Credit Card"}).length;
+        that.accountsSubTitle = "You have " + sumAccounts + " account(s)"
         collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Checking" || transaction._accountType.account_type === "Credit Card"
         })
 
       } else if($(event.currentTarget).data("value") === "investment"){
         that.accountsTitle = "Investment";
+        var sumAccounts = 0;
+
+        sumAccounts += this.accounts.where( { account_type: "Savings"}).length;
+        sumAccounts += this.accounts.where( { account_type: "Investment"}).length;
+        that.accountsSubTitle = "You have " + sumAccounts + " account(s)"
         collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Savings" || transaction._accountType.account_type === "Investment"
         })
 
       } else if($(event.currentTarget).data("value") === "loan"){
         that.accountsTitle = "Loan";
-
+        var sumAccounts = 0;
+        sumAccounts += this.accounts.where( { account_type: "Loan"}).length;
+        that.accountsSubTitle = "You have " + sumAccounts + " account(s)"
         collectionFilter = _.filter(that.collection.models, function(transaction){
           return transaction._accountType.account_type === "Loan"
         })
@@ -90,6 +101,7 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     collectionFilter.forEach(this.addTransaction.bind(this))
 
     $(".top-title").html(that.accountsTitle)
+    $(".bottom-account-title").html(that.accountsSubTitle);
   },
 
   refresh: function(event){

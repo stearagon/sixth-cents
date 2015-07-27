@@ -536,7 +536,7 @@ img.twitter-butt {
   height: 400px;
   overflow: scroll;
   list-style: none;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   top: 100px;
   left: 35%;
 }
@@ -635,7 +635,7 @@ img.twitter-butt {
   overflow: scroll;
   position: absolute;
   width: 360px;
-  padding: 5px;
+  padding: 20px;
   color: #000;
   background: #fff;
   border-bottom-color: rgb(255, 255, 255);
@@ -647,6 +647,9 @@ img.twitter-butt {
   border: 2px solid #000;
 }
 
+.all-edit-accounts h1 {
+  font-size: 25px;
+}
 
 /*------Add Bills-------*/
 
@@ -654,12 +657,15 @@ img.twitter-butt {
   background: #fff;
   position: fixed;
   width: 250px;
-  height: 225px;
-  bottom: 40%;
+  height: 210px;
+  /*bottom: 40%;*/
+  /*top: 10vw;*/
   overflow: scroll;
   list-style: none;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   left: 45%;
+  padding: 20px;
+
 }
 
 .modal-window.add-bill h2{
@@ -670,7 +676,7 @@ img.twitter-butt {
 .modal-window.add-bill label,
 .modal-window.add-bill select,
 .modal-window.add-bill input {
-  margin-left: 10px;
+  /*margin-left: 10px;*/
   margin-bottom: 10px;
 }
 
@@ -683,7 +689,7 @@ img.twitter-butt {
 }
 
 .modal-window .cancel-form {
-  color: red;
+  color: rgb(69, 202, 230);
   font-size: 14px;
 }
 
@@ -691,7 +697,7 @@ img.twitter-butt {
   padding: 5px;
   background: rgb(69, 202, 230);
   color: #fff;
-  margin: 5px;
+  /*margin: 5px;*/
   font-size: 15px;
   color: #fff;
   font-weight: normal;
@@ -704,8 +710,7 @@ img.twitter-butt {
 }
 
 .modal-window .cancel-form:hover {
-  background: red;
-  color: #fff;
+  color: red;
   font-size: 14px;
   border-radius: 10%
 }
@@ -1041,9 +1046,10 @@ img.twitter-butt {
   top: 10%;
   overflow: scroll;
   list-style: none;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   left: 45%;
   width: 350px;
+  padding: 20px;
 }
 
 .modal-window-transaction h1{
@@ -1068,7 +1074,7 @@ img.twitter-butt {
 
 
 .modal-window-transaction .cancel-form {
-  color: red;
+  color: rgb(69, 202, 230);
   font-size: 14px;
 }
 
@@ -1089,8 +1095,7 @@ img.twitter-butt {
 }
 
 .modal-window-transaction .cancel-form:hover {
-  background: red;
-  color: #fff;
+  color: red;
   font-size: 14px;
   border-radius: 10%
 }
@@ -1196,6 +1201,7 @@ img.twitter-butt {
   border: 1px solid #ccc;
   left: 45%;
   width: 350px;
+  padding: 20px;
 }
 
 .modal-window-budgets h2{
@@ -1215,7 +1221,7 @@ img.twitter-butt {
 }
 
 .modal-window-budgets .cancel-form {
-  color: red;
+  color: rgb(69, 202, 230);
   font-size: 14px;
 }
 
@@ -1236,8 +1242,7 @@ img.twitter-butt {
 }
 
 .modal-window-budgets .cancel-form:hover {
-  background: red;
-  color: #fff;
+  color: red;
   font-size: 14px;
   border-radius: 10%
 }

@@ -19,10 +19,11 @@
 
 <label for="category">Category: </label><br>
 <select name="category" id="category">
+  <% var i = 0 %>
   <% categories.forEach(function(category){ %>
     <% var selected = ""; %>
-    <% if (model.get("category") === category) { selected = "selected" } %>
-    <option value="<%= category %>" <%= category === model.escape("category") ? "selected" : "" %>><%= category %></option>
+    <option value="<%= category %>" <%= i === catNum ? "selected" : "" %>><%= category %></option>
+    <% i++ %>
   <% }) %>
 </select><br>
 

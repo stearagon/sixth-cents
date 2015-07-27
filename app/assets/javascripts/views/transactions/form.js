@@ -36,7 +36,17 @@ SixthCents.Views.TransactionFormView = Backbone.CompositeView.extend({
     this.account_id = options.id;
   },
   render: function(){
-    var content = this.template({ model: this.model, categories: this.categoryNames, accounts: this.accounts, id: this.account_id });
+    var categoryNum;
+    var that = this;
+    this.categoryNames.forEach( function(category){
+      if (category === that.model.get("category")){
+        categoryNum = that.categoryNames.indexOf(category)
+      }
+    })
+
+
+
+    var content = this.template({ model: this.model, categories: this.categoryNames, accounts: this.accounts, id: this.account_id, catNum: categoryNum });
 
     this.$el.html(content);
     this.$el.addClass("transaction-form")
