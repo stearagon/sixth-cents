@@ -33,14 +33,12 @@ SixthCents.Views.TransactionsIndex = Backbone.CompositeView.extend({
     return this;
   },
   addTransaction: function(transaction){
-
     var color;
     if ($($(".transactions-list-item")[$(".transactions-list-item").length-1]).hasClass("gray-back")){
       color = "white-back"
     } else {
       color = "gray-back"
     }
-    // $(".transactions-list-item").last ? "gray-back" : "white-back";
     var transactionItem = new SixthCents.Views.TransactionItem({ model: transaction, color: color });
     this.addSubview(".transaction-item-list", transactionItem);
   },
