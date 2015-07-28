@@ -25,11 +25,11 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     this.addAccounts();
     this.addBillsView();
     this.addBudgets();
+
     return this;
   },
 
   addAccount: function(account){
-
     var accountItem = new SixthCents.Views.AccountItem({ model: account,
                                                         collection: this.collection  });
     var acctType = account.type();
@@ -50,7 +50,6 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     $(".modal-window").addClass("edit-accounts-modal");
     $("body").css({ overflow: "hidden"});
     this.addSubview(".modal-window", formView);
-
   },
   addBillsView: function(){
 

@@ -14,12 +14,12 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     // $(document).on("scroll", ".spends-main", this.fetchMoreBudgets.bind(this));
   },
   // fetchMoreBudgets: function (event) {
-  //   debugger
+  //   
   //   // if ($(".spends-main").scrollTop() === $(document).height() - $(window).height()) {
-  //   //   debugger
+  //   //   
   //     this.budgetInstructions.fetch();
   //   // }
-  //   debugger
+  //   
   // },
   render: function(){
     var content = this.template({ budgets: this.collection, spend: this.spend, income: this.income, budgetSpend: this.budgetSpend, budgetIncome: this.budgetIncome })
