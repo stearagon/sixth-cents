@@ -12,34 +12,43 @@
 
 ## Features
 
-###Accounts
+### Accounts
+Sixth Cents allows users to keep track of all their financial accounts. For an
+account, Users can record institution name (i.e. "Bank of America"), type of
+account (i.e. "Checking") and a special identifier which can be the alst four
+digits of the account number.
+
+### Transactions
+Users create transactions that are associated with specific accounts. These
+transactions record the date, description, category, amount and any notes for
+each transaction. After an account has been associated with transactions, users
+can track balances in their accounts as well as balances by asset (i.e. Cash or
+or Loans).
+
+### Budgets
+Users can create monthly budgets for specific categories. Once a budget is
+created, the user can keep track of how much of the budget they have used. This
+is represented as a bar chart that is colored three different colors. Green
+represents under 50% of budget used. Yellow represents between 50% and 75%. And
+red is 75% and over.
+
+### Bills
+Users can create a bill object that will be displayed on their landing page if
+the bill is due within the next 28 days. The bill object has three attributes:
+the account the bill is associated with, the date the bill is due and the amount
+that is due.
+
+### Twitter Omniauth
+Users can login using their Twitter account as well as create a new account using
+Twitter.
+
+### Avatar Image Upload
+When creating a new profile, a user can upload an avatar which is stored on Sixth
+Cents Amazon S3 server.
 
 ## Future Todos
+- [ ] Expanded Trend Charts Offering
 - [ ] Create transactions by uploading csv file of transactions
 - [ ] Pull transactions using bank api/third-party api
 - [ ] Add tags to transactions
 - [ ] Create goals
-
-
-## Minimum Viable Product
-Sixth Cents is a clone of Mint built on Rails and Backbone. Users can:
-
-- [X] Create accounts
-- [X] Create sessions (log in)
-- [X] Create financial accounts (bank, credit card, loan, investment, etc.)
-- [X] Create budgets
-- [X] View a feed of financial events (upcoming bills, transactions)
-- [ ] View trends on financial status
-- [ ] Search transactions
-- [ ] Email alerts (low balance, weekly snapshot of changes in financial condition)
-
-
-### Bonus Features (TBD)
-
-
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
