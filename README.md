@@ -1,8 +1,8 @@
-# Sixth Cents (Mint Clone)
+# Sixth Cents
 
-[Heroku link][heroku]
+[Live Link][sitelink]
 
-[heroku]: http://www.sixthcents.co/
+[sitelink]: http://www.sixthcents.co/
 
 ##User Instructions
 User can try guest account "Guest Login" Button at bottom of login page.
