@@ -272,10 +272,12 @@ $(function () {
             colorByPoint: true,
             data: [
               <% collection.forEach( function(cat){ %>
+              <% if (parseInt(cat[1]) !== 0) { %>
                 {
                   name: "<%= cat[0] %>",
                   y: <%= parseInt(cat[1]) %>
                 },
+                <% } %>
               <% }) %>]
         }]
     });
