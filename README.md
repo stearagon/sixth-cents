@@ -38,6 +38,10 @@ the bill is due within the next 28 days. The bill object has three attributes:
 the account the bill is associated with, the date the bill is due and the amount
 that is due.
 
+### Trends
+Users can view charts of how their finances have performed over time as well as
+where their money is going.
+
 ### Twitter Omniauth
 Users can login using their Twitter account as well as create a new account using
 Twitter.
