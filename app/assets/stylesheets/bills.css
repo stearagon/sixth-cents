@@ -1,0 +1,159 @@
+/*------Add Bills-------*/
+
+.modal-window.add-bill{
+  background: #fff;
+  position: fixed;
+  width: 250px;
+  height: 210px;
+  /*bottom: 40%;*/
+  /*top: 10vw;*/
+  overflow: scroll;
+  list-style: none;
+  border: 1px solid #000;
+  left: 45%;
+  padding: 20px;
+
+}
+
+.modal-window.add-bill h2{
+  text-align: center;
+  font-weight: bold;
+}
+
+.modal-window.add-bill label,
+.modal-window.add-bill select,
+.modal-window.add-bill input {
+  /*margin-left: 10px;*/
+  margin-bottom: 10px;
+}
+
+.modal-window.add-bill label {
+  font-size: 14px;
+}
+
+.modal-window.add-bill select {
+  margin-top: 10px;
+}
+
+.modal-window .cancel-form {
+  color: rgb(69, 202, 230);
+  font-size: 14px;
+}
+
+.modal-window .submit-bill {
+  padding: 5px;
+  background: rgb(69, 202, 230);
+  color: #fff;
+  /*margin: 5px;*/
+  font-size: 15px;
+  color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+  border-radius: 10%
+}
+
+.modal-window .submit-bill:hover {
+  background: #000;
+}
+
+.modal-window .cancel-form:hover {
+  color: red;
+  font-size: 14px;
+  border-radius: 10%
+}
+
+
+/*------main-window------*/
+
+.main-window {
+  float: left;
+  width: 560px;
+  padding: 10px;
+}
+
+
+/*----bill-list-----*/
+
+.bills {
+  margin: 10px 0px;
+}
+
+.bills .add-bill {
+  background: rgb(69, 202, 230);
+  color: #fff;
+  margin: 0px 0px 10px 10px;
+}
+
+.bills .add-bill:hover {
+  background: #000;
+}
+
+.bill-list-top div {
+  float: left;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-style: dotted;
+}
+
+.bill-list-top .bill-date {
+  border-right: 1px solid #000;
+  padding: 5px 5px 5px 0px;
+  width: 85px;
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+}
+
+.bill-list-top .bill-account {
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+  padding: 5px 5px;
+  width: 290px;;
+}
+
+.bill-list-top .bill-amount {
+  border-left: 1px solid #000;
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+  padding: 5px 5px;
+  width: 150px;
+}
+
+.bill-list-item div {
+  float: left;
+  padding-top: 5px;
+}
+
+.bill-list {
+  font-size: 14px;
+}
+
+.bill-list .bill-date {
+  border-right: 1px solid #000;
+  width: 90px;
+  border-style: dotted;
+}
+
+.bill-list .bill-account {
+  border-right: 1px solid #000;
+  width: 294px;
+  margin: 0;
+  border-style: dotted;
+  padding-left: 5px;
+  overflow: hidden;
+}
+
+.bill-list .bill-amount {
+  width: 90px;
+  border-style: dotted;
+  padding-left: 5px;
+}
+
+.bill-list .delete-bill {
+  background: red;
+  height: 4px;
+  width: 10px;
+  padding: 0px 2px;
+  border: .25px solid #ccc;
+  vertical-align: middle;
+}
+
+.bill-list .delete-bill:hover {
+  background: #DC143C;
+}

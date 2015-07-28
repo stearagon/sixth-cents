@@ -1,0 +1,123 @@
+/*------modal-window-edit accounts------*/
+
+.modal-window.edit-accounts-modal {
+  background: #fff;
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  overflow: scroll;
+  list-style: none;
+  border: 1px solid #000;
+  top: 100px;
+  left: 35%;
+}
+
+.modal-window.edit-accounts-modal.shrink {
+  overflow: scroll;
+  padding: 5px;
+  background: transparent;
+  top: 100px;
+  font-weight: normal;
+  border: none;
+}
+
+.edit-accounts-window {
+  width: 95%;
+  margin: 0px 5px;
+  padding: 0px 0px;
+}
+
+.edit-accounts-window .add-account{
+  overflow: scroll;
+  width: 100%;
+  padding: 5px;
+  background: rgb(69, 202, 230);
+  color: #fff;
+  background: rgb(69, 202, 230);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.all-edit-accounts footer {
+  padding: 5px 15px;
+}
+
+.close-edit {
+  float: right;
+  padding: 5px 7px;
+}
+
+.close-edit:hover {
+  background: red;
+}
+
+.add-account.sub-account-window {
+  border: 0;
+}
+
+.sub-account-window {
+  border: 1px solid #eee;
+  margin: 5px;
+  border-radius: 5%;
+  list-style: none;
+}
+
+.sub-account-window  h2 {
+  margin: 5px;
+  font-size: 24px;
+  display: block;
+  float: none;
+}
+
+.sub-account-window li {
+  margin: 10px;
+  display: block;
+}
+
+.sub-account-window .acct-type {
+  float: left;
+}
+
+.sub-account-window .acct-amount {
+  float: right;
+}
+
+.sub-account-window button {
+  background: #eee;
+  padding: 0px 5px;
+}
+
+.sub-account-window button:hover {
+  background: red;
+}
+
+.create-new:hover {
+  background: #000;
+  color: #fff;
+}
+
+/*------Modal-window add account-------*/
+
+.all-edit-accounts form{
+  overflow: scroll;
+  position: absolute;
+  width: 360px;
+  padding: 20px;
+  color: #000;
+  background: #fff;
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-size: 15px;
+  top: 30%;
+  font-weight: normal;
+  border: 2px solid #000;
+}
+
+.all-edit-accounts h1 {
+  font-size: 25px;
+}

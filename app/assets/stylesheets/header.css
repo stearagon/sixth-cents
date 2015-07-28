@@ -1,0 +1,114 @@
+/*----header-top-------*/
+
+#header-top {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  position: relative;
+  display: block;
+}
+
+#main-logo-img {
+  float: left;
+  height: 60px;
+  border: 1px solid #000;
+}
+
+#sign-in {
+  float: right;
+  font-size: 16px;
+  padding-top: 10px;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+.header-top-container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#sign-in a:hover {
+  background: #fff;
+  color: #000;
+  text-decoration: underline;
+}
+
+#main-logo-img:hover {
+  border-bottom: 1px solid #fff;
+}
+
+#header-top .logged-in-header {
+  font-size: 12px;
+  color: #ccc;
+  padding-top: 0px;
+  float: right;
+}
+
+.sign-in-label {
+  float: left;
+  margin-right: 5px;
+}
+
+#header-top .non-link {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#header-top .non-link:hover {
+  text-decoration: none;
+  background: #000;
+  color: #ccc;
+  cursor: text;
+}
+
+#avatar {
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin-top: -3px;
+}
+
+#sign-out-link:hover {
+  text-decoration: underline;
+  background: #fff;
+  color: #000;
+}
+/*----header-bottom-------*/
+
+.header-bottom-container {
+  background: #eee;
+  color: #000;
+}
+
+#header-bottom {
+  padding: 10px 20px;
+  width: 900px;
+  margin: 0 auto;
+  background: #eee;
+}
+
+#header-bottom > a {
+  float: left;
+  font-size: 36px;
+}
+
+#header-bottom ul {
+  float: right;
+  font-size: 16px;
+}
+
+#header-bottom li {
+  float: left;
+  font-size: 16px;
+  padding: 15px 20px 5px 20px;
+}
+
+#header-bottom li:hover {
+  color: #aaa;
+  border-bottom: 3px solid #aaa;
+}
+
+.main-logo img:hover {
+  border-bottom: 1px solid #fff;
+}

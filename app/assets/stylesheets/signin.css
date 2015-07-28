@@ -1,0 +1,53 @@
+/*----sign-in-------*/
+
+
+.sign-in-form {
+  width: 400px;
+  border: 1px solid #000;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.sign-in-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+
+.sign-in-field {
+  padding-left: 50px;
+}
+
+.sign-in-field label {
+  font-size: 18px;
+}
+
+.sign-in-field input {
+  border-radius: 5px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.sign-in-form button {
+  background: rgb(69, 202, 230);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-radius: 5%;
+  font-size: 15px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: normal;
+  margin-left: 50px;
+}
+
+.sign-in-form .sign-in-guest {
+  background: #0c0;
+}
+
+.sign-in-form button:hover {
+  background: #000;
+}

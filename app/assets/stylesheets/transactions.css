@@ -1,0 +1,253 @@
+/*------sidebar-transactions------*/
+
+#sidebar-transactions {
+  width: 200px;
+  margin: 10px 10px 10px 0px;
+  background: #fff;
+  box-shadow: 6px 2px 10px -3px rgba(0,0,0,0.75);
+  float: left;
+  overflow: hidden;
+}
+
+#sidebar-transactions ul {
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+#sidebar-transactions li {
+  font-size: 12px;
+}
+
+#sidebar-transactions li p {
+  float: right;
+}
+
+#sidebar-transactions li {
+  padding: 5px;
+}
+
+#sidebar-transactions li:hover {
+  background: linear-gradient(0deg, #ffffff 0%,#f3f3f3 0%,#ededed 0%,#ffffff 100%);
+}
+
+.sidebar-items {
+  font-size: 20px;
+}
+
+.sidebar-items h2 {
+  color: #A7A7A8;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #000;
+  margin: 5px 10px 5px 10px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.transaction-sidebar-item {
+  color: #000;
+  text-align: left;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.transaction-sidebar-item-account {
+  border-bottom: 1px solid #000;
+}
+
+
+
+.top-level-filters {
+  padding-left: 10px;
+}
+
+ .sidebar-account-title {
+
+}
+
+.sidebar-account-description {
+  color: #727570;
+}
+
+/*------main-transactions------*/
+.main-window.transactions {
+  width: 670px;
+}
+
+.main-window.transactions .top-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.main-window.transactions .add-trans {
+  padding: 7px 8px 6px 5px;
+  text-transform: uppercase;
+  margin: 5px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.main-window.transactions .add-trans:hover {
+  background: #ccc;
+  color: #fff;
+}
+
+.transactions-list-head {
+  background: linear-gradient(45deg, #ffffff 0%,#f3f3f3 0%,#ededed 51%,#ffffff 100%);
+  border-left: 1px solid #ccc;
+}
+
+.transaction-item-list {
+  height: 475px;
+  overflow: scroll;
+}
+
+.transactions-list-item:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.transactions-list-item > div {
+  float: left;
+}
+
+.transactions-list-item.gray-back {
+  background: #eee;
+}
+
+.transactions-list-item.white-back {
+  background: #fff;
+}
+
+.transactions-list-item.gray-back:hover {
+  background: #aaa;
+}
+
+.transactions-list-item.white-back:hover {
+  background: #aaa;
+}
+
+.transactions-list-head {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.transactions-list-head > div {
+  float: left;
+  border-right: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: bold
+}
+
+.trans-date-top {
+  padding: 2px 0px 2px 5px;
+  width: 90px;
+}
+
+.trans-desc-top {
+  padding: 2px 0px 2px 5px;
+  width: 272px;
+}
+
+.trans-cat-top {
+  padding: 2px 0px 2px 5px;
+  width: 177px;
+}
+
+.trans-amt-top {
+  padding: 2px 0px 2px 5px;
+  width: 105px;
+}
+
+.transactions-list-item {
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+.trans-date-item {
+  width: 90px;
+  border-right: 1px solid #ccc;
+  padding-left: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.trans-desc-item {
+  width: 272px;
+  border-right: 1px solid #ccc;
+  padding-left: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.trans-cat-item {
+  width: 177px;
+  border-right: 1px solid #ccc;
+  padding-left: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.trans-amt-item {
+  width: 105px;
+  padding-left: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+/*----modal-add-transaction-----*/
+
+.modal-window-transaction{
+  background: #fff;
+  position: fixed;
+  top: 10%;
+  overflow: scroll;
+  list-style: none;
+  border: 1px solid #000;
+  left: 45%;
+  width: 350px;
+  padding: 20px;
+}
+
+.modal-window-transaction h1{
+  text-align: center;
+  font-weight: bold;
+}
+
+.modal-window-transaction label,
+.modal-window-transaction select,
+.modal-window-transaction input {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-window-transaction .income-label {
+  font-size: 14px;
+}
+
+.modal-window-transaction textarea {
+  padding-left: 5px;
+}
+
+
+.modal-window-transaction .cancel-form {
+  color: rgb(69, 202, 230);
+  font-size: 14px;
+}
+
+.modal-window-transaction .create-transaction {
+  padding: 5px;
+  background: rgb(69, 202, 230);
+  color: #fff;
+  margin: 5px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+  border-radius: 10%
+}
+
+.modal-window-transaction .create-transaction:hover {
+  background: #000;
+}
+
+.modal-window-transaction .cancel-form:hover {
+  color: red;
+  font-size: 14px;
+  border-radius: 10%
+}

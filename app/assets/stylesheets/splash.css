@@ -1,0 +1,91 @@
+/*---splash-screen-------*/
+
+.splash-img img {
+  opacity: .2;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.twitter-butt {
+  padding-top: 0px;
+}
+
+img.twitter-butt {
+  height: 30px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.splash-title {
+  color: rgb(0, 201, 109);
+  font-weight: bold;
+  font-size: 4vw;
+  text-transform: uppercase;
+  top: 100px;
+  left: 20px;
+  position: absolute;
+}
+
+.splash-bottom {
+  color: #000;
+  top: 25%
+}
+
+.splash-title .sign-up {
+  background: rgb(253, 138, 16);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-radius: 5%;
+  font-size: 1.8vw;
+  padding: 1vw 1.5vw;
+  color: #fff;
+  font-weight: normal;
+}
+
+.splash-title .sign-up:hover {
+  background: #000;
+}
+
+#sign-in-guest-container {
+  margin: 10px 0px;
+  font-size: 0px;
+
+}
+
+.sign-in-guest-splash {
+  border-radius: 5%;
+  padding: 1vw 1.59vw;
+  font-size: 1.8vw;
+  background: rgb(0, 201, 109);
+  color: #fff;
+  text-transform: uppercase;
+  border: 0;
+  margin-top: 10px;
+}
+
+.sign-in-guest-splash:hover {
+  background: #000;
+}
+
+.splash-title .twitter-container:hover {
+  opacity: .5;
+}
+
+.splash-title .twitter-container {
+  width: 10vw;
+  background: transparent;
+  padding-top: 0px;
+}
+
+.splash-title .twitter {
+  background: transparent;
+}
+
+.splash-title .twitter-container img {
+  opacity: 1;
+  padding-top: 10px;
+}

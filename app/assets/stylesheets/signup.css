@@ -1,0 +1,58 @@
+/*----sign-up-------*/
+
+.sign-up-form {
+  width: 400px;
+  border: 1px solid #000;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.sign-up-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+
+.sign-up-field {
+  padding-left: 50px;
+}
+
+.sign-up-field label {
+  font-size: 18px;
+}
+
+.sign-up-field input {
+  border-radius: 5px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.sign-up-form .create-account {
+  background: rgb(69, 202, 230);
+  border-bottom-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-radius: 5%;
+  font-size: 15px;
+  padding: 3px 15px;
+  color: #fff;
+  font-weight: normal;
+  margin-left: 50px;
+  float: left;
+}
+
+.twitter-container-sign-up {
+  float: left;
+  padding-left: 10px;
+}
+
+.sign-up-form .create-account:hover {
+  background: #000;
+}
+
+.twitter-container-sign-up:hover {
+  opacity: .5;
+}
