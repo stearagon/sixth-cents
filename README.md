@@ -12,7 +12,7 @@
 
 ## Features
 
-#Accounts
+###Accounts
 
 ## Future Todos
 - [ ] Create transactions by uploading csv file of transactions
