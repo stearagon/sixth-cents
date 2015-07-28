@@ -75,6 +75,7 @@ body {
 #main-logo-img {
   float: left;
   height: 60px;
+  border: 1px solid #000;
 }
 
 #sign-in {
@@ -98,7 +99,7 @@ body {
 }
 
 #main-logo-img:hover {
-  border-bottom: 5px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 
 #header-top .logged-in-header {
@@ -131,7 +132,6 @@ body {
   float: left;
   margin-top: -3px;
 }
-
 
 #sign-out-link:hover {
   text-decoration: underline;
@@ -174,7 +174,7 @@ body {
 }
 
 .main-logo img:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 
 
