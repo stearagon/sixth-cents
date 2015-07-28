@@ -850,7 +850,10 @@ img.twitter-butt {
   width: 550px;
 }
 
-
+.main-log-div .budgets {
+  height: 100%;
+  overflow: scroll;
+}
 
 /*------sidebar-transactions------*/
 
