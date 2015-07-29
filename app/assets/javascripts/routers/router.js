@@ -36,18 +36,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  // show: function(id){
-  //   var callback = this.show.bind(this);
-  //   if (!this._requireSignedIn(callback)) { return; }
-  //   this.accounts.fetch();
-  //   this.transactions.fetch();
-  //   var account = this.accounts.getOrFetch(id);
-  //
-  //   var showView = new SixthCents.Views.AccountShow({ model: account, accounts: this.accounts, collection: account.transactions() });
-  //
-  //   this._swapView(showView);
-  // },
-
   transactionsIndex: function(id){
 
     var callback = this.transactionsIndex.bind(this);
@@ -55,18 +43,11 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     var account;
     if (!this._requireSignedIn(callback)) { return; }
     this.accounts.fetch();
-    // var filterTransactions = this.transactions;
     this.transactions.fetch();
-    // if (id !== "") {
-    //   account = this.accounts.getOrFetch(id);
-    //   filterTransactions = this.transactions.where({ account_id: id });
-    //   accountsTitle = account.institution().get("name")
-    // }
 
     var transactionsIndexView = new SixthCents.Views.TransactionsIndex({ collection: this.transactions, accounts: this.accounts, id: parseInt(id) });
 
     this._swapView(transactionsIndexView);
-
   },
 
   budgetsIndex: function(){
@@ -84,8 +65,8 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   trends: function(){
     var callback = this.trends.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-    this.transactions.fetch();
     this.accounts.fetch();
+    this.transactions.fetch();
     var trendsView = new SixthCents.Views.TrendsView({ collection: this.accounts, budgets: this.budgetInstructions, transactions: this.transactions });
 
     this._swapView(trendsView);
