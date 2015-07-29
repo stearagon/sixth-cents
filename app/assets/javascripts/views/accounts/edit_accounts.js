@@ -25,7 +25,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
     var account = new SixthCents.Models.Account();
     var formView = new SixthCents.Views.FormView({ model: account, collection: this.accounts })
     this.addSubview(".all-edit-accounts", formView);
-
+    $(".modal-window.edit-accounts-modal").css({ overflow: 'hidden' })
   },
   close: function(){
 
@@ -33,6 +33,7 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
     $("body").css({ overflow: "scroll"});
     $(".modal-window").removeClass("edit-accounts");
     $(".modal-window").addClass("display-none");
+    $(".modal-window.edit-accounts-modal").css({ overflow: 'scroll' })
     this.remove();
   },
 

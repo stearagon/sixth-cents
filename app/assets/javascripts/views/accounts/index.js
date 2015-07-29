@@ -50,6 +50,7 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     $(".modal-window").addClass("edit-accounts-modal");
     $("body").css({ overflow: "hidden"});
     this.addSubview(".modal-window", formView);
+    $(".modal-window.edit-accounts-modal").height("400px")
   },
   addBillsView: function(){
 

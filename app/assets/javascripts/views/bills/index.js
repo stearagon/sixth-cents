@@ -42,5 +42,6 @@ SixthCents.Views.BillsView = Backbone.CompositeView.extend({
     var billFormView = new SixthCents.Views.BillFormView({ model: bill, collection: this.collection, accounts: this.accounts });
     $(".modal-window").addClass("add-bill");
     $(".modal-window").html(billFormView.render().$el);
+    $(".modal-window.edit-accounts-modal").height("210px")
   }
 })

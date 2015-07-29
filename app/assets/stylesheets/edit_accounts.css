@@ -13,7 +13,8 @@
 }
 
 .modal-window.edit-accounts-modal.shrink {
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 5px;
   background: transparent;
   top: 100px;
@@ -33,10 +34,6 @@
   padding: 5px;
   background: rgb(69, 202, 230);
   color: #fff;
-  background: rgb(69, 202, 230);
-  border-bottom-color: rgb(255, 255, 255);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
   font-size: 15px;
   color: #fff;
   font-weight: normal;
@@ -103,9 +100,8 @@
 /*------Modal-window add account-------*/
 
 .all-edit-accounts form{
-  overflow: scroll;
   position: absolute;
-  width: 360px;
+  width: 340px;
   padding: 20px;
   color: #000;
   background: #fff;

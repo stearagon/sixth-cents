@@ -38,5 +38,6 @@
 
 .main-log-div .budgets {
   height: auto;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
