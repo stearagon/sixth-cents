@@ -23,10 +23,10 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   index: function(){
-    var spinner = new Spinner().spin()
-    $(".top-container").append(spinner.el)
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
+    var spinner = new Spinner().spin()
+    $(".top-container").append(spinner.el)
     this.accounts.fetch();
     this.bills.fetch();
     this.transactions.fetch();
