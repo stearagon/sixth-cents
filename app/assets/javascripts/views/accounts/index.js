@@ -18,7 +18,6 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
   },
 
   render: function(){
-
     var content = this.template({ accounts: this.collection });
     this.$el.html(content);
 

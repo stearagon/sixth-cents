@@ -48,6 +48,9 @@
               data: [{y: <%= parseInt(total) %>, color: "<%= (parseInt(total) > .75 * parseInt(budget.escape("amount"))) ?
               colors[0] : (parseInt(total) > parseInt(budget.escape("amount"))/2) ? colors[1] : colors[2] %>"}]
           }]
-      });
+      }, function(chart){
+        $(".spinner").remove();
+      }
+      );
     });
 </script>
