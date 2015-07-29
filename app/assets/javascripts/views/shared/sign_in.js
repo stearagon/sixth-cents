@@ -41,6 +41,7 @@ SixthCents.Views.SignIn = Backbone.CompositeView.extend({
   },
 
   submitGuest: function(event){
+    debugger
     event.preventDefault();
     var $form = $(".sign-in-guest-form");
     var formData = $form.serializeJSON().user;

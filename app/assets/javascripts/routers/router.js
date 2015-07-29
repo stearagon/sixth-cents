@@ -25,8 +25,17 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   index: function(){
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-    var spinner = new Spinner().spin()
-    $(".top-container").append(spinner.el)
+
+    this.institutions = new SixthCents.Collections.Institutions();
+    this.accounts = new SixthCents.Collections.Accounts();
+    this.transactions = new SixthCents.Collections.Transactions();
+    this.budgets = new SixthCents.Collections.Budgets();
+    this.budgetInstructions = new SixthCents.Collections.BudgetInstructions();
+    this.bills = new SixthCents.Collections.Bills();
+
+    var spinner = new Spinner().spin();
+    $(".top-container").append(spinner.el);
+
     this.accounts.fetch();
     this.bills.fetch();
     this.transactions.fetch();
@@ -129,6 +138,6 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   },
 
   _goHome: function(){
-    Backbone.history.navigate("#", { trigger: true });
+    Backbone.history.navigate("", { trigger: true });
   }
 })

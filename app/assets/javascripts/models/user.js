@@ -68,7 +68,6 @@ SixthCents.Models.CurrentUser = SixthCents.Models.User.extend({
 
   signOut: function(options){
     var model = this;
-
     $.ajax({
       url: this.url,
       type: "DELETE",

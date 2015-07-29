@@ -42,9 +42,14 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
     // this.model.set(userData);
     this.model.saveFormData(formData, {
       success: function(){
-        SixthCents.currentUser.fetch();
-        // that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("", { trigger: true });
+        SixthCents.currentUser.fetch({ success: function(){
+          Backbone.history.navigate("", { trigger: true })
+          Backbone.history.navigate("#splash", { trigger: true })
+        }
+      });
+        var budget = new SixthCents.Models.BudgetInstruction();
+        budget.save({ category: "Income", amount: 0, months: 1})
+
       },
       error: function(data){
         alert("Form invalid.");
