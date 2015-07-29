@@ -84,12 +84,9 @@ SixthCents.Routers.Router = Backbone.Router.extend({
   trends: function(){
     var callback = this.trends.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-    this.accounts.fetch();
-    this.bills.fetch();
     this.transactions.fetch();
-    this.institutions.fetch();
     this.budgetInstructions.fetch();
-    var trendsView = new SixthCents.Views.TrendsView({ collection: this.accounts, institutions: this.institutions, bills: this.bills, budgets: this.budgetInstructions, transactions: this.transactions });
+    var trendsView = new SixthCents.Views.TrendsView({ collection: this.accounts, budgets: this.budgetInstructions, transactions: this.transactions });
 
     this._swapView(trendsView);
 

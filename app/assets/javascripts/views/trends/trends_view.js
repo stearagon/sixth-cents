@@ -28,14 +28,10 @@ SixthCents.Views.TrendsView = Backbone.CompositeView.extend({
     "Travel"
   ],
   initialize: function(options){
-
-    this.institutions = options.institutions;
-    this.bills = options.bills;
     this.budgets = options.budgets;
     this.transactions = options.transactions;
-    this.listenTo(this.collection, "sync destroy", this.render);
-    this.listenTo(this.institutions, "sync", this.render);
-    this.listenTo(this.budgets, "sync", this.render);
+    // this.listenTo(this.collection, "sync", this.render);
+    // this.listenTo(this.budgets, "sync", this.render);
     this.listenTo(this.transactions, "sync", this.render);
   },
 
