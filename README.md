@@ -1,14 +1,30 @@
 # Sixth Cents
+Sixth Cents is a clone of Mint.com, which is a personal finance management
+website. With Sixth Cents, users can keep track of all of their financial accounts,
+as well as related transactions and bills. Users can also create budgets to manage
+their spending in different categories and keep track of their spending and debt over
+time with the Trends page.
 
 [Live Link][sitelink]
 
 [sitelink]: http://www.sixthcents.co/
 
-## Design Docs
-* [View Wireframes][views]
-* [DB schema][schema]
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
+## Languages
+- Ruby
+- JavaScript
+- HTML
+- CSS
+
+## Frameworks
+- Rails
+- Backbone
+
+## Plugins/Other
+- Highcharts.js
+- paperclip
+- AWS S3
+- OmniAuth
+- Spin.js
 
 ## Features
 
