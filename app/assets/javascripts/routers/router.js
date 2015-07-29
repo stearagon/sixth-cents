@@ -28,7 +28,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.institutions = new SixthCents.Collections.Institutions();
     this.accounts = new SixthCents.Collections.Accounts();
     this.transactions = new SixthCents.Collections.Transactions();
-    this.budgets = new SixthCents.Collections.BudgetInstructions();
+    this.budgetsInstructions = new SixthCents.Collections.BudgetInstructions();
     this.bills = new SixthCents.Collections.Bills();
 
     var spinner = new Spinner().spin();
