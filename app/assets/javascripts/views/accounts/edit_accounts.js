@@ -33,7 +33,6 @@ SixthCents.Views.EditAccountsView = Backbone.CompositeView.extend({
     $("body").css({ overflow: "scroll"});
     $(".modal-window").removeClass("edit-accounts");
     $(".modal-window").addClass("display-none");
-    $(".modal-window.edit-accounts-modal").css({ overflow: 'scroll' })
     this.remove();
   },
 
