@@ -98,12 +98,16 @@
 
 .transaction-item-list {
   height: 475px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .transactions-list-item:hover {
   background: #eee;
   cursor: pointer;
+}
+
+.transactions-list-item {
+  width: 668px;
 }
 
 .transactions-list-item > div {
