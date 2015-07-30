@@ -1,11 +1,11 @@
 SixthCents.Routers.Router = Backbone.Router.extend({
 
   initialize: function(options){
-    this.institutions = SixthCents.Collections.institutions;
-    this.accounts = SixthCents.Collections.accounts;
-    this.transactions = SixthCents.Collections.transactions;
-    this.budgetInstructions = SixthCents.Collections.budgetInstructions;
-    this.bills = SixthCents.Collections.bills;
+    this.institutions = options.institutions;
+    this.accounts = options.accounts;
+    this.transactions = options.transactions;
+    this.budgetInstructions = options.budgetInstructions;
+    this.bills = options.bills;
     this.$rootEl = options.$rootEl;
     this.$modalEl = options.$modalEl;
   },
@@ -25,11 +25,9 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     var callback = this.index.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    this.institutions = new SixthCents.Collections.Institutions();
-    this.accounts = new SixthCents.Collections.Accounts();
-    this.transactions = new SixthCents.Collections.Transactions();
+
     this.budgetInstructions = new SixthCents.Collections.BudgetInstructions();
-    this.bills = new SixthCents.Collections.Bills();
+
 
     var spinner = new Spinner().spin();
     $(".top-container").append(spinner.el);
@@ -39,7 +37,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     this.transactions.fetch();
     this.institutions.fetch();
     this.budgetInstructions.fetch();
-    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions, bills: this.bills, budgets: this.budgetInstructions, transactions: this.transactions });
+    var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions, bills: this.bills, budgetInstructions: this.budgetInstructions, transactions: this.transactions });
     this._swapView(indexView);
   },
 
