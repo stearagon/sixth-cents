@@ -26,7 +26,7 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
 
 
-    this.budgetInstructions = new SixthCents.Collections.BudgetInstructions();
+    // this.budgetInstructions = new SixthCents.Collections.BudgetInstructions();
 
 
     var spinner = new Spinner().spin();
