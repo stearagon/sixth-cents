@@ -57,7 +57,7 @@ while i < 6 do
     category = categories[cat_num]
     amount = -(rand(20000))
     description = Faker::Company.name
-    date = Faker::Date.backward(180)
+    date = Faker::Date.forward(30)
     notes = Faker::Lorem.word
 
     Transaction.create( account_id: i, category: category, amount: amount, description: description,
