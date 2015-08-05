@@ -23,6 +23,9 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
   submit: function(event){
     event.preventDefault();
 
+    var spinner = new Spinner().spin();
+    $(".top-container").append(spinner.el);
+
     var file = this.$("#input-user-image")[0].files[0];
     var name = this.$("#input-user-name").val();
     var email = this.$("#input-user-email").val();
@@ -35,21 +38,16 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
     formData.append("user[email]", email);
     formData.append("user[password]", password);
 
-    // var $form = $(event.currentTarget);
-    // var userData = $form.serializeJSON().user;
     var that = this;
 
-    // this.model.set(userData);
     this.model.saveFormData(formData, {
       success: function(){
         SixthCents.currentUser.fetch({ success: function(){
+          $(".spinner").remove();
           Backbone.history.navigate("", { trigger: true })
           Backbone.history.navigate("#splash", { trigger: true })
         }
       });
-        var budget = new SixthCents.Models.BudgetInstruction();
-        budget.save({ category: "Income", amount: 0, months: 1})
-
       },
       error: function(data){
         alert("Form invalid.");

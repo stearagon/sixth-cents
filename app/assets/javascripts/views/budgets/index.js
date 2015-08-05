@@ -2,25 +2,14 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
   template: JST["budgets/index"],
   events: {
     "click .add-budget" : "createBudget"
-    // "click .budget-container-box" : "addDelete"
   },
   className: "budget-index group",
   initialize: function(options){
     this.budgetInstructions = options.budgetInstructions;
     this.transactions = options.transactions;
-    // this.listenTo(this.collection, "sync change", this.render);
     this.listenTo(this.transactions, "sync", this.render);
     this.listenTo(this.budgetInstructions, "sync change", this.render);
-    // $(document).on("scroll", ".spends-main", this.fetchMoreBudgets.bind(this));
   },
-  // fetchMoreBudgets: function (event) {
-  //   
-  //   // if ($(".spends-main").scrollTop() === $(document).height() - $(window).height()) {
-  //   //   
-  //     this.budgetInstructions.fetch();
-  //   // }
-  //   
-  // },
   render: function(){
     var content = this.template({ budgets: this.collection, spend: this.spend, income: this.income, budgetSpend: this.budgetSpend, budgetIncome: this.budgetIncome })
     this.$el.html(content);
@@ -62,14 +51,6 @@ SixthCents.Views.BudgetsIndex = Backbone.CompositeView.extend({
     })
 
     spendTotal = parseInt(spendTotal) * -1;
-
-    // var spending = this.transactions.where({category: budget.get("category")});
-    // if (spending.length > 0){
-    //
-    //   spending.forEach(function(transaction){
-    //     spendTotal += -parseInt(transaction.get("amount"))
-    //   })
-    // }
 
     var budgetItem = new SixthCents.Views.BudgetItem({ model: budget, total: spendTotal });
     this.addSubview(".spends-main", budgetItem);

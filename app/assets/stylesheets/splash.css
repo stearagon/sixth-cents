@@ -3,8 +3,8 @@
 .splash-img img {
   opacity: .2;
   position: relative;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: auto;
 }
 
 .twitter-butt {
@@ -12,7 +12,8 @@
 }
 
 img.twitter-butt {
-  height: 30px;
+  height: 3vmin;
+  width: auto;
   display: block;
   margin: 0;
   padding: 0;
