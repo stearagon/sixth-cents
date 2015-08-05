@@ -146,14 +146,17 @@
 }
 
 .bill-list .delete-bill {
-  background: red;
-  height: 4px;
-  width: 10px;
-  padding: 0px 2px;
-  border: .25px solid #ccc;
+  /*background: red;*/
+  /*height: 4px;
+  width: 10px;*/
+  background: transparent;
+  padding: 0px 0px;
+  border: 0px solid #ccc;
+  font-size: 22px;
+  font-weight: bold;
   vertical-align: middle;
 }
 
 .bill-list .delete-bill:hover {
-  background: #DC143C;
+  color: #DC143C;
 }

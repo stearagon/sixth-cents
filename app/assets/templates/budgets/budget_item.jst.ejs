@@ -1,5 +1,6 @@
 <div class="budgettitle"><%= budget.escape("category") %>: $ <%=parseInt(total).toLocaleString()%> of $ <%=parseInt(budget.escape("amount")).toLocaleString()%>  </div>
 
+
 <div id="<%= budgetClass %>" class="budget-chart"></div>
     <script type="text/javascript">
         $(function () {

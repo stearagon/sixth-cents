@@ -45,12 +45,12 @@ SixthCents.Views.UsersForm = Backbone.CompositeView.extend({
         SixthCents.currentUser.fetch({ success: function(){
           $(".spinner").remove();
           Backbone.history.navigate("", { trigger: true })
-          Backbone.history.navigate("#splash", { trigger: true })
         }
       });
       },
       error: function(data){
         alert("Form invalid.");
+        $(".spinner").remove();
       }
     });
   },

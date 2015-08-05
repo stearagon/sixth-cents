@@ -11,12 +11,6 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     this.budgetInstructions = options.budgetInstructions;
     this.transactions = options.transactions;
 
-    this.collection.fetch();
-    this.bills.fetch();
-    this.transactions.fetch();
-    this.institutions.fetch();
-    this.budgetInstructions.fetch( { success: this.handleSpinner() });
-
     this.listenTo(this.collection, "sync destroy", this.render);
     this.listenTo(this.institutions, "sync add", this.render);
     this.listenTo(this.bills, "sync add destroy", this.render)
@@ -35,12 +29,6 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  handleSpinner: function(){
-    if (this.budgetInstructions.models.length ===0){
-      $(".spinner").remove()
-    }
-  },
-
   addAccount: function(account){
     var accountItem = new SixthCents.Views.AccountItem({ model: account,
                                                         collection: this.collection  });
@@ -52,6 +40,9 @@ SixthCents.Views.AccountsIndex = Backbone.CompositeView.extend({
 
   addAccounts: function() {
     this.collection.each(this.addAccount.bind(this));
+    window.setTimeout(function(){
+      $(".spinner").remove();
+    }, 3000)
   },
 
   editAccounts: function(event) {

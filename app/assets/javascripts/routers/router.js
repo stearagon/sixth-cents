@@ -26,20 +26,20 @@ SixthCents.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
     var that = this;
 
+    this.accounts.fetch();
+    this.bills.fetch();
+    this.transactions.fetch();
+    this.institutions.fetch();
+    this.budgetInstructions.fetch();
+
     var spinner = new Spinner().spin();
     $(".top-container").append(spinner.el);
 
-    // this.accounts.fetch();
-    // this.bills.fetch();
-    // this.transactions.fetch();
-    // this.institutions.fetch();
-    // this.budgetInstructions.fetch();
     var indexView = new SixthCents.Views.AccountsIndex({ collection: this.accounts, institutions: this.institutions, bills: this.bills, budgetInstructions: this.budgetInstructions, transactions: this.transactions });
     this._swapView(indexView);
   },
 
   transactionsIndex: function(id){
-
     var callback = this.transactionsIndex.bind(this);
     var accountsTitle = "All Accounts";
     var account;

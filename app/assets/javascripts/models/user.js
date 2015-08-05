@@ -50,7 +50,7 @@ SixthCents.Models.CurrentUser = SixthCents.Models.User.extend({
       "user[email]": options.email,
       "user[password]": options.password
     };
-
+    
     $.ajax({
       url: this.url,
       type: "POST",
