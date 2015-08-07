@@ -1,4 +1,7 @@
 /*---splash-screen-------*/
+.splash-img {
+  overflow: hidden;
+}
 
 .splash-img img {
   opacity: .2;
